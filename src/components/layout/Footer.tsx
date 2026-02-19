@@ -137,6 +137,10 @@ export function Footer() {
             <Link href="/mentions-legales" className="hover:text-white transition-colors">
               Politique de confidentialite
             </Link>
+            <span>|</span>
+            <Link href="/admin" className="hover:text-white transition-colors">
+              Admin
+            </Link>
           </div>
         </div>
       </div>
