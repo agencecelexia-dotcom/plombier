@@ -9,6 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { faqDepannage } from "@/config/faq";
+import { heroImages } from "@/config/images";
 
 export const metadata: Metadata = generatePageMetadata({
   title: `Plombier urgence ${siteConfig.address.city} | Intervention rapide 7j/7`,
@@ -38,6 +39,7 @@ export default function DepannagePage() {
         imagePlaceholder: {
           prompt: "Plombier en intervention urgence la nuit, lampe frontale allumee, coupant l'arrivee d'eau principale dans une cave, expression concentree, eclairage dramatique, photo realiste",
           aspectRatio: "16/9",
+          src: heroImages["depannage-plomberie"] || undefined,
         },
         badges: ["Urgence 24h/24", "Intervention <2h", "7j/7"],
       }}

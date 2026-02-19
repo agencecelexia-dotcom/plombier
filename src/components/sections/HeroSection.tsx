@@ -12,6 +12,7 @@ interface HeroSectionProps {
   imagePlaceholder: {
     prompt: string;
     aspectRatio?: string;
+    src?: string;
   };
   ctaPrimary?: { label: string; href: string };
   ctaSecondary?: { label: string; href: string };
@@ -34,6 +35,7 @@ export function HeroSection({
         <div className="absolute inset-0">
           <ImagePlaceholder
             prompt={imagePlaceholder.prompt}
+            src={imagePlaceholder.src}
             aspectRatio="16/9"
             alt={title}
             overlay
@@ -101,6 +103,7 @@ export function HeroSection({
         <div className="absolute inset-0">
           <ImagePlaceholder
             prompt={imagePlaceholder.prompt}
+            src={imagePlaceholder.src}
             aspectRatio="21/9"
             alt={title}
             overlay
@@ -163,6 +166,7 @@ export function HeroSection({
           <div>
             <ImagePlaceholder
               prompt={imagePlaceholder.prompt}
+              src={imagePlaceholder.src}
               aspectRatio={imagePlaceholder.aspectRatio || "16/9"}
               alt={title}
               className={cn("shadow-xl")}

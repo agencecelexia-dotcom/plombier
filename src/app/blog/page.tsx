@@ -7,6 +7,7 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionContainer } from "@/components/sections/SectionContainer";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
+import { heroImages } from "@/config/images";
 
 export const metadata: Metadata = generatePageMetadata({
   title: `Blog plomberie ${siteConfig.address.city} | Conseils et astuces`,
@@ -24,6 +25,7 @@ export default function BlogPage() {
         imagePlaceholder={{
           prompt: "Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste",
           aspectRatio: "21/9",
+          src: heroImages["blog"] || undefined,
         }}
       />
 

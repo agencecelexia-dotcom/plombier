@@ -3,6 +3,7 @@ import { Phone, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { siteConfig } from "@/config/site";
+import { sectionImages } from "@/config/images";
 
 interface CTASectionProps {
   title?: string;
@@ -20,6 +21,7 @@ export function CTASection({
       <div className="absolute inset-0">
         <ImagePlaceholder
           prompt="Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste"
+          src={sectionImages["cta-bandeau"] || undefined}
           aspectRatio="21/9"
           alt="Plombier au travail"
           overlay

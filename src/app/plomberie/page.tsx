@@ -8,6 +8,7 @@ import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { Card, CardContent } from "@/components/ui/card";
 import { siteConfig } from "@/config/site";
 import { faqPlomberie } from "@/config/faq";
+import { heroImages } from "@/config/images";
 
 export const metadata: Metadata = generatePageMetadata({
   title: `Plombier ${siteConfig.address.city} | Installation et reparation`,
@@ -40,6 +41,7 @@ export default function PlomberiePage() {
         imagePlaceholder: {
           prompt: "Plombier professionnel installant de la tuyauterie en cuivre dans une maison neuve, raccords visibles, travail soigne, lumiere naturelle, photo realiste",
           aspectRatio: "16/9",
+          src: heroImages["plomberie"] || undefined,
         },
       }}
       breadcrumbs={[

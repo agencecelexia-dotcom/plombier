@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
+import { realisationImages } from "@/config/images";
 import type { Realisation } from "@/types";
 
 interface RealisationCardProps {
@@ -19,6 +20,7 @@ export function RealisationCard({ realisation }: RealisationCardProps) {
           </div>
           <ImagePlaceholder
             prompt={realisation.beforePrompt}
+            src={realisationImages[`${realisation.id}-before`] || undefined}
             aspectRatio={realisation.aspectRatio}
             alt={`${realisation.title} — avant`}
             className="rounded-none h-full"
@@ -32,6 +34,7 @@ export function RealisationCard({ realisation }: RealisationCardProps) {
           </div>
           <ImagePlaceholder
             prompt={realisation.afterPrompt}
+            src={realisationImages[`${realisation.id}-after`] || undefined}
             aspectRatio={realisation.aspectRatio}
             alt={`${realisation.title} — apres`}
             className="rounded-none h-full"

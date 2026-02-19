@@ -9,6 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { siteConfig } from "@/config/site";
 import { faqChauffage } from "@/config/faq";
+import { heroImages } from "@/config/images";
 
 export const metadata: Metadata = generatePageMetadata({
   title: `Chauffagiste ${siteConfig.address.city} | Chaudiere, PAC, entretien`,
@@ -40,6 +41,7 @@ export default function ChauffagePage() {
         imagePlaceholder: {
           prompt: "Salon chaleureux maison francaise, radiateur design blanc sous fenetre, lumiere doree hivernale, sensation confort et chaleur, photo realiste",
           aspectRatio: "16/9",
+          src: heroImages["chauffage"] || undefined,
         },
         badges: ["Certifie RGE", "Entretien annuel", "Eligible aides"],
       }}

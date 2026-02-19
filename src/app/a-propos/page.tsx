@@ -9,6 +9,7 @@ import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { Card, CardContent } from "@/components/ui/card";
 import { CTASection } from "@/components/sections/CTASection";
 import { siteConfig } from "@/config/site";
+import { heroImages } from "@/config/images";
 
 export const metadata: Metadata = generatePageMetadata({
   title: `A propos — ${siteConfig.name}`,
@@ -39,6 +40,7 @@ export default function AProposPage() {
         imagePlaceholder={{
           prompt: "Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste",
           aspectRatio: "21/9",
+          src: heroImages["a-propos"] || undefined,
         }}
       />
 

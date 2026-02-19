@@ -8,6 +8,7 @@ import { ContactForm } from "@/components/sections/ContactForm";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { siteConfig } from "@/config/site";
+import { heroImages } from "@/config/images";
 
 export const metadata: Metadata = generatePageMetadata({
   title: `Contact plombier ${siteConfig.address.city} | Devis gratuit`,
@@ -25,6 +26,7 @@ export default function ContactPage() {
         imagePlaceholder={{
           prompt: "Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste",
           aspectRatio: "21/9",
+          src: heroImages["contact"] || undefined,
         }}
       />
 

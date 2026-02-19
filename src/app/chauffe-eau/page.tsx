@@ -8,6 +8,7 @@ import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { Card, CardContent } from "@/components/ui/card";
 import { siteConfig } from "@/config/site";
 import { faqChauffeEau } from "@/config/faq";
+import { heroImages } from "@/config/images";
 
 export const metadata: Metadata = generatePageMetadata({
   title: `Remplacement chauffe-eau ${siteConfig.address.city} | Ballon thermodynamique`,
@@ -40,6 +41,7 @@ export default function ChauffeEauPage() {
         imagePlaceholder: {
           prompt: "Technicien plombier installant un chauffe-eau thermodynamique neuf dans un garage propre, branchements electriques et hydrauliques visibles, photo realiste",
           aspectRatio: "16/9",
+          src: heroImages["chauffe-eau"] || undefined,
         },
       }}
       breadcrumbs={[

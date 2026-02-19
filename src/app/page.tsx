@@ -14,6 +14,7 @@ import { siteConfig } from "@/config/site";
 import { services } from "@/config/services";
 import { realisations } from "@/config/realisations";
 import { testimonials } from "@/config/testimonials";
+import { heroImages } from "@/config/images";
 
 export default function HomePage() {
   const featuredRealisations = realisations.slice(0, 4);
@@ -30,6 +31,7 @@ export default function HomePage() {
           prompt:
             "Plombier professionnel francais en uniforme bleu propre, agenouille sous un evier de cuisine moderne, reparant une canalisation avec une cle a molette, eclairage naturel chaleureux, interieur maison francaise contemporaine, photo realiste professionnelle",
           aspectRatio: "16/9",
+          src: heroImages["accueil"] || undefined,
         }}
         ctaPrimary={{
           label: `Appelez maintenant — ${siteConfig.phone}`,

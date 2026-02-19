@@ -8,7 +8,7 @@ interface ServicePageLayoutProps {
   hero: {
     title: string;
     subtitle?: string;
-    imagePlaceholder: { prompt: string; aspectRatio?: string };
+    imagePlaceholder: { prompt: string; aspectRatio?: string; src?: string };
     badges?: string[];
   };
   breadcrumbs: BreadcrumbItem[];

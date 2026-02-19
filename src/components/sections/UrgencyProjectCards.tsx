@@ -3,6 +3,7 @@ import { Phone, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { siteConfig } from "@/config/site";
+import { sectionImages } from "@/config/images";
 
 export function UrgencyProjectCards() {
   return (
@@ -18,6 +19,7 @@ export function UrgencyProjectCards() {
           <div className="relative rounded-2xl overflow-hidden group">
             <ImagePlaceholder
               prompt="Gros plan sur une fuite d'eau sous un lavabo, gouttes d'eau visibles, tuyau cuivre avec joint defaillant, ambiance urgente, photo realiste"
+              src={sectionImages["urgence-card"] || undefined}
               aspectRatio="4/3"
               alt="Urgence plomberie"
               overlay
@@ -51,6 +53,7 @@ export function UrgencyProjectCards() {
           <div className="relative rounded-2xl overflow-hidden group">
             <ImagePlaceholder
               prompt="Belle salle de bain moderne renovee, douche italienne carrelage gris, robinetterie noire mate, paroi vitree, ambiance zen, photo realiste"
+              src={sectionImages["projet-card"] || undefined}
               aspectRatio="4/3"
               alt="Projet renovation"
               overlay

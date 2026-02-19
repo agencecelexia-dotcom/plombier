@@ -8,6 +8,7 @@ import { RealisationCard } from "@/components/sections/RealisationCard";
 import { CTASection } from "@/components/sections/CTASection";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { realisations } from "@/config/realisations";
+import { heroImages } from "@/config/images";
 
 const categories = ["Tout", "Salle de bain", "Plomberie", "Chauffage", "Chauffe-eau"];
 
@@ -28,6 +29,7 @@ export default function RealisationsPage() {
         imagePlaceholder={{
           prompt: "Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste",
           aspectRatio: "21/9",
+          src: heroImages["realisations"] || undefined,
         }}
       />
 

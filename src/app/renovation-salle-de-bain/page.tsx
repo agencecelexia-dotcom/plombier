@@ -10,6 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { faqSalleDeBain } from "@/config/faq";
+import { heroImages } from "@/config/images";
 
 export const metadata: Metadata = generatePageMetadata({
   title: `Renovation salle de bain ${siteConfig.address.city} | Douche italienne`,
@@ -39,6 +40,7 @@ export default function SalleDeBainPage() {
         imagePlaceholder: {
           prompt: "Magnifique salle de bain renovee style contemporain, grande douche italienne paroi vitree, vasque pierre naturelle, robinetterie laiton brosse, carrelage terrazzo, plantes vertes, lumiere naturelle, photo realiste haut de gamme",
           aspectRatio: "16/9",
+          src: heroImages["renovation-sdb"] || undefined,
         },
       }}
       breadcrumbs={[

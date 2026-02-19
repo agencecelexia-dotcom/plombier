@@ -11,6 +11,7 @@ import { CTASection } from "@/components/sections/CTASection";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { testimonials } from "@/config/testimonials";
+import { heroImages } from "@/config/images";
 
 export const metadata: Metadata = generatePageMetadata({
   title: `Avis clients plombier ${siteConfig.address.city}`,
@@ -28,6 +29,7 @@ export default function AvisClientsPage() {
         imagePlaceholder={{
           prompt: "Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste",
           aspectRatio: "21/9",
+          src: heroImages["avis-clients"] || undefined,
         }}
       />
 
