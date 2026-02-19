@@ -10,7 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { faqSalleDeBain } from "@/config/faq";
-import { heroImages } from "@/config/images";
+import { heroImages, pageImages } from "@/config/images";
 
 export const metadata: Metadata = generatePageMetadata({
   title: `Renovation salle de bain ${siteConfig.address.city} | Douche italienne`,
@@ -19,9 +19,9 @@ export const metadata: Metadata = generatePageMetadata({
 });
 
 const projets = [
-  { icon: ShowerHead, title: "Douche italienne", desc: "Receveur extra-plat, carrelage grand format, paroi vitree, pommeau pluie. Design et accessibilite.", image: "Douche italienne ouverte, receveur extra-plat, carrelage grand format gris clair, pommeau pluie chrome, niche murale eclairee, photo realiste" },
-  { icon: Bath, title: "Renovation complete", desc: "Demolition, plomberie, carrelage, sanitaires, meuble vasque, eclairage. Un seul interlocuteur.", image: "Magnifique salle de bain renovee style contemporain, grande douche italienne paroi vitree, vasque pierre naturelle, robinetterie laiton brosse, carrelage terrazzo, photo realiste" },
-  { icon: Accessibility, title: "Adaptation PMR", desc: "Barre d'appui, siege douche, receveur plain-pied, antiderapant. Eligible MaPrimeAdapt'.", image: "Salle de bain PMR adaptee, barre d'appui chromee, siege douche rabattable, receveur plain-pied antiderapant, espace circulation large, photo realiste" },
+  { icon: ShowerHead, title: "Douche italienne", desc: "Receveur extra-plat, carrelage grand format, paroi vitree, pommeau pluie. Design et accessibilite.", image: "Douche italienne ouverte, receveur extra-plat, carrelage grand format gris clair, pommeau pluie chrome, niche murale eclairee, photo realiste, ratio 4:3", imageKey: "renovation-douche-italienne" },
+  { icon: Bath, title: "Renovation complete", desc: "Demolition, plomberie, carrelage, sanitaires, meuble vasque, eclairage. Un seul interlocuteur.", image: "Magnifique salle de bain renovee style contemporain, grande douche italienne paroi vitree, vasque pierre naturelle, robinetterie laiton brosse, carrelage terrazzo, photo realiste, ratio 4:3", imageKey: "renovation-complete" },
+  { icon: Accessibility, title: "Adaptation PMR", desc: "Barre d'appui, siege douche, receveur plain-pied, antiderapant. Eligible MaPrimeAdapt'.", image: "Salle de bain PMR adaptee, barre d'appui chromee, siege douche rabattable, receveur plain-pied antiderapant, espace circulation large, photo realiste, ratio 4:3", imageKey: "renovation-pmr" },
 ];
 
 const etapes = [
@@ -38,7 +38,7 @@ export default function SalleDeBainPage() {
         title: `Renovation salle de bain a ${siteConfig.address.city} — Du projet a la realisation`,
         subtitle: "Douche italienne, renovation complete, adaptation PMR. Un interlocuteur unique du debut a la fin.",
         imagePlaceholder: {
-          prompt: "Magnifique salle de bain renovee style contemporain, grande douche italienne paroi vitree, vasque pierre naturelle, robinetterie laiton brosse, carrelage terrazzo, plantes vertes, lumiere naturelle, photo realiste haut de gamme",
+          prompt: "Magnifique salle de bain renovee style contemporain, grande douche italienne paroi vitree, vasque pierre naturelle, robinetterie laiton brosse, carrelage terrazzo, plantes vertes, lumiere naturelle, photo realiste haut de gamme, ratio 16:9",
           aspectRatio: "16/9",
           src: heroImages["renovation-sdb"] || undefined,
         },
@@ -58,7 +58,7 @@ export default function SalleDeBainPage() {
         <div className="grid md:grid-cols-3 gap-8">
           {projets.map((p) => (
             <div key={p.title} className="space-y-4">
-              <ImagePlaceholder prompt={p.image} aspectRatio="4/3" alt={p.title} />
+              <ImagePlaceholder prompt={p.image} src={pageImages[p.imageKey] || undefined} aspectRatio="4/3" alt={p.title} />
               <div className="flex items-center gap-2">
                 <p.icon className="w-5 h-5 text-primary" />
                 <h3 className="text-lg font-bold text-primary">{p.title}</h3>

@@ -52,6 +52,16 @@ public/             # Fichiers statiques
 - Images optimisees (next/image, WebP/AVIF)
 - Fonts optimisees (next/font)
 
+## Images — IMPORTANT
+**NE PAS inserer d'images reelles.** A la place :
+1. Utiliser le composant `ImagePlaceholder` qui affiche un placeholder avec le prompt
+2. Pour chaque image, fournir un **prompt detaille** pour la generation d'image
+3. **Mentionner le ratio dans le prompt** (ex: "...photo realiste, ratio 16:9")
+4. Choisir le ratio parmi : `1:1` | `4:3` | `3:4` | `16:9` | `9:16` | `2:3` | `3:2` | `21:9`
+5. Lister toutes les images dans `PROMPTS-IMAGES.md` avec : nom du fichier, dossier, ratio, prompt
+6. Declarer chaque image dans `src/config/images.ts` (vide = placeholder, chemin = image reelle)
+7. Le client depose ses images dans `public/images/` (heroes/, sections/, pages/, realisations/) et renseigne le chemin dans `images.ts`
+
 ## SEO
 - Metadata dynamiques par page
 - Schema.org (LocalBusiness, Service, FAQPage)

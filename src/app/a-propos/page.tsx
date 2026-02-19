@@ -9,7 +9,7 @@ import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { Card, CardContent } from "@/components/ui/card";
 import { CTASection } from "@/components/sections/CTASection";
 import { siteConfig } from "@/config/site";
-import { heroImages } from "@/config/images";
+import { heroImages, pageImages } from "@/config/images";
 
 export const metadata: Metadata = generatePageMetadata({
   title: `A propos — ${siteConfig.name}`,
@@ -38,7 +38,7 @@ export default function AProposPage() {
         title={`${siteConfig.name} — Votre plombier de confiance depuis ${siteConfig.yearsExperience} ans`}
         subtitle="Professionnalisme, reactivite et transparence au service de votre confort."
         imagePlaceholder={{
-          prompt: "Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste",
+          prompt: "Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste, ratio 21:9",
           aspectRatio: "21/9",
           src: heroImages["a-propos"] || undefined,
         }}
@@ -71,7 +71,8 @@ export default function AProposPage() {
             </div>
           </div>
           <ImagePlaceholder
-            prompt="Portrait professionnel artisan plombier francais, polo bleu logo brode, bras croises, sourire confiant, atelier range arriere-plan flou, photo realiste"
+            prompt="Portrait professionnel artisan plombier francais, polo bleu logo brode, bras croises, sourire confiant, atelier range arriere-plan flou, photo realiste, ratio 2:3"
+            src={pageImages["a-propos-fondateur"] || undefined}
             aspectRatio="2/3"
             alt={`${siteConfig.founder}, fondateur de ${siteConfig.name}`}
             className="max-w-sm mx-auto"
@@ -86,7 +87,8 @@ export default function AProposPage() {
           subtitle="Des professionnels qualifies et passionnes a votre service."
         />
         <ImagePlaceholder
-          prompt="Equipe de 2-3 plombiers en uniforme bleu propre devant camionnette utilitaire blanche avec logo, souriant, parking exterieur, lumiere naturelle, photo realiste"
+          prompt="Equipe de 2-3 plombiers en uniforme bleu propre devant camionnette utilitaire blanche avec logo, souriant, parking exterieur, lumiere naturelle, photo realiste, ratio 3:2"
+          src={pageImages["a-propos-equipe"] || undefined}
           aspectRatio="3/2"
           alt={`L'equipe ${siteConfig.name}`}
           className="max-w-3xl mx-auto"

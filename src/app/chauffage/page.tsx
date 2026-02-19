@@ -9,7 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { siteConfig } from "@/config/site";
 import { faqChauffage } from "@/config/faq";
-import { heroImages } from "@/config/images";
+import { heroImages, pageImages } from "@/config/images";
 
 export const metadata: Metadata = generatePageMetadata({
   title: `Chauffagiste ${siteConfig.address.city} | Chaudiere, PAC, entretien`,
@@ -18,9 +18,9 @@ export const metadata: Metadata = generatePageMetadata({
 });
 
 const servicesChauffage = [
-  { icon: Flame, title: "Chaudiere gaz condensation", desc: "Installation et remplacement de chaudiere gaz derniere generation. Jusqu'a 30% d'economies sur votre facture.", image: "Chaudiere gaz condensation murale blanche moderne dans buanderie rangee, ecran digital vert, tuyauterie cuivre propre, photo realiste" },
-  { icon: Wind, title: "Pompe a chaleur air-eau", desc: "Solution ecologique et economique. Eligible aux aides MaPrimeRenov' et CEE. Nous sommes certifies RGE.", image: "Unite exterieure pompe a chaleur air-eau blanche installee sur terrasse maison individuelle francaise, jardin soigne, photo realiste" },
-  { icon: Heater, title: "Plancher chauffant", desc: "Confort optimal et diffusion homogene de la chaleur. Ideal en renovation ou construction neuve.", image: "Installation plancher chauffant en cours, tubes PER rouges en serpentin sur isolant argente, vue plongee, chantier propre, photo realiste" },
+  { icon: Flame, title: "Chaudiere gaz condensation", desc: "Installation et remplacement de chaudiere gaz derniere generation. Jusqu'a 30% d'economies sur votre facture.", image: "Chaudiere gaz condensation murale blanche moderne dans buanderie rangee, ecran digital vert, tuyauterie cuivre propre, photo realiste, ratio 3:2", imageKey: "chauffage-chaudiere-gaz" },
+  { icon: Wind, title: "Pompe a chaleur air-eau", desc: "Solution ecologique et economique. Eligible aux aides MaPrimeRenov' et CEE. Nous sommes certifies RGE.", image: "Unite exterieure pompe a chaleur air-eau blanche installee sur terrasse maison individuelle francaise, jardin soigne, photo realiste, ratio 3:2", imageKey: "chauffage-pac" },
+  { icon: Heater, title: "Plancher chauffant", desc: "Confort optimal et diffusion homogene de la chaleur. Ideal en renovation ou construction neuve.", image: "Installation plancher chauffant en cours, tubes PER rouges en serpentin sur isolant argente, vue plongee, chantier propre, photo realiste, ratio 3:2", imageKey: "chauffage-plancher-chauffant" },
 ];
 
 const entretienInclus = [
@@ -39,7 +39,7 @@ export default function ChauffagePage() {
         title: `Chauffagiste a ${siteConfig.address.city} — Installation, entretien et depannage`,
         subtitle: "Chaudiere gaz, pompe a chaleur, plancher chauffant. Certifie RGE pour beneficier des aides.",
         imagePlaceholder: {
-          prompt: "Salon chaleureux maison francaise, radiateur design blanc sous fenetre, lumiere doree hivernale, sensation confort et chaleur, photo realiste",
+          prompt: "Salon chaleureux maison francaise, radiateur design blanc sous fenetre, lumiere doree hivernale, sensation confort et chaleur, photo realiste, ratio 16:9",
           aspectRatio: "16/9",
           src: heroImages["chauffage"] || undefined,
         },
@@ -68,7 +68,7 @@ export default function ChauffagePage() {
                 <p className="text-muted-foreground leading-relaxed">{s.desc}</p>
               </div>
               <div className={i % 2 === 1 ? "lg:order-1" : ""}>
-                <ImagePlaceholder prompt={s.image} aspectRatio="3/2" alt={s.title} />
+                <ImagePlaceholder prompt={s.image} src={pageImages[s.imageKey] || undefined} aspectRatio="3/2" alt={s.title} />
               </div>
             </div>
           ))}

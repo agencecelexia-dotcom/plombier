@@ -27,7 +27,7 @@ export default function RealisationsPage() {
         title="Nos realisations — Avant / Apres"
         subtitle="Decouvrez nos derniers chantiers en images. Chaque projet est realise avec soin et professionnalisme."
         imagePlaceholder={{
-          prompt: "Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste",
+          prompt: "Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste, ratio 21:9",
           aspectRatio: "21/9",
           src: heroImages["realisations"] || undefined,
         }}

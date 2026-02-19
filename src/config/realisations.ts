@@ -9,9 +9,9 @@ export const realisations: Realisation[] = [
     description:
       "Transformation d'une salle de bain annees 80 en espace moderne avec douche italienne, meuble vasque et miroir LED.",
     beforePrompt:
-      "Vieille salle de bain annees 80, baignoire jaunatre, carrelage rose fissure, robinetterie rouillee, photo realiste brute",
+      "Vieille salle de bain annees 80, baignoire jaunatre, carrelage rose fissure, robinetterie rouillee, photo realiste brute, ratio 4:3",
     afterPrompt:
-      "Meme salle de bain renovee, douche italienne carrelage gris anthracite, meuble vasque bois clair, miroir LED, photo realiste",
+      "Meme salle de bain renovee, douche italienne carrelage gris anthracite, meuble vasque bois clair, miroir LED, photo realiste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
@@ -22,9 +22,9 @@ export const realisations: Realisation[] = [
     description:
       "Remplacement complet de la tuyauterie et installation d'un evier encastre avec robinet col de cygne.",
     beforePrompt:
-      "Vieille cuisine evier inox use, tuyauterie apparente oxydee, robinet qui goutte, photo realiste",
+      "Vieille cuisine evier inox use, tuyauterie apparente oxydee, robinet qui goutte, photo realiste, ratio 4:3",
     afterPrompt:
-      "Cuisine moderne evier encastre granit noir, robinet col de cygne chrome, tuyauterie neuve cachee, photo realiste",
+      "Cuisine moderne evier encastre granit noir, robinet col de cygne chrome, tuyauterie neuve cachee, photo realiste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
@@ -35,9 +35,9 @@ export const realisations: Realisation[] = [
     description:
       "Remplacement d'un vieux chauffe-eau rouille par un ballon thermodynamique classe A.",
     beforePrompt:
-      "Vieux chauffe-eau rouille encrasse dans placard technique, tuyaux oxydes, photo realiste",
+      "Vieux chauffe-eau rouille encrasse dans placard technique, tuyaux oxydes, photo realiste, ratio 4:3",
     afterPrompt:
-      "Chauffe-eau thermodynamique neuf blanc, tuyauterie cuivre neuve, etiquette energie A, photo realiste",
+      "Chauffe-eau thermodynamique neuf blanc, tuyauterie cuivre neuve, etiquette energie A, photo realiste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
@@ -48,9 +48,9 @@ export const realisations: Realisation[] = [
     description:
       "Remplacement d'une vieille chaudiere fioul par une pompe a chaleur air-eau compacte.",
     beforePrompt:
-      "Vieille chaudiere fioul volumineuse dans cave sombre, tuyaux rouilles, photo realiste",
+      "Vieille chaudiere fioul volumineuse dans cave sombre, tuyaux rouilles, photo realiste, ratio 4:3",
     afterPrompt:
-      "Pompe a chaleur air-eau compacte installee dans buanderie moderne, ecran digital, photo realiste",
+      "Pompe a chaleur air-eau compacte installee dans buanderie moderne, ecran digital, photo realiste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
@@ -61,9 +61,9 @@ export const realisations: Realisation[] = [
     description:
       "Adaptation d'une salle de bain pour personne a mobilite reduite avec douche plain-pied et barres d'appui.",
     beforePrompt:
-      "Salle de bain etroite avec baignoire haute, acces difficile, carrelage glissant, photo realiste",
+      "Salle de bain etroite avec baignoire haute, acces difficile, carrelage glissant, photo realiste, ratio 4:3",
     afterPrompt:
-      "Salle de bain PMR adaptee, barre d'appui chromee, siege douche rabattable, receveur plain-pied antiderapant, espace circulation large, photo realiste",
+      "Salle de bain PMR adaptee, barre d'appui chromee, siege douche rabattable, receveur plain-pied antiderapant, espace circulation large, photo realiste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
@@ -74,9 +74,9 @@ export const realisations: Realisation[] = [
     description:
       "Installation d'une chaudiere gaz a condensation derniere generation en remplacement d'un modele de 20 ans.",
     beforePrompt:
-      "Vieille chaudiere gaz murale encrassee, tuyaux anciens, thermostat analogique, photo realiste",
+      "Vieille chaudiere gaz murale encrassee, tuyaux anciens, thermostat analogique, photo realiste, ratio 4:3",
     afterPrompt:
-      "Chaudiere gaz condensation murale blanche moderne, ecran digital vert, tuyauterie cuivre propre, thermostat connecte, photo realiste",
+      "Chaudiere gaz condensation murale blanche moderne, ecran digital vert, tuyauterie cuivre propre, thermostat connecte, photo realiste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
@@ -87,9 +87,9 @@ export const realisations: Realisation[] = [
     description:
       "Creation d'une douche italienne avec receveur extra-plat, carrelage grand format et niche murale eclairee.",
     beforePrompt:
-      "Salle de bain avec baignoire classique blanche, murs peints ecailles, sol vinyle use, photo realiste",
+      "Salle de bain avec baignoire classique blanche, murs peints ecailles, sol vinyle use, photo realiste, ratio 4:3",
     afterPrompt:
-      "Douche italienne ouverte, receveur extra-plat, carrelage grand format gris clair, pommeau pluie chrome, niche murale eclairee, photo realiste",
+      "Douche italienne ouverte, receveur extra-plat, carrelage grand format gris clair, pommeau pluie chrome, niche murale eclairee, photo realiste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
@@ -100,9 +100,9 @@ export const realisations: Realisation[] = [
     description:
       "Pose d'un plancher chauffant hydraulique dans une maison en renovation complete.",
     beforePrompt:
-      "Sol brut en beton dans piece en renovation, gaines electriques apparentes, chantier en cours, photo realiste",
+      "Sol brut en beton dans piece en renovation, gaines electriques apparentes, chantier en cours, photo realiste, ratio 4:3",
     afterPrompt:
-      "Installation plancher chauffant en cours, tubes PER rouges en serpentin sur isolant argente, vue plongee, chantier propre, photo realiste",
+      "Installation plancher chauffant en cours, tubes PER rouges en serpentin sur isolant argente, vue plongee, chantier propre, photo realiste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
@@ -113,9 +113,9 @@ export const realisations: Realisation[] = [
     description:
       "Intervention d'urgence pour une fuite sur canalisation d'eau chaude dans un appartement ancien.",
     beforePrompt:
-      "Fuite d'eau importante sur tuyau cuivre sous evier, gouttes d'eau, sol mouille, urgence, photo realiste",
+      "Fuite d'eau importante sur tuyau cuivre sous evier, gouttes d'eau, sol mouille, urgence, photo realiste, ratio 4:3",
     afterPrompt:
-      "Tuyauterie cuivre neuve sous evier, raccords neufs chromes, sol sec, reparation propre, photo realiste",
+      "Tuyauterie cuivre neuve sous evier, raccords neufs chromes, sol sec, reparation propre, photo realiste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
@@ -126,9 +126,9 @@ export const realisations: Realisation[] = [
     description:
       "Renovation haut de gamme avec double vasque, robinetterie laiton brosse et carrelage terrazzo.",
     beforePrompt:
-      "Salle de bain ancienne, carrelage blanc basique, lavabo sur colonne, baignoire jaunatre, eclairage neon, photo realiste",
+      "Salle de bain ancienne, carrelage blanc basique, lavabo sur colonne, baignoire jaunatre, eclairage neon, photo realiste, ratio 4:3",
     afterPrompt:
-      "Magnifique salle de bain renovee style contemporain, grande douche italienne paroi vitree, vasque pierre naturelle, robinetterie laiton brosse, carrelage terrazzo, plantes vertes, lumiere naturelle, photo realiste haut de gamme",
+      "Magnifique salle de bain renovee style contemporain, grande douche italienne paroi vitree, vasque pierre naturelle, robinetterie laiton brosse, carrelage terrazzo, plantes vertes, lumiere naturelle, photo realiste haut de gamme, ratio 4:3",
     aspectRatio: "4/3",
   },
 ];

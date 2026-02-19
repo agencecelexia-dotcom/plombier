@@ -29,7 +29,7 @@ export default function HomePage() {
         subtitle="Fuite d'eau, WC bouche, panne de chaudiere ? Devis gratuit sous 48h."
         imagePlaceholder={{
           prompt:
-            "Plombier professionnel francais en uniforme bleu propre, agenouille sous un evier de cuisine moderne, reparant une canalisation avec une cle a molette, eclairage naturel chaleureux, interieur maison francaise contemporaine, photo realiste professionnelle",
+            "Plombier professionnel francais en uniforme bleu propre, agenouille sous un evier de cuisine moderne, reparant une canalisation avec une cle a molette, eclairage naturel chaleureux, interieur maison francaise contemporaine, photo realiste professionnelle, ratio 16:9",
           aspectRatio: "16/9",
           src: heroImages["accueil"] || undefined,
         }}

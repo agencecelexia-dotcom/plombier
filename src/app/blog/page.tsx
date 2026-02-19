@@ -23,7 +23,7 @@ export default function BlogPage() {
         title="Blog — Conseils et astuces plomberie"
         subtitle="Retrouvez bientot nos articles pour vous aider au quotidien."
         imagePlaceholder={{
-          prompt: "Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste",
+          prompt: "Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste, ratio 21:9",
           aspectRatio: "21/9",
           src: heroImages["blog"] || undefined,
         }}

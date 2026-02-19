@@ -8,7 +8,7 @@ import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { Card, CardContent } from "@/components/ui/card";
 import { siteConfig } from "@/config/site";
 import { faqPlomberie } from "@/config/faq";
-import { heroImages } from "@/config/images";
+import { heroImages, pageImages } from "@/config/images";
 
 export const metadata: Metadata = generatePageMetadata({
   title: `Plombier ${siteConfig.address.city} | Installation et reparation`,
@@ -17,10 +17,10 @@ export const metadata: Metadata = generatePageMetadata({
 });
 
 const servicesPlomberie = [
-  { icon: Pipette, title: "Robinetterie", desc: "Installation et remplacement de robinets, mitigeurs, douchettes. Toutes marques.", image: "Gros plan mains de plombier serrant un raccord cuivre avec une pince, travail de precision, photo realiste" },
-  { icon: Wrench, title: "Tuyauterie et raccordements", desc: "Installation, remplacement et reparation de canalisations en cuivre, PER ou multicouche.", image: "Plombier professionnel installant de la tuyauterie en cuivre dans une maison neuve, raccords visibles, travail soigne, photo realiste" },
-  { icon: Search, title: "Recherche de fuite", desc: "Detection non destructive par camera thermique, acoustique ou colorimetrique.", image: "Plombier utilisant une camera d'inspection de canalisation, ecran video visible, intervention technique, photo realiste" },
-  { icon: ShieldCheck, title: "Mise aux normes", desc: "Mise en conformite de vos installations selon les normes en vigueur (DTU, NF).", image: "Plombier installant un WC suspendu neuf dans une salle de bain en renovation, bati-support visible, photo realiste" },
+  { icon: Pipette, title: "Robinetterie", desc: "Installation et remplacement de robinets, mitigeurs, douchettes. Toutes marques.", image: "Gros plan mains de plombier serrant un raccord cuivre avec une pince, travail de precision, photo realiste, ratio 3:2", imageKey: "plomberie-robinetterie" },
+  { icon: Wrench, title: "Tuyauterie et raccordements", desc: "Installation, remplacement et reparation de canalisations en cuivre, PER ou multicouche.", image: "Plombier professionnel installant de la tuyauterie en cuivre dans une maison neuve, raccords visibles, travail soigne, photo realiste, ratio 3:2", imageKey: "plomberie-tuyauterie" },
+  { icon: Search, title: "Recherche de fuite", desc: "Detection non destructive par camera thermique, acoustique ou colorimetrique.", image: "Plombier utilisant une camera d'inspection de canalisation, ecran video visible, intervention technique, photo realiste, ratio 3:2", imageKey: "plomberie-recherche-fuite" },
+  { icon: ShieldCheck, title: "Mise aux normes", desc: "Mise en conformite de vos installations selon les normes en vigueur (DTU, NF).", image: "Plombier installant un WC suspendu neuf dans une salle de bain en renovation, bati-support visible, photo realiste, ratio 3:2", imageKey: "plomberie-mise-aux-normes" },
 ];
 
 const avantages = [
@@ -39,7 +39,7 @@ export default function PlomberiePage() {
         title: `Plombier a ${siteConfig.address.city} — Installation et reparation`,
         subtitle: "Robinetterie, tuyauterie, mise aux normes, recherche de fuite... Intervention rapide et travail soigne.",
         imagePlaceholder: {
-          prompt: "Plombier professionnel installant de la tuyauterie en cuivre dans une maison neuve, raccords visibles, travail soigne, lumiere naturelle, photo realiste",
+          prompt: "Plombier professionnel installant de la tuyauterie en cuivre dans une maison neuve, raccords visibles, travail soigne, lumiere naturelle, photo realiste, ratio 16:9",
           aspectRatio: "16/9",
           src: heroImages["plomberie"] || undefined,
         },
@@ -69,7 +69,7 @@ export default function PlomberiePage() {
                 <p className="text-muted-foreground leading-relaxed">{s.desc}</p>
               </div>
               <div className={i % 2 === 1 ? "lg:order-1" : ""}>
-                <ImagePlaceholder prompt={s.image} aspectRatio="3/2" alt={s.title} />
+                <ImagePlaceholder prompt={s.image} src={pageImages[s.imageKey] || undefined} aspectRatio="3/2" alt={s.title} />
               </div>
             </div>
           ))}

@@ -37,7 +37,7 @@ export default function DepannagePage() {
         title: `Plombier depannage urgent a ${siteConfig.address.city} — Intervention en moins de 2h`,
         subtitle: "Fuite d'eau, WC bouche, degat des eaux ? Appelez maintenant.",
         imagePlaceholder: {
-          prompt: "Plombier en intervention urgence la nuit, lampe frontale allumee, coupant l'arrivee d'eau principale dans une cave, expression concentree, eclairage dramatique, photo realiste",
+          prompt: "Plombier en intervention urgence la nuit, lampe frontale allumee, coupant l'arrivee d'eau principale dans une cave, expression concentree, eclairage dramatique, photo realiste, ratio 16:9",
           aspectRatio: "16/9",
           src: heroImages["depannage-plomberie"] || undefined,
         },

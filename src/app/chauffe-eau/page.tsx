@@ -39,7 +39,7 @@ export default function ChauffeEauPage() {
         title: `Remplacement et installation chauffe-eau a ${siteConfig.address.city}`,
         subtitle: "Electrique, thermodynamique, solaire. Conseil expert pour choisir la solution la plus adaptee a vos besoins.",
         imagePlaceholder: {
-          prompt: "Technicien plombier installant un chauffe-eau thermodynamique neuf dans un garage propre, branchements electriques et hydrauliques visibles, photo realiste",
+          prompt: "Technicien plombier installant un chauffe-eau thermodynamique neuf dans un garage propre, branchements electriques et hydrauliques visibles, photo realiste, ratio 16:9",
           aspectRatio: "16/9",
           src: heroImages["chauffe-eau"] || undefined,
         },

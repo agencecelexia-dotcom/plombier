@@ -24,7 +24,7 @@ export default function ContactPage() {
         title="Contactez-nous — Devis gratuit sous 48h"
         subtitle="Remplissez le formulaire ou appelez-nous directement. Nous repondons a toutes les demandes."
         imagePlaceholder={{
-          prompt: "Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste",
+          prompt: "Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste, ratio 21:9",
           aspectRatio: "21/9",
           src: heroImages["contact"] || undefined,
         }}

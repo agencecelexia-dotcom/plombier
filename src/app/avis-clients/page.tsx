@@ -27,7 +27,7 @@ export default function AvisClientsPage() {
         title="Avis clients — Ce qu'ils disent de nous"
         subtitle={`${siteConfig.googleRating}/5 sur ${siteConfig.googleReviewCount} avis Google`}
         imagePlaceholder={{
-          prompt: "Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste",
+          prompt: "Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste, ratio 21:9",
           aspectRatio: "21/9",
           src: heroImages["avis-clients"] || undefined,
         }}
