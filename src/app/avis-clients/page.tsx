@@ -15,7 +15,7 @@ import { heroImages } from "@/config/images";
 
 export const metadata: Metadata = generatePageMetadata({
   title: `Avis clients plombier ${siteConfig.address.city}`,
-  description: `Decouvrez les avis de nos clients. Note ${siteConfig.googleRating}/5 sur ${siteConfig.googleReviewCount} avis Google. Plombier de confiance a ${siteConfig.address.city}.`,
+  description: `Découvrez les avis de nos clients. Note ${siteConfig.googleRating}/5 sur ${siteConfig.googleReviewCount} avis Google. Plombier de confiance à ${siteConfig.address.city}.`,
   path: "/avis-clients",
 });
 
@@ -66,7 +66,7 @@ export default function AvisClientsPage() {
                 ))}
               </div>
               <p className="text-sm text-muted-foreground">
-                Basee sur {siteConfig.googleReviewCount} avis Google
+                Basée sur {siteConfig.googleReviewCount} avis Google
               </p>
             </div>
           </div>

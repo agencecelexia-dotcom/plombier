@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Phone } from "lucide-react";
+import { Phone, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
@@ -40,6 +40,8 @@ export function HeroSection({
             alt={title}
             overlay
             className="w-full h-full rounded-none"
+            priority={true}
+            sizes="100vw"
           />
         </div>
         <div className="relative z-20 container mx-auto px-4 lg:px-8 max-w-7xl py-20">
@@ -93,6 +95,9 @@ export function HeroSection({
             </div>
           </div>
         </div>
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20">
+          <ChevronDown className="w-8 h-8 text-white animate-bounce" aria-hidden="true" />
+        </div>
       </section>
     );
   }
@@ -108,6 +113,7 @@ export function HeroSection({
             alt={title}
             overlay
             className="w-full h-full rounded-none"
+            priority={true}
           />
         </div>
         <div className="relative z-20 container mx-auto px-4 lg:px-8 max-w-7xl text-center">
@@ -140,8 +146,15 @@ export function HeroSection({
             )}
             {badges && (
               <div className="mt-4 flex flex-wrap gap-2">
-                {badges.map((badge) => (
-                  <Badge key={badge} variant="secondary" className="text-sm">
+                {badges.map((badge, index) => (
+                  <Badge
+                    key={badge}
+                    variant="secondary"
+                    className={cn(
+                      "text-sm",
+                      index === badges.length - 1 && "hidden sm:inline-flex"
+                    )}
+                  >
                     {badge}
                   </Badge>
                 ))}
@@ -170,6 +183,7 @@ export function HeroSection({
               aspectRatio={imagePlaceholder.aspectRatio || "16/9"}
               alt={title}
               className={cn("shadow-xl")}
+              priority={true}
             />
           </div>
         </div>

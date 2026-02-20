@@ -7,7 +7,7 @@ import { communes } from "@/config/communes";
 
 export function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground pb-24 lg:pb-0">
+    <footer className="bg-primary text-primary-foreground pb-24 lg:pb-0" aria-label="Informations de contact et navigation">
       <div className="container mx-auto px-4 lg:px-8 max-w-7xl py-12 lg:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Col 1: Infos */}
@@ -112,7 +112,7 @@ export function Footer() {
               {communes.map((commune) => (
                 <span
                   key={commune.name}
-                  className="text-xs text-primary-foreground/60 bg-white/5 rounded px-2 py-0.5"
+                  className="text-xs text-primary-foreground/80 bg-white/5 rounded px-2 py-0.5"
                 >
                   {commune.name}
                 </span>
@@ -124,22 +124,18 @@ export function Footer() {
         <Separator className="my-8 bg-white/10" />
 
         {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-primary-foreground/50">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-primary-foreground/80">
           <p>
             &copy; {new Date().getFullYear()} {siteConfig.legalName} — SIRET{" "}
             {siteConfig.siret}
           </p>
           <div className="flex items-center gap-4">
             <Link href="/mentions-legales" className="hover:text-white transition-colors">
-              Mentions legales
+              Mentions légales
             </Link>
             <span>|</span>
-            <Link href="/mentions-legales" className="hover:text-white transition-colors">
-              Politique de confidentialite
-            </Link>
-            <span>|</span>
-            <Link href="/admin" className="hover:text-white transition-colors">
-              Admin
+            <Link href="/mentions-legales#confidentialite" className="hover:text-white transition-colors">
+              Politique de confidentialité
             </Link>
           </div>
         </div>

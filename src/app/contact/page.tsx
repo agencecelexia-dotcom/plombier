@@ -12,7 +12,7 @@ import { heroImages } from "@/config/images";
 
 export const metadata: Metadata = generatePageMetadata({
   title: `Contact plombier ${siteConfig.address.city} | Devis gratuit`,
-  description: `Contactez ${siteConfig.name} a ${siteConfig.address.city}. Devis gratuit sous 48h. Appelez le ${siteConfig.phone} ou remplissez notre formulaire.`,
+  description: `Contactez ${siteConfig.name} à ${siteConfig.address.city}. Devis gratuit sous 48h. Appelez le ${siteConfig.phone} ou remplissez notre formulaire.`,
   path: "/contact",
 });
 
@@ -22,7 +22,7 @@ export default function ContactPage() {
       <HeroSection
         variant="page"
         title="Contactez-nous — Devis gratuit sous 48h"
-        subtitle="Remplissez le formulaire ou appelez-nous directement. Nous repondons a toutes les demandes."
+        subtitle="Remplissez le formulaire ou appelez-nous directement. Nous répondons à toutes les demandes."
         imagePlaceholder={{
           prompt: "Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste, ratio 21:9",
           aspectRatio: "21/9",
@@ -52,7 +52,7 @@ export default function ContactPage() {
           {/* Infos contact */}
           <div className="lg:col-span-2">
             <h2 className="text-2xl font-bold text-primary mb-6">
-              Nos coordonnees
+              Nos coordonnées
             </h2>
 
             <Card>
@@ -65,7 +65,7 @@ export default function ContactPage() {
                     <Phone className="w-6 h-6 text-destructive" />
                   </div>
                   <div>
-                    <p className="text-xs text-muted-foreground uppercase tracking-wide">Telephone</p>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide">Téléphone</p>
                     <p className="text-xl font-bold text-primary">{siteConfig.phone}</p>
                   </div>
                 </a>
@@ -130,7 +130,7 @@ export default function ContactPage() {
                 <div className="text-center p-4">
                   <MapPin className="w-10 h-10 text-primary/30 mx-auto mb-2" />
                   <p className="text-xs text-muted-foreground italic">
-                    Integrer ici l&apos;iframe Google Maps avec la zone d&apos;intervention
+                    Intégrer ici l&apos;iframe Google Maps avec la zone d&apos;intervention
                   </p>
                 </div>
               </div>

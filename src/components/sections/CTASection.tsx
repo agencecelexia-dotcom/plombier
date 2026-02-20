@@ -20,7 +20,7 @@ export function CTASection({
     <section className="relative py-16 md:py-20">
       <div className="absolute inset-0">
         <ImagePlaceholder
-          prompt="Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste, ratio 21:9"
+          prompt="Vue aérienne plongée d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumière naturelle, tons chauds, photo réaliste, ratio 21:9"
           src={sectionImages["cta-bandeau"] || undefined}
           aspectRatio="21/9"
           alt="Plombier au travail"

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Phone, ChevronDown, X, Clock } from "lucide-react";
-import { Sheet, SheetContent } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
@@ -20,7 +20,8 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
 
   return (
     <Sheet open={open} onOpenChange={onClose}>
-      <SheetContent side="left" className="w-80 p-0">
+      <SheetContent side="left" className="w-80 p-0" showCloseButton={false}>
+        <SheetTitle className="sr-only">Menu de navigation</SheetTitle>
         <div className="flex flex-col h-full">
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b">
@@ -42,13 +43,15 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
           </div>
 
           {/* Navigation */}
-          <nav className="flex-1 overflow-y-auto py-4">
+          <nav className="flex-1 overflow-y-auto py-4" aria-label="Navigation principale">
             {mainNavItems.map((item) =>
               item.children ? (
                 <div key={item.label}>
                   <button
                     onClick={() => setServicesOpen(!servicesOpen)}
                     className="flex items-center justify-between w-full px-6 py-3 text-base font-medium text-foreground/80 hover:text-primary hover:bg-muted/50 transition-colors"
+                    aria-expanded={servicesOpen}
+                    aria-controls="mobile-services-submenu"
                   >
                     {item.label}
                     <ChevronDown
@@ -59,7 +62,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
                     />
                   </button>
                   {servicesOpen && (
-                    <div className="bg-muted/30 py-1">
+                    <div id="mobile-services-submenu" className="bg-muted/30 py-1">
                       {item.children.map((child) => (
                         <Link
                           key={child.href}
@@ -76,7 +79,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
               ) : (
                 <Link
                   key={item.href}
-                  href={item.href}
+                  href={item.href!}
                   onClick={onClose}
                   className="block px-6 py-3 text-base font-medium text-foreground/80 hover:text-primary hover:bg-muted/50 transition-colors"
                 >

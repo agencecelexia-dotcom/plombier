@@ -9,11 +9,14 @@ import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { heroImages } from "@/config/images";
 
-export const metadata: Metadata = generatePageMetadata({
-  title: `Blog plomberie ${siteConfig.address.city} | Conseils et astuces`,
-  description: `Conseils plomberie, astuces chauffage, guides renovation. Le blog de ${siteConfig.name}, votre plombier a ${siteConfig.address.city}.`,
-  path: "/blog",
-});
+export const metadata: Metadata = {
+  ...generatePageMetadata({
+    title: `Blog plomberie ${siteConfig.address.city} | Conseils et astuces`,
+    description: `Conseils plomberie, astuces chauffage, guides rénovation. Le blog de ${siteConfig.name}, votre plombier à ${siteConfig.address.city}.`,
+    path: "/blog",
+  }),
+  robots: { index: false, follow: true },
+};
 
 export default function BlogPage() {
   return (
@@ -21,7 +24,7 @@ export default function BlogPage() {
       <HeroSection
         variant="page"
         title="Blog — Conseils et astuces plomberie"
-        subtitle="Retrouvez bientot nos articles pour vous aider au quotidien."
+        subtitle="Retrouvez bientôt nos articles pour vous aider au quotidien."
         imagePlaceholder={{
           prompt: "Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste, ratio 21:9",
           aspectRatio: "21/9",
@@ -42,15 +45,15 @@ export default function BlogPage() {
         <div className="max-w-lg mx-auto text-center py-12">
           <BookOpen className="w-16 h-16 text-primary/20 mx-auto mb-6" />
           <h2 className="text-2xl font-bold text-primary mb-4">
-            Bientot disponible
+            Bientôt disponible
           </h2>
           <p className="text-muted-foreground mb-8 leading-relaxed">
-            Nous preparons des articles sur l&apos;entretien de votre plomberie, les economies d&apos;energie, les aides pour la renovation... Revenez bientot !
+            Nous préparons des articles sur l&apos;entretien de votre plomberie, les économies d&apos;énergie, les aides pour la rénovation... Revenez bientôt !
           </p>
           <Button asChild variant="outline">
             <Link href="/">
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Retour a l&apos;accueil
+              Retour à l&apos;accueil
             </Link>
           </Button>
         </div>

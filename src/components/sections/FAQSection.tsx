@@ -17,7 +17,7 @@ interface FAQSectionProps {
 
 export function FAQSection({
   faqs,
-  title = "Questions frequentes",
+  title = "Questions fréquentes",
   variant = "gray",
 }: FAQSectionProps) {
   return (

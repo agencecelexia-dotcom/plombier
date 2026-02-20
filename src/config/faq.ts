@@ -2,91 +2,91 @@ import type { FAQ } from "@/types";
 
 export const faqGeneral: FAQ[] = [
   {
-    question: "Quels sont vos delais d'intervention en urgence ?",
+    question: "Quels sont vos délais d'intervention en urgence ?",
     answer:
-      "Pour les urgences plomberie (fuite d'eau, canalisation bouchee, panne de chaudiere), nous intervenons en moins de 2 heures dans un rayon de 30 km autour de Lyon. Appelez-nous au 06 72 45 89 13.",
+      "Pour les urgences plomberie (fuite d'eau, canalisation bouchée, panne de chaudière), nous intervenons en moins de 2 heures dans un rayon de 30 km autour de Lyon. Appelez-nous au 06 72 45 89 13.",
   },
   {
     question: "Vos devis sont-ils gratuits ?",
     answer:
-      "Oui, tous nos devis sont gratuits et sans engagement. Nous nous deplacons pour evaluer vos besoins et vous remettons un devis detaille sous 48h.",
+      "Oui, tous nos devis sont gratuits et sans engagement. Nous nous déplaçons pour évaluer vos besoins et vous remettons un devis détaillé sous 48h.",
   },
   {
-    question: "Etes-vous assure ?",
+    question: "Êtes-vous assuré ?",
     answer:
-      "Oui, nous disposons d'une assurance decennale et d'une responsabilite civile professionnelle. Vous pouvez nous demander une copie de nos attestations.",
+      "Oui, nous disposons d'une assurance décennale et d'une responsabilité civile professionnelle. Vous pouvez nous demander une copie de nos attestations.",
   },
   {
     question: "Quels modes de paiement acceptez-vous ?",
     answer:
-      "Nous acceptons le paiement par cheque, virement bancaire et especes. Un acompte peut etre demande pour les travaux importants.",
+      "Nous acceptons le paiement par chèque, virement bancaire et espèces. Un acompte peut être demandé pour les travaux importants.",
   },
 ];
 
 export const faqDepannage: FAQ[] = [
   {
-    question: "Intervenez-vous le week-end et les jours feries ?",
+    question: "Intervenez-vous le week-end et les jours fériés ?",
     answer:
-      "Oui, nous intervenons 7 jours sur 7, y compris les jours feries, pour toutes les urgences plomberie. Un supplement peut s'appliquer pour les interventions en dehors des heures ouvrables.",
+      "Oui, nous intervenons 7 jours sur 7, y compris les jours fériés, pour toutes les urgences plomberie. Un supplément peut s'appliquer pour les interventions en dehors des heures ouvrables.",
   },
   {
-    question: "Combien coute un depannage en urgence ?",
+    question: "Combien coûte un dépannage en urgence ?",
     answer:
-      "Le tarif depend de la nature de l'intervention. A titre indicatif : debouchage a partir de 89 euros, reparation fuite a partir de 120 euros. Le tarif exact vous est communique par telephone avant intervention.",
+      "Le tarif dépend de la nature de l'intervention. À titre indicatif : débouchage à partir de 89 euros, réparation fuite à partir de 120 euros. Le tarif exact vous est communiqué par téléphone avant intervention.",
   },
   {
     question: "Que faire en cas de fuite d'eau en attendant le plombier ?",
     answer:
-      "Coupez immediatement l'arrivee d'eau generale (vanne d'arret), coupez l'electricite dans la zone touchee, epongez l'eau stagnante et contactez-nous au plus vite.",
+      "Coupez immédiatement l'arrivée d'eau générale (vanne d'arrêt), coupez l'électricité dans la zone touchée, épongez l'eau stagnante et contactez-nous au plus vite.",
   },
 ];
 
 export const faqPlomberie: FAQ[] = [
   {
-    question: "Combien coute l'installation d'un WC suspendu ?",
+    question: "Combien coûte l'installation d'un WC suspendu ?",
     answer:
-      "Le cout d'installation d'un WC suspendu varie entre 800 et 1 500 euros selon le modele et la configuration de votre salle de bain. Ce tarif comprend le bati-support, la cuvette et la pose complete.",
+      "Le coût d'installation d'un WC suspendu varie entre 800 et 1 500 euros selon le modèle et la configuration de votre salle de bain. Ce tarif comprend le bâti-support, la cuvette et la pose complète.",
   },
   {
-    question: "Comment detectez-vous les fuites cachees ?",
+    question: "Comment détectez-vous les fuites cachées ?",
     answer:
-      "Nous utilisons des equipements professionnels : camera d'inspection pour les canalisations, detecteur acoustique et thermographie pour les fuites dans les murs ou sous le sol, sans casse.",
+      "Nous utilisons des équipements professionnels : caméra d'inspection pour les canalisations, détecteur acoustique et thermographie pour les fuites dans les murs ou sous le sol, sans casse.",
   },
 ];
 
 export const faqSalleDeBain: FAQ[] = [
   {
-    question: "Combien de temps dure une renovation de salle de bain ?",
+    question: "Combien de temps dure une rénovation de salle de bain ?",
     answer:
-      "En moyenne, une renovation complete de salle de bain prend entre 1 et 3 semaines selon l'ampleur des travaux. Nous etablissons un planning precis dans le devis.",
+      "En moyenne, une rénovation complète de salle de bain prend entre 1 et 3 semaines selon l'ampleur des travaux. Nous établissons un planning précis dans le devis.",
   },
   {
     question: "Quelles sont les aides pour une salle de bain PMR ?",
     answer:
-      "Selon votre situation, vous pouvez beneficier de MaPrimeAdapt', des aides de l'ANAH, du credit d'impot et des aides de votre caisse de retraite. Nous vous accompagnons dans les demarches.",
+      "Selon votre situation, vous pouvez bénéficier de MaPrimeAdapt', des aides de l'ANAH, du crédit d'impôt et des aides de votre caisse de retraite. Nous vous accompagnons dans les démarches.",
   },
   {
     question: "Peut-on remplacer une baignoire par une douche italienne ?",
     answer:
-      "Oui, c'est l'un de nos travaux les plus demandes. Nous adaptons l'evacuation, assurons l'etancheite et posons un receveur extra-plat pour un acces facilite.",
+      "Oui, c'est l'un de nos travaux les plus demandés. Nous adaptons l'évacuation, assurons l'étanchéité et posons un receveur extra-plat pour un accès facilité.",
   },
 ];
 
 export const faqChauffage: FAQ[] = [
   {
-    question: "L'entretien de la chaudiere est-il obligatoire ?",
+    question: "L'entretien de la chaudière est-il obligatoire ?",
     answer:
-      "Oui, l'entretien annuel de votre chaudiere (gaz, fioul, bois) est obligatoire selon le decret du 9 juin 2009. Il permet de garantir votre securite et d'optimiser les performances de votre appareil.",
+      "Oui, l'entretien annuel de votre chaudière (gaz, fioul, bois) est obligatoire selon le décret du 9 juin 2009. Il permet de garantir votre sécurité et d'optimiser les performances de votre appareil.",
   },
   {
-    question: "Combien coute l'installation d'une pompe a chaleur ?",
+    question: "Combien coûte l'installation d'une pompe à chaleur ?",
     answer:
-      "Le cout varie entre 8 000 et 15 000 euros selon le modele et la puissance. De nombreuses aides existent : MaPrimeRenov', CEE, eco-pret a taux zero. Nous sommes certifies RGE, condition pour beneficier des aides.",
+      "Le coût varie entre 8 000 et 15 000 euros selon le modèle et la puissance. De nombreuses aides existent : MaPrimeRénov', CEE, éco-prêt à taux zéro. Nous sommes certifiés RGE, condition pour bénéficier des aides.",
   },
   {
-    question: "Quelle est la duree de vie d'une chaudiere gaz ?",
+    question: "Quelle est la durée de vie d'une chaudière gaz ?",
     answer:
-      "Une chaudiere gaz bien entretenue a une duree de vie de 15 a 25 ans. Si votre chaudiere a plus de 15 ans, il est recommande de la remplacer par un modele a condensation plus economique.",
+      "Une chaudière gaz bien entretenue a une durée de vie de 15 à 25 ans. Si votre chaudière a plus de 15 ans, il est recommandé de la remplacer par un modèle à condensation plus économique.",
   },
 ];
 
@@ -94,11 +94,11 @@ export const faqChauffeEau: FAQ[] = [
   {
     question: "Quand faut-il remplacer son chauffe-eau ?",
     answer:
-      "Un chauffe-eau doit generalement etre remplace au bout de 10 a 15 ans, ou en cas de fuite au niveau de la cuve, de baisse de performance ou de bruits inhabituels.",
+      "Un chauffe-eau doit généralement être remplacé au bout de 10 à 15 ans, ou en cas de fuite au niveau de la cuve, de baisse de performance ou de bruits inhabituels.",
   },
   {
-    question: "Chauffe-eau electrique ou thermodynamique ?",
+    question: "Chauffe-eau électrique ou thermodynamique ?",
     answer:
-      "Le chauffe-eau thermodynamique consomme jusqu'a 3 fois moins d'electricite et est eligible aux aides de l'Etat. L'investissement est plus important (2 000 - 3 500 euros) mais amorti en 3 a 5 ans.",
+      "Le chauffe-eau thermodynamique consomme jusqu'à 3 fois moins d'électricité et est éligible aux aides de l'État. L'investissement est plus important (2 000 - 3 500 euros) mais amorti en 3 à 5 ans.",
   },
 ];

@@ -8,13 +8,14 @@ interface TestimonialCardProps {
 
 export function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
-    <Card className="h-full">
+    <Card className="h-full hover:shadow-lg transition-shadow">
       <CardContent className="p-6 flex flex-col h-full">
-        <Quote className="w-8 h-8 text-primary/20 mb-3 shrink-0" />
-        <div className="flex gap-0.5 mb-3">
+        <Quote className="w-8 h-8 text-primary/20 mb-3 shrink-0" aria-hidden="true" />
+        <div className="flex gap-0.5 mb-3" role="img" aria-label={`Note : ${testimonial.rating} sur 5`}>
           {Array.from({ length: 5 }).map((_, i) => (
             <Star
               key={i}
+              aria-hidden="true"
               className={`w-4 h-4 ${
                 i < testimonial.rating
                   ? "text-yellow-500 fill-yellow-500"

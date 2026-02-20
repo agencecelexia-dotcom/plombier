@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Flame, Wind, Heater, Thermometer, Wrench, ShieldCheck, CheckCircle } from "lucide-react";
 import { generatePageMetadata } from "@/lib/metadata";
 import { ServicePageLayout } from "@/components/sections/ServicePageLayout";
@@ -7,27 +8,28 @@ import { SectionHeading } from "@/components/sections/SectionHeading";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { faqChauffage } from "@/config/faq";
 import { heroImages, pageImages } from "@/config/images";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: `Chauffagiste ${siteConfig.address.city} | Chaudiere, PAC, entretien`,
-  description: `Chauffagiste certifie RGE a ${siteConfig.address.city}. Installation chaudiere gaz, pompe a chaleur, plancher chauffant. Entretien annuel et depannage. Devis gratuit.`,
+  title: `Chauffagiste ${siteConfig.address.city} | Chaudière, PAC, entretien`,
+  description: `Chauffagiste certifié RGE à ${siteConfig.address.city}. Installation chaudière gaz, pompe à chaleur, plancher chauffant. Entretien annuel et dépannage. Devis gratuit.`,
   path: "/chauffage",
 });
 
 const servicesChauffage = [
-  { icon: Flame, title: "Chaudiere gaz condensation", desc: "Installation et remplacement de chaudiere gaz derniere generation. Jusqu'a 30% d'economies sur votre facture.", image: "Chaudiere gaz condensation murale blanche moderne dans buanderie rangee, ecran digital vert, tuyauterie cuivre propre, photo realiste, ratio 3:2", imageKey: "chauffage-chaudiere-gaz" },
-  { icon: Wind, title: "Pompe a chaleur air-eau", desc: "Solution ecologique et economique. Eligible aux aides MaPrimeRenov' et CEE. Nous sommes certifies RGE.", image: "Unite exterieure pompe a chaleur air-eau blanche installee sur terrasse maison individuelle francaise, jardin soigne, photo realiste, ratio 3:2", imageKey: "chauffage-pac" },
-  { icon: Heater, title: "Plancher chauffant", desc: "Confort optimal et diffusion homogene de la chaleur. Ideal en renovation ou construction neuve.", image: "Installation plancher chauffant en cours, tubes PER rouges en serpentin sur isolant argente, vue plongee, chantier propre, photo realiste, ratio 3:2", imageKey: "chauffage-plancher-chauffant" },
+  { icon: Flame, title: "Chaudière gaz condensation", desc: "Installation et remplacement de chaudière gaz dernière génération. Jusqu'à 30% d'économies sur votre facture.", image: "Chaudiere gaz condensation murale blanche moderne dans buanderie rangee, ecran digital vert, tuyauterie cuivre propre, photo realiste, ratio 3:2", imageKey: "chauffage-chaudiere-gaz" },
+  { icon: Wind, title: "Pompe à chaleur air-eau", desc: "Solution écologique et économique. Éligible aux aides MaPrimeRénov' et CEE. Nous sommes certifiés RGE.", image: "Unite exterieure pompe a chaleur air-eau blanche installee sur terrasse maison individuelle francaise, jardin soigne, photo realiste, ratio 3:2", imageKey: "chauffage-pac" },
+  { icon: Heater, title: "Plancher chauffant", desc: "Confort optimal et diffusion homogène de la chaleur. Idéal en rénovation ou construction neuve.", image: "Installation plancher chauffant en cours, tubes PER rouges en serpentin sur isolant argente, vue plongee, chantier propre, photo realiste, ratio 3:2", imageKey: "chauffage-plancher-chauffant" },
 ];
 
 const entretienInclus = [
-  "Verification de la combustion et des emissions",
-  "Nettoyage du corps de chauffe et du bruleur",
-  "Controle de la pression et du circulateur",
-  "Verification des dispositifs de securite",
+  "Vérification de la combustion et des émissions",
+  "Nettoyage du corps de chauffe et du brûleur",
+  "Contrôle de la pression et du circulateur",
+  "Vérification des dispositifs de sécurité",
   "Mesure du taux de CO (monoxyde de carbone)",
   "Remise de l'attestation d'entretien",
 ];
@@ -36,14 +38,14 @@ export default function ChauffagePage() {
   return (
     <ServicePageLayout
       hero={{
-        title: `Chauffagiste a ${siteConfig.address.city} — Installation, entretien et depannage`,
-        subtitle: "Chaudiere gaz, pompe a chaleur, plancher chauffant. Certifie RGE pour beneficier des aides.",
+        title: `Chauffagiste à ${siteConfig.address.city} — Installation, entretien et dépannage`,
+        subtitle: "Chaudière gaz, pompe à chaleur, plancher chauffant. Certifié RGE pour bénéficier des aides.",
         imagePlaceholder: {
           prompt: "Salon chaleureux maison francaise, radiateur design blanc sous fenetre, lumiere doree hivernale, sensation confort et chaleur, photo realiste, ratio 16:9",
           aspectRatio: "16/9",
           src: heroImages["chauffage"] || undefined,
         },
-        badges: ["Certifie RGE", "Entretien annuel", "Eligible aides"],
+        badges: ["Certifié RGE", "Entretien annuel", "Éligible aides"],
       }}
       breadcrumbs={[
         { label: "Accueil", href: "/" },
@@ -55,7 +57,7 @@ export default function ChauffagePage() {
       <SectionContainer>
         <SectionHeading
           title="Nos solutions de chauffage"
-          subtitle="Installation, remplacement et depannage de tous types de systemes de chauffage."
+          subtitle="Installation, remplacement et dépannage de tous types de systèmes de chauffage."
         />
         <div className="space-y-12">
           {servicesChauffage.map((s, i) => (
@@ -79,15 +81,15 @@ export default function ChauffagePage() {
       <SectionContainer variant="gray" id="entretien">
         <SectionHeading
           badge="Obligatoire"
-          title="Entretien annuel chaudiere"
-          subtitle="L'entretien de votre chaudiere est obligatoire chaque annee. Nous intervenons sur toutes les marques."
+          title="Entretien annuel chaudière"
+          subtitle="L'entretien de votre chaudière est obligatoire chaque année. Nous intervenons sur toutes les marques."
         />
         <div className="max-w-3xl mx-auto">
           <Card>
             <CardContent className="p-8">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-lg font-bold text-primary">Ce qui est inclus</h3>
-                <Badge className="bg-brand-green text-white">A partir de 89 EUR TTC</Badge>
+                <Badge className="bg-brand-green text-white">À partir de 89 EUR TTC</Badge>
               </div>
               <div className="grid sm:grid-cols-2 gap-3">
                 {entretienInclus.map((item) => (
@@ -107,14 +109,23 @@ export default function ChauffagePage() {
         <div className="max-w-3xl mx-auto text-center">
           <ShieldCheck className="w-16 h-16 text-brand-green mx-auto mb-4" />
           <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
-            Certifie RGE — Eligible aux aides de l&apos;Etat
+            Certifié RGE — Éligible aux aides de l&apos;État
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            Notre certification RGE (Reconnu Garant de l&apos;Environnement) vous permet de beneficier des aides financieres pour vos travaux de chauffage : MaPrimeRenov&apos;, CEE, eco-pret a taux zero.
+            Notre certification RGE (Reconnu Garant de l&apos;Environnement) vous permet de bénéficier des aides financières pour vos travaux de chauffage : MaPrimeRénov&apos;, CEE, éco-prêt à taux zéro.
           </p>
           <p className="text-sm text-muted-foreground">
             {siteConfig.rge}
           </p>
+        </div>
+      </SectionContainer>
+
+      {/* Services liés */}
+      <SectionContainer>
+        <SectionHeading title="Services liés" />
+        <div className="flex flex-wrap justify-center gap-4">
+          <Button asChild variant="outline"><Link href="/chauffe-eau">Chauffe-eau</Link></Button>
+          <Button asChild variant="outline"><Link href="/depannage-plomberie">Dépannage plomberie</Link></Button>
         </div>
       </SectionContainer>
     </ServicePageLayout>

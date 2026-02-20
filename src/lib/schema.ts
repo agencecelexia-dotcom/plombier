@@ -5,11 +5,14 @@ export function localBusinessSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Plumber",
+    "@id": `${siteConfig.url}/#organization`,
     name: siteConfig.name,
     legalName: siteConfig.legalName,
     url: siteConfig.url,
     telephone: siteConfig.phoneHref.replace("tel:", ""),
     email: siteConfig.email,
+    image: `${siteConfig.url}/images/heroes/accueil.jpeg`,
+    logo: `${siteConfig.url}/images/heroes/accueil.jpeg`,
     address: {
       "@type": "PostalAddress",
       streetAddress: siteConfig.address.street,
@@ -53,6 +56,11 @@ export function localBusinessSchema() {
       },
       geoRadius: "30000",
     },
+    sameAs: [
+      siteConfig.social.facebook,
+      siteConfig.social.instagram,
+      siteConfig.social.google,
+    ],
   };
 }
 
@@ -63,9 +71,7 @@ export function serviceSchema(serviceName: string, serviceDescription: string) {
     name: serviceName,
     description: serviceDescription,
     provider: {
-      "@type": "Plumber",
-      name: siteConfig.name,
-      telephone: siteConfig.phoneHref.replace("tel:", ""),
+      "@id": `${siteConfig.url}/#organization`,
     },
     areaServed: {
       "@type": "City",

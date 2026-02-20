@@ -15,9 +15,9 @@ import {
 } from "@/components/ui/select";
 
 const serviceOptions = [
-  "Urgence / Depannage",
-  "Plomberie generale",
-  "Renovation salle de bain",
+  "Urgence / Dépannage",
+  "Plomberie générale",
+  "Rénovation salle de bain",
   "Chauffage",
   "Chauffe-eau",
   "Autre",
@@ -26,10 +26,12 @@ const serviceOptions = [
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(false);
+    setIsSubmitting(true);
 
     const formData = new FormData(e.currentTarget);
     const data = {
@@ -55,15 +57,17 @@ export function ContactForm() {
       }
     } catch {
       setError(true);
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
   if (submitted) {
     return (
-      <div className="rounded-xl border bg-brand-green/5 p-8 text-center">
+      <div role="status" aria-live="polite" className="rounded-xl border bg-brand-green/5 p-8 text-center">
         <CheckCircle className="w-12 h-12 text-brand-green mx-auto mb-4" />
         <h3 className="text-xl font-bold text-primary mb-2">
-          Demande envoyee !
+          Demande envoyée !
         </h3>
         <p className="text-muted-foreground">
           Nous vous recontactons sous 48h. Pour une urgence, appelez-nous directement.
@@ -75,9 +79,9 @@ export function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       {error && (
-        <div className="flex items-center gap-2 p-3 rounded-lg bg-destructive/10 text-destructive text-sm">
+        <div role="alert" className="flex items-center gap-2 p-3 rounded-lg bg-destructive/10 text-destructive text-sm">
           <AlertCircle className="w-4 h-4" />
-          Une erreur est survenue. Veuillez reessayer.
+          Une erreur est survenue. Veuillez réessayer.
         </div>
       )}
 
@@ -90,7 +94,7 @@ export function ContactForm() {
           <Input id="nom" name="nom" required placeholder="Votre nom" />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="telephone">Telephone *</Label>
+          <Label htmlFor="telephone">Téléphone *</Label>
           <Input id="telephone" name="telephone" type="tel" required placeholder="06 XX XX XX XX" />
         </div>
       </div>
@@ -103,8 +107,8 @@ export function ContactForm() {
       <div className="space-y-2">
         <Label htmlFor="service">Type de besoin</Label>
         <Select name="service">
-          <SelectTrigger>
-            <SelectValue placeholder="Selectionnez un service" />
+          <SelectTrigger id="service">
+            <SelectValue placeholder="Sélectionnez un service" />
           </SelectTrigger>
           <SelectContent>
             {serviceOptions.map((opt) => (
@@ -121,7 +125,7 @@ export function ContactForm() {
         <Textarea
           id="message"
           name="message"
-          placeholder="Decrivez votre besoin..."
+          placeholder="Décrivez votre besoin..."
           rows={4}
         />
       </div>
@@ -132,16 +136,16 @@ export function ContactForm() {
           id="rgpd"
           name="rgpd"
           required
-          className="mt-1 rounded border-input"
+          className="mt-1 w-4 h-4 accent-primary rounded border-input"
         />
         <Label htmlFor="rgpd" className="text-xs text-muted-foreground font-normal leading-relaxed">
-          J&apos;accepte que mes donnees soient utilisees pour me recontacter dans le cadre de ma demande. Voir notre politique de confidentialite.
+          J&apos;accepte que mes données soient utilisées pour me recontacter dans le cadre de ma demande. Voir notre politique de confidentialité.
         </Label>
       </div>
 
-      <Button type="submit" size="lg" className="w-full" data-track="formulaire-contact-envoi">
+      <Button type="submit" size="lg" className="w-full" data-track="formulaire-contact-envoi" disabled={isSubmitting}>
         <Send className="w-4 h-4 mr-2" />
-        Envoyer ma demande
+        {isSubmitting ? "Envoi en cours..." : "Envoyer ma demande"}
       </Button>
     </form>
   );

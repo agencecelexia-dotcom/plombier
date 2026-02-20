@@ -15,15 +15,15 @@ const items = [
   },
   {
     icon: ShieldCheck,
-    label: "Assure decennale",
+    label: "Assuré décennale",
   },
 ];
 
 export function ReassuranceBand() {
   return (
-    <section className="bg-primary py-6">
+    <section className="bg-primary py-6" aria-label="Nos engagements">
       <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
           {items.map((item) => (
             <div
               key={item.label}

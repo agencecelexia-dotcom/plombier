@@ -20,7 +20,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
   const IconComponent = iconMap[service.icon];
 
   return (
-    <Card className="group hover:shadow-lg transition-all duration-300 border-transparent hover:border-primary/20">
+    <Card className="py-0 group hover:shadow-lg transition-all duration-300 border-transparent hover:border-primary/20">
       <CardContent className="p-6">
         <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
           {IconComponent && (
@@ -38,6 +38,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
           className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline group-hover:gap-2 transition-all"
         >
           En savoir plus
+          <span className="sr-only"> sur {service.title}</span>
           <ArrowRight className="w-4 h-4" />
         </Link>
       </CardContent>

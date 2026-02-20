@@ -12,22 +12,22 @@ import { siteConfig } from "@/config/site";
 import { heroImages, pageImages } from "@/config/images";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: `A propos — ${siteConfig.name}`,
-  description: `Decouvrez ${siteConfig.name}, votre plombier de confiance a ${siteConfig.address.city} depuis ${siteConfig.yearsExperience} ans. Certifie RGE, assure decennale.`,
+  title: `À propos — ${siteConfig.name}`,
+  description: `Découvrez ${siteConfig.name}, votre plombier de confiance à ${siteConfig.address.city} depuis ${siteConfig.yearsExperience} ans. Certifié RGE, assuré décennale.`,
   path: "/a-propos",
 });
 
 const chiffres = [
-  { value: `${siteConfig.yearsExperience}+`, label: "Annees d'experience", icon: Clock },
-  { value: `${siteConfig.interventionsCount}+`, label: "Interventions realisees", icon: Wrench },
+  { value: `${siteConfig.yearsExperience}+`, label: "Années d'expérience", icon: Clock },
+  { value: `${siteConfig.interventionsCount}+`, label: "Interventions réalisées", icon: Wrench },
   { value: `${siteConfig.googleReviewCount}`, label: "Avis Google", icon: Users },
   { value: `${siteConfig.googleRating}/5`, label: "Note moyenne", icon: Award },
 ];
 
 const valeurs = [
-  { icon: Clock, title: "Reactivite", desc: "Nous intervenons dans les meilleurs delais. En urgence, comptez moins de 2 heures." },
-  { icon: Heart, title: "Transparence", desc: "Devis detailles, tarifs clairs, pas de mauvaise surprise. Vous savez exactement ce que vous payez." },
-  { icon: ShieldCheck, title: "Qualite", desc: "Travail soigne, materiaux de qualite, chantier propre. Nous garantissons la qualite de nos prestations." },
+  { icon: Clock, title: "Réactivité", desc: "Nous intervenons dans les meilleurs délais. En urgence, comptez moins de 2 heures." },
+  { icon: Heart, title: "Transparence", desc: "Devis détaillés, tarifs clairs, pas de mauvaise surprise. Vous savez exactement ce que vous payez." },
+  { icon: ShieldCheck, title: "Qualité", desc: "Travail soigné, matériaux de qualité, chantier propre. Nous garantissons la qualité de nos prestations." },
 ];
 
 export default function AProposPage() {
@@ -36,7 +36,7 @@ export default function AProposPage() {
       <HeroSection
         variant="page"
         title={`${siteConfig.name} — Votre plombier de confiance depuis ${siteConfig.yearsExperience} ans`}
-        subtitle="Professionnalisme, reactivite et transparence au service de votre confort."
+        subtitle="Professionnalisme, réactivité et transparence au service de votre confort."
         imagePlaceholder={{
           prompt: "Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste, ratio 21:9",
           aspectRatio: "21/9",
@@ -48,7 +48,7 @@ export default function AProposPage() {
         <Breadcrumbs
           items={[
             { label: "Accueil", href: "/" },
-            { label: "A propos" },
+            { label: "À propos" },
           ]}
         />
       </div>
@@ -60,13 +60,13 @@ export default function AProposPage() {
             <SectionHeading title="Notre histoire" align="left" />
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                Fonde en {siteConfig.foundedYear} par {siteConfig.founder}, {siteConfig.name} est ne d&apos;une passion pour le metier et d&apos;une conviction simple : un plombier doit etre fiable, reactif et transparent.
+                Fondé en {siteConfig.foundedYear} par {siteConfig.founder}, {siteConfig.name} est né d&apos;une passion pour le métier et d&apos;une conviction simple : un plombier doit être fiable, réactif et transparent.
               </p>
               <p>
-                Apres {siteConfig.yearsExperience} ans d&apos;experience et plus de {siteConfig.interventionsCount} interventions, nous restons fideles a ces valeurs. Notre equipe de techniciens qualifies intervient chaque jour dans la metropole lyonnaise pour des depannages, installations et renovations.
+                Après {siteConfig.yearsExperience} ans d&apos;expérience et plus de {siteConfig.interventionsCount} interventions, nous restons fidèles à ces valeurs. Notre équipe de techniciens qualifiés intervient chaque jour dans la métropole lyonnaise pour des dépannages, installations et rénovations.
               </p>
               <p>
-                Certifies RGE et couverts par une assurance decennale, nous accompagnons nos clients dans tous leurs projets de plomberie et de chauffage, du depannage urgent a la renovation complete.
+                Certifiés RGE et couverts par une assurance décennale, nous accompagnons nos clients dans tous leurs projets de plomberie et de chauffage, du dépannage urgent à la rénovation complète.
               </p>
             </div>
           </div>
@@ -80,22 +80,22 @@ export default function AProposPage() {
         </div>
       </SectionContainer>
 
-      {/* Equipe */}
+      {/* Équipe */}
       <SectionContainer variant="gray">
         <SectionHeading
-          title="Notre equipe"
-          subtitle="Des professionnels qualifies et passionnes a votre service."
+          title="Notre équipe"
+          subtitle="Des professionnels qualifiés et passionnés à votre service."
         />
         <ImagePlaceholder
           prompt="Equipe de 2-3 plombiers en uniforme bleu propre devant camionnette utilitaire blanche avec logo, souriant, parking exterieur, lumiere naturelle, photo realiste, ratio 3:2"
           src={pageImages["a-propos-equipe"] || undefined}
           aspectRatio="3/2"
-          alt={`L'equipe ${siteConfig.name}`}
+          alt={`L'équipe ${siteConfig.name}`}
           className="max-w-3xl mx-auto"
         />
       </SectionContainer>
 
-      {/* Chiffres cles */}
+      {/* Chiffres clés */}
       <SectionContainer>
         <SectionHeading title="En quelques chiffres" />
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -131,12 +131,12 @@ export default function AProposPage() {
       <SectionContainer>
         <SectionHeading
           title="Certifications et assurances"
-          subtitle="Votre tranquillite d'esprit est notre priorite."
+          subtitle="Votre tranquillité d'esprit est notre priorité."
         />
         <div className="max-w-2xl mx-auto space-y-4">
           {[
             { label: "Certification RGE QualiPAC", detail: siteConfig.rge },
-            { label: "Assurance decennale", detail: siteConfig.assuranceDecennale },
+            { label: "Assurance décennale", detail: siteConfig.assuranceDecennale },
             { label: "SIRET", detail: siteConfig.siret },
           ].map((cert) => (
             <div key={cert.label} className="flex items-center gap-3 p-4 rounded-lg bg-muted">

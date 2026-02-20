@@ -29,14 +29,14 @@ export function RealisationCard({ realisation }: RealisationCardProps) {
         <div className="relative">
           <div className="absolute top-2 left-2 z-10">
             <Badge className="bg-brand-green text-white text-xs">
-              Apres
+              Après
             </Badge>
           </div>
           <ImagePlaceholder
             prompt={realisation.afterPrompt}
             src={realisationImages[`${realisation.id}-after`] || undefined}
             aspectRatio={realisation.aspectRatio}
-            alt={`${realisation.title} — apres`}
+            alt={`${realisation.title} — après`}
             className="rounded-none h-full"
           />
         </div>

@@ -24,7 +24,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: `Plombier a ${siteConfig.address.city} | Depannage 7j/7 — Devis Gratuit — ${siteConfig.name}`,
+    default: `Plombier à ${siteConfig.address.city} | Dépannage 7j/7 — Devis Gratuit — ${siteConfig.name}`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Wrench, Search, Pipette, ShieldCheck, Sparkles, CheckCircle } from "lucide-react";
 import { generatePageMetadata } from "@/lib/metadata";
 import { ServicePageLayout } from "@/components/sections/ServicePageLayout";
@@ -6,38 +7,39 @@ import { SectionContainer } from "@/components/sections/SectionContainer";
 import { SectionHeading } from "@/components/sections/SectionHeading";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { faqPlomberie } from "@/config/faq";
 import { heroImages, pageImages } from "@/config/images";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: `Plombier ${siteConfig.address.city} | Installation et reparation`,
-  description: `Plombier professionnel a ${siteConfig.address.city}. Installation, reparation, mise aux normes plomberie. Robinetterie, tuyauterie, WC, recherche de fuite. Devis gratuit.`,
+  title: `Plombier ${siteConfig.address.city} | Installation et réparation`,
+  description: `Plombier professionnel à ${siteConfig.address.city}. Installation, réparation, mise aux normes plomberie. Robinetterie, tuyauterie, WC, recherche de fuite. Devis gratuit.`,
   path: "/plomberie",
 });
 
 const servicesPlomberie = [
   { icon: Pipette, title: "Robinetterie", desc: "Installation et remplacement de robinets, mitigeurs, douchettes. Toutes marques.", image: "Gros plan mains de plombier serrant un raccord cuivre avec une pince, travail de precision, photo realiste, ratio 3:2", imageKey: "plomberie-robinetterie" },
-  { icon: Wrench, title: "Tuyauterie et raccordements", desc: "Installation, remplacement et reparation de canalisations en cuivre, PER ou multicouche.", image: "Plombier professionnel installant de la tuyauterie en cuivre dans une maison neuve, raccords visibles, travail soigne, photo realiste, ratio 3:2", imageKey: "plomberie-tuyauterie" },
-  { icon: Search, title: "Recherche de fuite", desc: "Detection non destructive par camera thermique, acoustique ou colorimetrique.", image: "Plombier utilisant une camera d'inspection de canalisation, ecran video visible, intervention technique, photo realiste, ratio 3:2", imageKey: "plomberie-recherche-fuite" },
-  { icon: ShieldCheck, title: "Mise aux normes", desc: "Mise en conformite de vos installations selon les normes en vigueur (DTU, NF).", image: "Plombier installant un WC suspendu neuf dans une salle de bain en renovation, bati-support visible, photo realiste, ratio 3:2", imageKey: "plomberie-mise-aux-normes" },
+  { icon: Wrench, title: "Tuyauterie et raccordements", desc: "Installation, remplacement et réparation de canalisations en cuivre, PER ou multicouche.", image: "Plombier professionnel installant de la tuyauterie en cuivre dans une maison neuve, raccords visibles, travail soigne, photo realiste, ratio 3:2", imageKey: "plomberie-tuyauterie" },
+  { icon: Search, title: "Recherche de fuite", desc: "Détection non destructive par caméra thermique, acoustique ou colorimétrique.", image: "Plombier utilisant une camera d'inspection de canalisation, ecran video visible, intervention technique, photo realiste, ratio 3:2", imageKey: "plomberie-recherche-fuite" },
+  { icon: ShieldCheck, title: "Mise aux normes", desc: "Mise en conformité de vos installations selon les normes en vigueur (DTU, NF).", image: "Plombier installant un WC suspendu neuf dans une salle de bain en renovation, bati-support visible, photo realiste, ratio 3:2", imageKey: "plomberie-mise-aux-normes" },
 ];
 
 const avantages = [
-  "Plus de 15 ans d'experience",
-  "Materiel professionnel derniere generation",
-  "Chantier laisse propre apres intervention",
-  "Garantie decennale sur tous les travaux",
-  "Devis detaille gratuit sous 48h",
-  "Conseil personnalise et transparent",
+  "Plus de 15 ans d'expérience",
+  "Matériel professionnel dernière génération",
+  "Chantier laissé propre après intervention",
+  "Garantie décennale sur tous les travaux",
+  "Devis détaillé gratuit sous 48h",
+  "Conseil personnalisé et transparent",
 ];
 
 export default function PlomberiePage() {
   return (
     <ServicePageLayout
       hero={{
-        title: `Plombier a ${siteConfig.address.city} — Installation et reparation`,
-        subtitle: "Robinetterie, tuyauterie, mise aux normes, recherche de fuite... Intervention rapide et travail soigne.",
+        title: `Plombier à ${siteConfig.address.city} — Installation et réparation`,
+        subtitle: "Robinetterie, tuyauterie, mise aux normes, recherche de fuite... Intervention rapide et travail soigné.",
         imagePlaceholder: {
           prompt: "Plombier professionnel installant de la tuyauterie en cuivre dans une maison neuve, raccords visibles, travail soigne, lumiere naturelle, photo realiste, ratio 16:9",
           aspectRatio: "16/9",
@@ -50,11 +52,11 @@ export default function PlomberiePage() {
       ]}
       faqs={faqPlomberie}
     >
-      {/* Services detailles */}
+      {/* Services détaillés */}
       <SectionContainer>
         <SectionHeading
           title="Nos services de plomberie"
-          subtitle="De l'installation neuve a la reparation, nous intervenons sur tous vos equipements."
+          subtitle="De l'installation neuve à la réparation, nous intervenons sur tous vos équipements."
         />
         <div className="space-y-12">
           {servicesPlomberie.map((s, i) => (
@@ -88,6 +90,15 @@ export default function PlomberiePage() {
               </div>
             ))}
           </div>
+        </div>
+      </SectionContainer>
+
+      {/* Services liés */}
+      <SectionContainer>
+        <SectionHeading title="Services liés" />
+        <div className="flex flex-wrap justify-center gap-4">
+          <Button asChild variant="outline"><Link href="/depannage-plomberie">Dépannage plomberie</Link></Button>
+          <Button asChild variant="outline"><Link href="/renovation-salle-de-bain">Rénovation salle de bain</Link></Button>
         </div>
       </SectionContainer>
     </ServicePageLayout>

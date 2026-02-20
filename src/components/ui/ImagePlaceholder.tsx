@@ -9,6 +9,8 @@ interface ImagePlaceholderProps {
   className?: string;
   overlay?: boolean;
   children?: React.ReactNode;
+  priority?: boolean;
+  sizes?: string;
 }
 
 const ratioMap: Record<string, string> = {
@@ -30,14 +32,15 @@ export function ImagePlaceholder({
   className,
   overlay = false,
   children,
+  priority = false,
+  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
 }: ImagePlaceholderProps) {
   const ratioClass = ratioMap[aspectRatio] || "aspect-video";
   const hasImage = !!src;
 
   return (
     <div
-      role="img"
-      aria-label={alt}
+      {...(!hasImage ? { role: "img", "aria-label": alt } : {})}
       className={cn(
         "relative overflow-hidden rounded-lg",
         !hasImage && "bg-gradient-to-br from-primary/20 via-primary/10 to-brand-green/10",
@@ -51,7 +54,8 @@ export function ImagePlaceholder({
           alt={alt}
           fill
           className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          sizes={sizes}
+          priority={priority}
         />
       )}
       {overlay && (
@@ -66,6 +70,7 @@ export function ImagePlaceholder({
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"

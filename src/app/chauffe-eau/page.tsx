@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Droplets, Zap, Leaf, Wrench, CheckCircle } from "lucide-react";
 import { generatePageMetadata } from "@/lib/metadata";
 import { ServicePageLayout } from "@/components/sections/ServicePageLayout";
@@ -6,38 +7,39 @@ import { SectionContainer } from "@/components/sections/SectionContainer";
 import { SectionHeading } from "@/components/sections/SectionHeading";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { faqChauffeEau } from "@/config/faq";
 import { heroImages } from "@/config/images";
 
 export const metadata: Metadata = generatePageMetadata({
   title: `Remplacement chauffe-eau ${siteConfig.address.city} | Ballon thermodynamique`,
-  description: `Installation et remplacement de chauffe-eau a ${siteConfig.address.city}. Electrique, thermodynamique, detartrage. Economies d'energie garanties. Devis gratuit.`,
+  description: `Installation et remplacement de chauffe-eau à ${siteConfig.address.city}. Électrique, thermodynamique, détartrage. Économies d'énergie garanties. Devis gratuit.`,
   path: "/chauffe-eau",
 });
 
 const servicesChauffeEau = [
-  { icon: Zap, title: "Chauffe-eau electrique", desc: "Remplacement et installation de cumulus electrique, toutes capacites (75L a 300L). Intervention rapide en cas de panne." },
-  { icon: Leaf, title: "Ballon thermodynamique", desc: "Jusqu'a 3x moins d'electricite. Eligible aux aides de l'Etat. Amortissement en 3 a 5 ans." },
-  { icon: Wrench, title: "Detartrage et entretien", desc: "Prolongez la duree de vie de votre chauffe-eau. Le detartrage permet de maintenir les performances optimales." },
-  { icon: Droplets, title: "Depannage", desc: "Plus d'eau chaude ? Fuite sur le groupe de securite ? Nous intervenons rapidement pour vous depanner." },
+  { icon: Zap, title: "Chauffe-eau électrique", desc: "Remplacement et installation de cumulus électrique, toutes capacités (75L à 300L). Intervention rapide en cas de panne." },
+  { icon: Leaf, title: "Ballon thermodynamique", desc: "Jusqu'à 3x moins d'électricité. Éligible aux aides de l'État. Amortissement en 3 à 5 ans." },
+  { icon: Wrench, title: "Détartrage et entretien", desc: "Prolongez la durée de vie de votre chauffe-eau. Le détartrage permet de maintenir les performances optimales." },
+  { icon: Droplets, title: "Dépannage", desc: "Plus d'eau chaude ? Fuite sur le groupe de sécurité ? Nous intervenons rapidement pour vous dépanner." },
 ];
 
 const comparatif = [
-  { critere: "Consommation", electrique: "Elevee", thermo: "3x moins" },
+  { critere: "Consommation", electrique: "Élevée", thermo: "3x moins" },
   { critere: "Prix installation", electrique: "500 - 1 200 EUR", thermo: "2 000 - 3 500 EUR" },
-  { critere: "Aides financieres", electrique: "Aucune", thermo: "MaPrimeRenov', CEE" },
-  { critere: "Duree de vie", electrique: "10 - 15 ans", thermo: "15 - 20 ans" },
-  { critere: "Amortissement", electrique: "-", thermo: "3 a 5 ans" },
-  { critere: "Classe energie", electrique: "C / D", thermo: "A / A+" },
+  { critere: "Aides financières", electrique: "Aucune", thermo: "MaPrimeRénov', CEE" },
+  { critere: "Durée de vie", electrique: "10 - 15 ans", thermo: "15 - 20 ans" },
+  { critere: "Amortissement", electrique: "-", thermo: "3 à 5 ans" },
+  { critere: "Classe énergie", electrique: "C / D", thermo: "A / A+" },
 ];
 
 export default function ChauffeEauPage() {
   return (
     <ServicePageLayout
       hero={{
-        title: `Remplacement et installation chauffe-eau a ${siteConfig.address.city}`,
-        subtitle: "Electrique, thermodynamique, solaire. Conseil expert pour choisir la solution la plus adaptee a vos besoins.",
+        title: `Remplacement et installation chauffe-eau à ${siteConfig.address.city}`,
+        subtitle: "Électrique, thermodynamique, solaire. Conseil expert pour choisir la solution la plus adaptée à vos besoins.",
         imagePlaceholder: {
           prompt: "Technicien plombier installant un chauffe-eau thermodynamique neuf dans un garage propre, branchements electriques et hydrauliques visibles, photo realiste, ratio 16:9",
           aspectRatio: "16/9",
@@ -54,7 +56,7 @@ export default function ChauffeEauPage() {
       <SectionContainer>
         <SectionHeading
           title="Nos services chauffe-eau"
-          subtitle="Installation, remplacement, entretien et depannage de tous types de chauffe-eau."
+          subtitle="Installation, remplacement, entretien et dépannage de tous types de chauffe-eau."
         />
         <div className="grid sm:grid-cols-2 gap-6">
           {servicesChauffeEau.map((s) => (
@@ -76,14 +78,14 @@ export default function ChauffeEauPage() {
       {/* Comparatif */}
       <SectionContainer variant="gray">
         <SectionHeading
-          title="Electrique vs Thermodynamique"
+          title="Électrique vs Thermodynamique"
           subtitle="Comparez les deux technologies pour faire le bon choix."
         />
         <div className="max-w-3xl mx-auto">
           <div className="rounded-xl border overflow-hidden bg-white">
             <div className="grid grid-cols-3 bg-primary text-primary-foreground text-sm font-bold">
-              <div className="p-4">Critere</div>
-              <div className="p-4 text-center">Electrique</div>
+              <div className="p-4">Critère</div>
+              <div className="p-4 text-center">Électrique</div>
               <div className="p-4 text-center">Thermodynamique</div>
             </div>
             {comparatif.map((row, i) => (
@@ -94,6 +96,15 @@ export default function ChauffeEauPage() {
               </div>
             ))}
           </div>
+        </div>
+      </SectionContainer>
+
+      {/* Services liés */}
+      <SectionContainer>
+        <SectionHeading title="Services liés" />
+        <div className="flex flex-wrap justify-center gap-4">
+          <Button asChild variant="outline"><Link href="/chauffage">Chauffage</Link></Button>
+          <Button asChild variant="outline"><Link href="/depannage-plomberie">Dépannage plomberie</Link></Button>
         </div>
       </SectionContainer>
     </ServicePageLayout>

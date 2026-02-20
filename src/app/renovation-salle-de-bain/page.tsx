@@ -13,30 +13,30 @@ import { faqSalleDeBain } from "@/config/faq";
 import { heroImages, pageImages } from "@/config/images";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: `Renovation salle de bain ${siteConfig.address.city} | Douche italienne`,
-  description: `Renovation de salle de bain a ${siteConfig.address.city}. Douche italienne, renovation complete, adaptation PMR. Du projet a la realisation. Devis gratuit.`,
+  title: `Rénovation salle de bain ${siteConfig.address.city} | Douche italienne`,
+  description: `Rénovation de salle de bain à ${siteConfig.address.city}. Douche italienne, rénovation complète, adaptation PMR. Du projet à la réalisation. Devis gratuit.`,
   path: "/renovation-salle-de-bain",
 });
 
 const projets = [
-  { icon: ShowerHead, title: "Douche italienne", desc: "Receveur extra-plat, carrelage grand format, paroi vitree, pommeau pluie. Design et accessibilite.", image: "Douche italienne ouverte, receveur extra-plat, carrelage grand format gris clair, pommeau pluie chrome, niche murale eclairee, photo realiste, ratio 4:3", imageKey: "renovation-douche-italienne" },
-  { icon: Bath, title: "Renovation complete", desc: "Demolition, plomberie, carrelage, sanitaires, meuble vasque, eclairage. Un seul interlocuteur.", image: "Magnifique salle de bain renovee style contemporain, grande douche italienne paroi vitree, vasque pierre naturelle, robinetterie laiton brosse, carrelage terrazzo, photo realiste, ratio 4:3", imageKey: "renovation-complete" },
-  { icon: Accessibility, title: "Adaptation PMR", desc: "Barre d'appui, siege douche, receveur plain-pied, antiderapant. Eligible MaPrimeAdapt'.", image: "Salle de bain PMR adaptee, barre d'appui chromee, siege douche rabattable, receveur plain-pied antiderapant, espace circulation large, photo realiste, ratio 4:3", imageKey: "renovation-pmr" },
+  { icon: ShowerHead, title: "Douche italienne", desc: "Receveur extra-plat, carrelage grand format, paroi vitrée, pommeau pluie. Design et accessibilité.", image: "Douche italienne ouverte, receveur extra-plat, carrelage grand format gris clair, pommeau pluie chrome, niche murale eclairee, photo realiste, ratio 4:3", imageKey: "renovation-douche-italienne" },
+  { icon: Bath, title: "Rénovation complète", desc: "Démolition, plomberie, carrelage, sanitaires, meuble vasque, éclairage. Un seul interlocuteur.", image: "Magnifique salle de bain renovee style contemporain, grande douche italienne paroi vitree, vasque pierre naturelle, robinetterie laiton brosse, carrelage terrazzo, photo realiste, ratio 4:3", imageKey: "renovation-complete" },
+  { icon: Accessibility, title: "Adaptation PMR", desc: "Barre d'appui, siège douche, receveur plain-pied, antidérapant. Éligible MaPrimeAdapt'.", image: "Salle de bain PMR adaptee, barre d'appui chromee, siege douche rabattable, receveur plain-pied antiderapant, espace circulation large, photo realiste, ratio 4:3", imageKey: "renovation-pmr" },
 ];
 
 const etapes = [
-  { icon: ClipboardList, title: "Visite conseil", desc: "Nous venons chez vous pour ecouter vos envies, prendre les mesures et vous conseiller." },
-  { icon: PaintBucket, title: "Devis detaille", desc: "Vous recevez un devis precis sous 48h avec le detail des prestations et materiaux." },
-  { icon: HardHat, title: "Travaux", desc: "Notre equipe realise les travaux dans les delais convenus. Chantier propre garanti." },
-  { icon: PartyPopper, title: "Reception", desc: "Verification finale ensemble. Vous ne payez le solde qu'a votre entiere satisfaction." },
+  { icon: ClipboardList, title: "Visite conseil", desc: "Nous venons chez vous pour écouter vos envies, prendre les mesures et vous conseiller." },
+  { icon: PaintBucket, title: "Devis détaillé", desc: "Vous recevez un devis précis sous 48h avec le détail des prestations et matériaux." },
+  { icon: HardHat, title: "Travaux", desc: "Notre équipe réalise les travaux dans les délais convenus. Chantier propre garanti." },
+  { icon: PartyPopper, title: "Réception", desc: "Vérification finale ensemble. Vous ne payez le solde qu'à votre entière satisfaction." },
 ];
 
 export default function SalleDeBainPage() {
   return (
     <ServicePageLayout
       hero={{
-        title: `Renovation salle de bain a ${siteConfig.address.city} — Du projet a la realisation`,
-        subtitle: "Douche italienne, renovation complete, adaptation PMR. Un interlocuteur unique du debut a la fin.",
+        title: `Rénovation salle de bain à ${siteConfig.address.city} — Du projet à la réalisation`,
+        subtitle: "Douche italienne, rénovation complète, adaptation PMR. Un interlocuteur unique du début à la fin.",
         imagePlaceholder: {
           prompt: "Magnifique salle de bain renovee style contemporain, grande douche italienne paroi vitree, vasque pierre naturelle, robinetterie laiton brosse, carrelage terrazzo, plantes vertes, lumiere naturelle, photo realiste haut de gamme, ratio 16:9",
           aspectRatio: "16/9",
@@ -53,7 +53,7 @@ export default function SalleDeBainPage() {
       <SectionContainer>
         <SectionHeading
           title="Nos types de projets"
-          subtitle="Chaque salle de bain est unique. Nous adaptons nos solutions a vos besoins et votre budget."
+          subtitle="Chaque salle de bain est unique. Nous adaptons nos solutions à vos besoins et votre budget."
         />
         <div className="grid md:grid-cols-3 gap-8">
           {projets.map((p) => (
@@ -72,8 +72,8 @@ export default function SalleDeBainPage() {
       {/* Process */}
       <SectionContainer variant="gray">
         <SectionHeading
-          title="Notre methode en 4 etapes"
-          subtitle="Un accompagnement cle en main pour un resultat a la hauteur de vos attentes."
+          title="Notre méthode en 4 étapes"
+          subtitle="Un accompagnement clé en main pour un résultat à la hauteur de vos attentes."
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {etapes.map((e, i) => (
@@ -94,13 +94,22 @@ export default function SalleDeBainPage() {
       {/* Galerie */}
       <SectionContainer>
         <SectionHeading
-          title="Nos realisations salle de bain"
-          subtitle="Decouvrez nos derniers projets de renovation."
+          title="Nos réalisations salle de bain"
+          subtitle="Découvrez nos derniers projets de rénovation."
         />
         <div className="text-center">
           <Button asChild variant="outline" size="lg">
-            <Link href="/realisations">Voir toutes nos realisations</Link>
+            <Link href="/realisations">Voir toutes nos réalisations</Link>
           </Button>
+        </div>
+      </SectionContainer>
+
+      {/* Services liés */}
+      <SectionContainer>
+        <SectionHeading title="Services liés" />
+        <div className="flex flex-wrap justify-center gap-4">
+          <Button asChild variant="outline"><Link href="/plomberie">Plomberie</Link></Button>
+          <Button asChild variant="outline"><Link href="/chauffe-eau">Chauffe-eau</Link></Button>
         </div>
       </SectionContainer>
     </ServicePageLayout>

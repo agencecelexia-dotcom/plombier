@@ -3,28 +3,28 @@ import type { Realisation } from "@/types";
 export const realisations: Realisation[] = [
   {
     id: "sdb-villeurbanne",
-    title: "Renovation salle de bain complete",
+    title: "Rénovation salle de bain complète",
     category: "Salle de bain",
     city: "Villeurbanne",
     description:
-      "Transformation d'une salle de bain annees 80 en espace moderne avec douche italienne, meuble vasque et miroir LED.",
+      "Transformation d'une salle de bain années 80 en espace moderne avec douche italienne, meuble vasque et miroir LED.",
     beforePrompt:
-      "Vieille salle de bain annees 80, baignoire jaunatre, carrelage rose fissure, robinetterie rouillee, photo realiste brute, ratio 4:3",
+      "Vieille salle de bain années 80, baignoire jaunâtre, carrelage rose fissuré, robinetterie rouillée, photo réaliste brute, ratio 4:3",
     afterPrompt:
-      "Meme salle de bain renovee, douche italienne carrelage gris anthracite, meuble vasque bois clair, miroir LED, photo realiste, ratio 4:3",
+      "Même salle de bain rénovée, douche italienne carrelage gris anthracite, meuble vasque bois clair, miroir LED, photo réaliste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
     id: "cuisine-lyon3",
-    title: "Refection plomberie cuisine",
+    title: "Réfection plomberie cuisine",
     category: "Plomberie",
     city: "Lyon 3e",
     description:
-      "Remplacement complet de la tuyauterie et installation d'un evier encastre avec robinet col de cygne.",
+      "Remplacement complet de la tuyauterie et installation d'un évier encastré avec robinet col de cygne.",
     beforePrompt:
-      "Vieille cuisine evier inox use, tuyauterie apparente oxydee, robinet qui goutte, photo realiste, ratio 4:3",
+      "Vieille cuisine évier inox usé, tuyauterie apparente oxydée, robinet qui goutte, photo réaliste, ratio 4:3",
     afterPrompt:
-      "Cuisine moderne evier encastre granit noir, robinet col de cygne chrome, tuyauterie neuve cachee, photo realiste, ratio 4:3",
+      "Cuisine moderne évier encastré granit noir, robinet col de cygne chromé, tuyauterie neuve cachée, photo réaliste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
@@ -33,24 +33,24 @@ export const realisations: Realisation[] = [
     category: "Chauffe-eau",
     city: "Caluire-et-Cuire",
     description:
-      "Remplacement d'un vieux chauffe-eau rouille par un ballon thermodynamique classe A.",
+      "Remplacement d'un vieux chauffe-eau rouillé par un ballon thermodynamique classe A.",
     beforePrompt:
-      "Vieux chauffe-eau rouille encrasse dans placard technique, tuyaux oxydes, photo realiste, ratio 4:3",
+      "Vieux chauffe-eau rouillé encrassé dans placard technique, tuyaux oxydés, photo réaliste, ratio 4:3",
     afterPrompt:
-      "Chauffe-eau thermodynamique neuf blanc, tuyauterie cuivre neuve, etiquette energie A, photo realiste, ratio 4:3",
+      "Chauffe-eau thermodynamique neuf blanc, tuyauterie cuivre neuve, étiquette énergie A, photo réaliste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
     id: "pac-bron",
-    title: "Installation pompe a chaleur",
+    title: "Installation pompe à chaleur",
     category: "Chauffage",
     city: "Bron",
     description:
-      "Remplacement d'une vieille chaudiere fioul par une pompe a chaleur air-eau compacte.",
+      "Remplacement d'une vieille chaudière fioul par une pompe à chaleur air-eau compacte.",
     beforePrompt:
-      "Vieille chaudiere fioul volumineuse dans cave sombre, tuyaux rouilles, photo realiste, ratio 4:3",
+      "Vieille chaudière fioul volumineuse dans cave sombre, tuyaux rouillés, photo réaliste, ratio 4:3",
     afterPrompt:
-      "Pompe a chaleur air-eau compacte installee dans buanderie moderne, ecran digital, photo realiste, ratio 4:3",
+      "Pompe à chaleur air-eau compacte installée dans buanderie moderne, écran digital, photo réaliste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
@@ -59,24 +59,24 @@ export const realisations: Realisation[] = [
     category: "Salle de bain",
     city: "Lyon 6e",
     description:
-      "Adaptation d'une salle de bain pour personne a mobilite reduite avec douche plain-pied et barres d'appui.",
+      "Adaptation d'une salle de bain pour personne à mobilité réduite avec douche plain-pied et barres d'appui.",
     beforePrompt:
-      "Salle de bain etroite avec baignoire haute, acces difficile, carrelage glissant, photo realiste, ratio 4:3",
+      "Salle de bain étroite avec baignoire haute, accès difficile, carrelage glissant, photo réaliste, ratio 4:3",
     afterPrompt:
-      "Salle de bain PMR adaptee, barre d'appui chromee, siege douche rabattable, receveur plain-pied antiderapant, espace circulation large, photo realiste, ratio 4:3",
+      "Salle de bain PMR adaptée, barre d'appui chromée, siège douche rabattable, receveur plain-pied antidérapant, espace circulation large, photo réaliste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
     id: "chaudiere-tassin",
-    title: "Remplacement chaudiere gaz",
+    title: "Remplacement chaudière gaz",
     category: "Chauffage",
     city: "Tassin-la-Demi-Lune",
     description:
-      "Installation d'une chaudiere gaz a condensation derniere generation en remplacement d'un modele de 20 ans.",
+      "Installation d'une chaudière gaz à condensation dernière génération en remplacement d'un modèle de 20 ans.",
     beforePrompt:
-      "Vieille chaudiere gaz murale encrassee, tuyaux anciens, thermostat analogique, photo realiste, ratio 4:3",
+      "Vieille chaudière gaz murale encrassée, tuyaux anciens, thermostat analogique, photo réaliste, ratio 4:3",
     afterPrompt:
-      "Chaudiere gaz condensation murale blanche moderne, ecran digital vert, tuyauterie cuivre propre, thermostat connecte, photo realiste, ratio 4:3",
+      "Chaudière gaz condensation murale blanche moderne, écran digital vert, tuyauterie cuivre propre, thermostat connecté, photo réaliste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
@@ -85,50 +85,50 @@ export const realisations: Realisation[] = [
     category: "Salle de bain",
     city: "Lyon 7e",
     description:
-      "Creation d'une douche italienne avec receveur extra-plat, carrelage grand format et niche murale eclairee.",
+      "Création d'une douche italienne avec receveur extra-plat, carrelage grand format et niche murale éclairée.",
     beforePrompt:
-      "Salle de bain avec baignoire classique blanche, murs peints ecailles, sol vinyle use, photo realiste, ratio 4:3",
+      "Salle de bain avec baignoire classique blanche, murs peints écaillés, sol vinyle usé, photo réaliste, ratio 4:3",
     afterPrompt:
-      "Douche italienne ouverte, receveur extra-plat, carrelage grand format gris clair, pommeau pluie chrome, niche murale eclairee, photo realiste, ratio 4:3",
+      "Douche italienne ouverte, receveur extra-plat, carrelage grand format gris clair, pommeau pluie chromé, niche murale éclairée, photo réaliste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
     id: "plancher-chauffant-ecully",
     title: "Installation plancher chauffant",
     category: "Chauffage",
-    city: "Ecully",
+    city: "Écully",
     description:
-      "Pose d'un plancher chauffant hydraulique dans une maison en renovation complete.",
+      "Pose d'un plancher chauffant hydraulique dans une maison en rénovation complète.",
     beforePrompt:
-      "Sol brut en beton dans piece en renovation, gaines electriques apparentes, chantier en cours, photo realiste, ratio 4:3",
+      "Sol brut en béton dans pièce en rénovation, gaines électriques apparentes, chantier en cours, photo réaliste, ratio 4:3",
     afterPrompt:
-      "Installation plancher chauffant en cours, tubes PER rouges en serpentin sur isolant argente, vue plongee, chantier propre, photo realiste, ratio 4:3",
+      "Installation plancher chauffant en cours, tubes PER rouges en serpentin sur isolant argenté, vue plongée, chantier propre, photo réaliste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
     id: "depannage-lyon2",
-    title: "Reparation fuite urgente",
+    title: "Réparation fuite urgente",
     category: "Plomberie",
     city: "Lyon 2e",
     description:
       "Intervention d'urgence pour une fuite sur canalisation d'eau chaude dans un appartement ancien.",
     beforePrompt:
-      "Fuite d'eau importante sur tuyau cuivre sous evier, gouttes d'eau, sol mouille, urgence, photo realiste, ratio 4:3",
+      "Fuite d'eau importante sur tuyau cuivre sous évier, gouttes d'eau, sol mouillé, urgence, photo réaliste, ratio 4:3",
     afterPrompt:
-      "Tuyauterie cuivre neuve sous evier, raccords neufs chromes, sol sec, reparation propre, photo realiste, ratio 4:3",
+      "Tuyauterie cuivre neuve sous évier, raccords neufs chromés, sol sec, réparation propre, photo réaliste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
     id: "sdb-complete-oullins",
-    title: "Renovation salle de bain luxe",
+    title: "Rénovation salle de bain luxe",
     category: "Salle de bain",
     city: "Oullins",
     description:
-      "Renovation haut de gamme avec double vasque, robinetterie laiton brosse et carrelage terrazzo.",
+      "Rénovation haut de gamme avec double vasque, robinetterie laiton brossé et carrelage terrazzo.",
     beforePrompt:
-      "Salle de bain ancienne, carrelage blanc basique, lavabo sur colonne, baignoire jaunatre, eclairage neon, photo realiste, ratio 4:3",
+      "Salle de bain ancienne, carrelage blanc basique, lavabo sur colonne, baignoire jaunâtre, éclairage néon, photo réaliste, ratio 4:3",
     afterPrompt:
-      "Magnifique salle de bain renovee style contemporain, grande douche italienne paroi vitree, vasque pierre naturelle, robinetterie laiton brosse, carrelage terrazzo, plantes vertes, lumiere naturelle, photo realiste haut de gamme, ratio 4:3",
+      "Magnifique salle de bain rénovée style contemporain, grande douche italienne paroi vitrée, vasque pierre naturelle, robinetterie laiton brossé, carrelage terrazzo, plantes vertes, lumière naturelle, photo réaliste haut de gamme, ratio 4:3",
     aspectRatio: "4/3",
   },
 ];

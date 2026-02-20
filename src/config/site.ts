@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Durand Plomberie",
   legalName: "Durand Plomberie SARL",
   description:
-    "Plombier chauffagiste a Lyon. Depannage urgent 7j/7, installation, renovation salle de bain, chauffage. Devis gratuit.",
+    "Plombier chauffagiste à Lyon. Dépannage urgent 7j/7, installation, rénovation salle de bain, chauffage. Devis gratuit.",
   url: "https://www.durand-plomberie-lyon.fr",
   phone: "06 72 45 89 13",
   phoneHref: "tel:+33672458913",
@@ -11,13 +11,13 @@ export const siteConfig = {
     street: "14 rue des Ateliers",
     city: "Lyon",
     postalCode: "69003",
-    region: "Auvergne-Rhone-Alpes",
+    region: "Auvergne-Rhône-Alpes",
     country: "France",
   },
   openingHours: {
     weekdays: "7h - 20h",
     saturday: "8h - 18h",
-    sunday: "Ferme",
+    sunday: "Fermé",
     emergency: "24h/24 - 7j/7",
   },
   social: {
