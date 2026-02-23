@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
+import { clientConfig } from "@/config/client.config";
 
-const ADMIN_PASSWORD = "1234";
+const ADMIN_PASSWORD = clientConfig.admin.password;
 const ADMIN_COOKIE = "admin_auth";
 const ADMIN_SESSION_VALUE = "plombier-admin-session-v1";
 

@@ -1,25 +1,16 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { useRouter } from "next/navigation";
 import {
   BarChart3,
   Users,
   Eye,
   MousePointerClick,
   FileText,
-  LogOut,
   TrendingUp,
   TrendingDown,
-  Clock,
-  Mail,
-  Phone,
-  Wrench,
   ChevronDown,
   RefreshCw,
-  Trash2,
-  CheckCircle,
-  BookOpen,
   Info,
 } from "lucide-react";
 import type { AnalyticsEvent, Submission } from "@/lib/storage";
@@ -27,7 +18,6 @@ import type { AnalyticsEvent, Submission } from "@/lib/storage";
 // --- Types ---
 
 type Period = "7d" | "30d" | "all";
-type Tab = "overview" | "submissions";
 
 // --- Utility functions ---
 
@@ -38,16 +28,6 @@ function isInPeriod(dateStr: string, period: Period): boolean {
   const days = period === "7d" ? 7 : 30;
   const cutoff = new Date(now.getTime() - days * 24 * 60 * 60 * 1000);
   return date >= cutoff;
-}
-
-function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString("fr-FR", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
 }
 
 function groupByDay(events: AnalyticsEvent[], days: number): { label: string; count: number }[] {
@@ -267,114 +247,6 @@ function StatCard({
   );
 }
 
-// --- Submissions Table ---
-
-function SubmissionsTable({
-  submissions,
-  onUpdateStatus,
-  onDelete,
-}: {
-  submissions: Submission[];
-  onUpdateStatus: (id: string, status: Submission["status"]) => void;
-  onDelete: (id: string) => void;
-}) {
-  const statusColors: Record<string, string> = {
-    new: "bg-blue-500/20 text-blue-300",
-    read: "bg-amber-500/20 text-amber-300",
-    done: "bg-emerald-500/20 text-emerald-300",
-  };
-
-  const statusLabels: Record<string, string> = {
-    new: "Nouveau",
-    read: "Lu",
-    done: "Traite",
-  };
-
-  if (submissions.length === 0) {
-    return (
-      <div className="text-center py-12 text-slate-400">
-        <Mail className="w-12 h-12 mx-auto mb-4 opacity-30" />
-        <p>Aucune demande de contact pour le moment</p>
-      </div>
-    );
-  }
-
-  return (
-    <div className="space-y-3">
-      {submissions.map((sub) => (
-        <div
-          key={sub.id}
-          className="bg-[#0f172a] rounded-xl p-4 border border-slate-700/50 hover:border-slate-600/50 transition-colors"
-        >
-          <div className="flex items-start justify-between gap-4 mb-3">
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="font-medium text-white">{sub.nom}</span>
-                <span className={`text-xs px-2 py-0.5 rounded-full ${statusColors[sub.status]}`}>
-                  {statusLabels[sub.status]}
-                </span>
-              </div>
-              <div className="flex items-center gap-4 text-sm text-slate-400">
-                <span className="flex items-center gap-1">
-                  <Phone className="w-3 h-3" />
-                  {sub.telephone}
-                </span>
-                <span className="flex items-center gap-1">
-                  <Mail className="w-3 h-3" />
-                  {sub.email}
-                </span>
-              </div>
-            </div>
-            <div className="text-xs text-slate-500 flex items-center gap-1 shrink-0">
-              <Clock className="w-3 h-3" />
-              {formatDate(sub.date)}
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2 mb-3 text-sm">
-            <Wrench className="w-3.5 h-3.5 text-slate-500" />
-            <span className="text-slate-300">{sub.service}</span>
-          </div>
-
-          {sub.message && (
-            <p className="text-sm text-slate-400 mb-3 bg-slate-800/50 rounded-lg p-3">
-              {sub.message}
-            </p>
-          )}
-
-          <div className="flex items-center gap-2">
-            {sub.status === "new" && (
-              <button
-                onClick={() => onUpdateStatus(sub.id, "read")}
-                className="flex items-center gap-1 text-xs px-3 py-1.5 rounded-lg bg-amber-500/10 text-amber-300 hover:bg-amber-500/20 transition-colors"
-              >
-                <BookOpen className="w-3 h-3" />
-                Marquer lu
-              </button>
-            )}
-            {sub.status !== "done" && (
-              <button
-                onClick={() => onUpdateStatus(sub.id, "done")}
-                className="flex items-center gap-1 text-xs px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-300 hover:bg-emerald-500/20 transition-colors"
-              >
-                <CheckCircle className="w-3 h-3" />
-                Traite
-              </button>
-            )}
-            <button
-              onClick={() => onDelete(sub.id)}
-              className="flex items-center gap-1 text-xs px-3 py-1.5 rounded-lg bg-red-500/10 text-red-300 hover:bg-red-500/20 transition-colors ml-auto"
-            >
-              <Trash2 className="w-3 h-3" />
-              Supprimer
-            </button>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 // --- Main Dashboard ---
 
 interface DashboardClientProps {
@@ -383,11 +255,9 @@ interface DashboardClientProps {
 }
 
 export function DashboardClient({ initialEvents, initialSubmissions }: DashboardClientProps) {
-  const router = useRouter();
   const [events, setEvents] = useState(initialEvents);
   const [submissions, setSubmissions] = useState(initialSubmissions);
   const [period, setPeriod] = useState<Period>("30d");
-  const [tab, setTab] = useState<Tab>("overview");
   const [refreshing, setRefreshing] = useState(false);
 
   // Filtered events
@@ -399,7 +269,6 @@ export function DashboardClient({ initialEvents, initialSubmissions }: Dashboard
   // Stats
   const pageViews = filtered.filter((e) => e.type === "page_view").length;
   const clicks = filtered.filter((e) => e.type === "click").length;
-  const newSubmissions = submissions.filter((s) => s.status === "new").length;
 
   // Unique visitors (rough estimate by user agent per day)
   const uniqueVisitors = useMemo(() => {
@@ -446,68 +315,8 @@ export function DashboardClient({ initialEvents, initialSubmissions }: Dashboard
     }
   }
 
-  async function handleLogout() {
-    await fetch("/api/admin/logout", { method: "POST" });
-    router.push("/admin/login");
-  }
-
-  async function handleUpdateStatus(id: string, status: Submission["status"]) {
-    const res = await fetch("/api/admin/submissions", {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id, status }),
-    });
-    if (res.ok) {
-      setSubmissions((prev) =>
-        prev.map((s) => (s.id === id ? { ...s, status } : s))
-      );
-    }
-  }
-
-  async function handleDelete(id: string) {
-    if (!confirm("Supprimer cette demande ?")) return;
-    const res = await fetch("/api/admin/submissions", {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id }),
-    });
-    if (res.ok) {
-      setSubmissions((prev) => prev.filter((s) => s.id !== id));
-    }
-  }
-
   return (
-    <div className="min-h-screen bg-[#0f172a] text-white">
-      {/* Top bar */}
-      <header className="sticky top-0 z-50 bg-[#0f172a]/80 backdrop-blur-xl border-b border-slate-700/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
-              <BarChart3 className="w-4 h-4 text-white" />
-            </div>
-            <span className="font-bold text-lg hidden sm:block">Dashboard</span>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <button
-              onClick={handleRefresh}
-              disabled={refreshing}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-sm transition-colors"
-            >
-              <RefreshCw className={`w-4 h-4 ${refreshing ? "animate-spin" : ""}`} />
-              <span className="hidden sm:inline">Actualiser</span>
-            </button>
-            <button
-              onClick={handleLogout}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-800 hover:bg-red-900/50 text-sm transition-colors"
-            >
-              <LogOut className="w-4 h-4" />
-              <span className="hidden sm:inline">Deconnexion</span>
-            </button>
-          </div>
-        </div>
-      </header>
-
+    <div className="min-h-screen text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
         {/* Welcome banner */}
         <div className="mb-6 bg-blue-500/10 border border-blue-500/20 rounded-xl p-4 flex items-start gap-3">
@@ -521,40 +330,24 @@ export function DashboardClient({ initialEvents, initialSubmissions }: Dashboard
         </div>
 
         {/* Controls */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
-          {/* Tabs */}
-          <div className="flex bg-slate-800 rounded-xl p-1">
-            <button
-              onClick={() => setTab("overview")}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                tab === "overview"
-                  ? "bg-blue-600 text-white"
-                  : "text-slate-400 hover:text-white"
-              }`}
-            >
-              <BarChart3 className="w-4 h-4 inline mr-1.5" />
-              Vue d&apos;ensemble
-            </button>
-            <button
-              onClick={() => setTab("submissions")}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1.5 ${
-                tab === "submissions"
-                  ? "bg-blue-600 text-white"
-                  : "text-slate-400 hover:text-white"
-              }`}
-            >
-              <FileText className="w-4 h-4" />
-              Demandes
-              {newSubmissions > 0 && (
-                <span className="bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
-                  {newSubmissions}
-                </span>
-              )}
-            </button>
-          </div>
+        <div className="flex items-center justify-between gap-4 mb-6">
+          <h1 className="text-xl font-bold text-white flex items-center gap-2">
+            <BarChart3 className="w-5 h-5 text-blue-400" />
+            Vue d&apos;ensemble
+          </h1>
 
-          {/* Period selector */}
-          {tab === "overview" && (
+          <div className="flex items-center gap-2">
+            {/* Refresh button */}
+            <button
+              onClick={handleRefresh}
+              disabled={refreshing}
+              className="flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-sm transition-colors"
+            >
+              <RefreshCw className={`w-4 h-4 ${refreshing ? "animate-spin" : ""}`} />
+              <span className="hidden sm:inline">Actualiser</span>
+            </button>
+
+            {/* Period selector */}
             <div className="relative">
               <select
                 value={period}
@@ -567,99 +360,88 @@ export function DashboardClient({ initialEvents, initialSubmissions }: Dashboard
               </select>
               <ChevronDown className="w-4 h-4 absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
             </div>
-          )}
+          </div>
         </div>
 
-        {tab === "overview" ? (
-          <>
-            {/* Stat cards */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-              <StatCard icon={Eye} label="Pages vues" value={pageViews} color="blue" />
-              <StatCard icon={Users} label="Visiteurs uniques" value={uniqueVisitors} color="green" />
-              <StatCard icon={MousePointerClick} label="Clics CTA" value={clicks} color="amber" />
-              <StatCard icon={FileText} label="Demandes" value={submissions.length} color="purple" />
-            </div>
+        {/* Stat cards */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          <StatCard icon={Eye} label="Pages vues" value={pageViews} color="blue" />
+          <StatCard icon={Users} label="Visiteurs uniques" value={uniqueVisitors} color="green" />
+          <StatCard icon={MousePointerClick} label="Clics CTA" value={clicks} color="amber" />
+          <StatCard icon={FileText} label="Demandes" value={submissions.length} color="purple" />
+        </div>
 
-            {/* Charts row */}
-            <div className="grid lg:grid-cols-3 gap-4 mb-6">
-              {/* Area chart */}
-              <div className="lg:col-span-2 bg-[#1e293b] rounded-xl p-5 border border-slate-700/50">
-                <h3 className="text-sm font-medium text-slate-300 mb-4">
-                  Trafic ({period === "7d" ? "7 jours" : "30 jours"})
-                </h3>
-                {pageViews > 0 ? (
-                  <AreaChart data={chartData} />
-                ) : (
-                  <div className="h-[200px] flex items-center justify-center text-slate-500 text-sm">
-                    Pas encore de donnees
-                  </div>
-                )}
+        {/* Charts row */}
+        <div className="grid lg:grid-cols-3 gap-4 mb-6">
+          {/* Area chart */}
+          <div className="lg:col-span-2 bg-[#1e293b] rounded-xl p-5 border border-slate-700/50">
+            <h3 className="text-sm font-medium text-slate-300 mb-4">
+              Trafic ({period === "7d" ? "7 jours" : "30 jours"})
+            </h3>
+            {pageViews > 0 ? (
+              <AreaChart data={chartData} />
+            ) : (
+              <div className="h-[200px] flex items-center justify-center text-slate-500 text-sm">
+                Pas encore de donnees
               </div>
+            )}
+          </div>
 
-              {/* Donut */}
-              <div className="bg-[#1e293b] rounded-xl p-5 border border-slate-700/50">
-                <h3 className="text-sm font-medium text-slate-300 mb-4">
-                  Demandes par service
-                </h3>
-                {serviceDistribution.length > 0 ? (
-                  <DonutChart data={serviceDistribution} />
-                ) : (
-                  <div className="h-[160px] flex items-center justify-center text-slate-500 text-sm">
-                    Pas encore de donnees
-                  </div>
-                )}
+          {/* Donut */}
+          <div className="bg-[#1e293b] rounded-xl p-5 border border-slate-700/50">
+            <h3 className="text-sm font-medium text-slate-300 mb-4">
+              Demandes par service
+            </h3>
+            {serviceDistribution.length > 0 ? (
+              <DonutChart data={serviceDistribution} />
+            ) : (
+              <div className="h-[160px] flex items-center justify-center text-slate-500 text-sm">
+                Pas encore de donnees
               </div>
-            </div>
+            )}
+          </div>
+        </div>
 
-            {/* Bottom row */}
-            <div className="grid lg:grid-cols-2 gap-4">
-              {/* Top pages */}
-              <div className="bg-[#1e293b] rounded-xl p-5 border border-slate-700/50">
-                <h3 className="text-sm font-medium text-slate-300 mb-4">Pages les plus visitees</h3>
-                {topPages.length > 0 ? (
-                  <div className="space-y-3">
-                    {topPages.map((p) => (
-                      <BarRow
-                        key={p.page}
-                        label={p.page}
-                        value={p.count}
-                        max={topPages[0].count}
-                      />
-                    ))}
-                  </div>
-                ) : (
-                  <p className="text-slate-500 text-sm">Pas encore de donnees</p>
-                )}
+        {/* Bottom row */}
+        <div className="grid lg:grid-cols-2 gap-4">
+          {/* Top pages */}
+          <div className="bg-[#1e293b] rounded-xl p-5 border border-slate-700/50">
+            <h3 className="text-sm font-medium text-slate-300 mb-4">Pages les plus visitees</h3>
+            {topPages.length > 0 ? (
+              <div className="space-y-3">
+                {topPages.map((p) => (
+                  <BarRow
+                    key={p.page}
+                    label={p.page}
+                    value={p.count}
+                    max={topPages[0].count}
+                  />
+                ))}
               </div>
+            ) : (
+              <p className="text-slate-500 text-sm">Pas encore de donnees</p>
+            )}
+          </div>
 
-              {/* Top clicks */}
-              <div className="bg-[#1e293b] rounded-xl p-5 border border-slate-700/50">
-                <h3 className="text-sm font-medium text-slate-300 mb-4">Clics CTA</h3>
-                {clickEvents.length > 0 ? (
-                  <div className="space-y-3">
-                    {clickEvents.map((c) => (
-                      <BarRow
-                        key={c.element}
-                        label={c.element}
-                        value={c.count}
-                        max={clickEvents[0].count}
-                      />
-                    ))}
-                  </div>
-                ) : (
-                  <p className="text-slate-500 text-sm">Pas encore de donnees</p>
-                )}
+          {/* Top clicks */}
+          <div className="bg-[#1e293b] rounded-xl p-5 border border-slate-700/50">
+            <h3 className="text-sm font-medium text-slate-300 mb-4">Clics CTA</h3>
+            {clickEvents.length > 0 ? (
+              <div className="space-y-3">
+                {clickEvents.map((c) => (
+                  <BarRow
+                    key={c.element}
+                    label={c.element}
+                    value={c.count}
+                    max={clickEvents[0].count}
+                  />
+                ))}
               </div>
-            </div>
-          </>
-        ) : (
-          /* Submissions tab */
-          <SubmissionsTable
-            submissions={submissions}
-            onUpdateStatus={handleUpdateStatus}
-            onDelete={handleDelete}
-          />
-        )}
+            ) : (
+              <p className="text-slate-500 text-sm">Pas encore de donnees</p>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

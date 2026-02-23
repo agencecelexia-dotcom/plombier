@@ -1,4 +1,5 @@
 import { siteConfig } from "@/config/site";
+import { clientConfig } from "@/config/client.config";
 import type { FAQ, BreadcrumbItem } from "@/types";
 
 export function localBusinessSchema() {
@@ -23,8 +24,8 @@ export function localBusinessSchema() {
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: "45.7640",
-      longitude: "4.8357",
+      latitude: clientConfig.geo.latitude,
+      longitude: clientConfig.geo.longitude,
     },
     openingHoursSpecification: [
       {
@@ -51,10 +52,10 @@ export function localBusinessSchema() {
       "@type": "GeoCircle",
       geoMidpoint: {
         "@type": "GeoCoordinates",
-        latitude: "45.7640",
-        longitude: "4.8357",
+        latitude: clientConfig.geo.latitude,
+        longitude: clientConfig.geo.longitude,
       },
-      geoRadius: "30000",
+      geoRadius: String(Number(clientConfig.contact.zoneKm) * 1000),
     },
     sameAs: [
       siteConfig.social.facebook,

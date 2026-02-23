@@ -1,10 +1,12 @@
 import type { FAQ } from "@/types";
+import { siteConfig } from "@/config/site";
+import { clientConfig } from "@/config/client.config";
 
 export const faqGeneral: FAQ[] = [
   {
     question: "Quels sont vos délais d'intervention en urgence ?",
     answer:
-      "Pour les urgences plomberie (fuite d'eau, canalisation bouchée, panne de chaudière), nous intervenons en moins de 2 heures dans un rayon de 30 km autour de Lyon. Appelez-nous au 06 72 45 89 13.",
+      `Pour les urgences plomberie (fuite d'eau, canalisation bouchée, panne de chaudière), nous intervenons en moins de ${clientConfig.chiffres.delaiIntervention} dans un rayon de ${clientConfig.contact.zoneKm} km autour de ${siteConfig.address.city}. Appelez-nous au ${siteConfig.phone}.`,
   },
   {
     question: "Vos devis sont-ils gratuits ?",

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Lock, Eye, EyeOff, Loader2 } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -43,7 +44,7 @@ export default function AdminLoginPage() {
             <Lock className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-2xl font-bold text-white mb-1">Administration</h1>
-          <p className="text-slate-400 text-sm">Durand Plomberie</p>
+          <p className="text-slate-400 text-sm">{siteConfig.name}</p>
         </div>
 
         <form
