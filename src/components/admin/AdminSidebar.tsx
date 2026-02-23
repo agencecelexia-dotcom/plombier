@@ -1,13 +1,24 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { BarChart3, FileText, Settings, LogOut } from "lucide-react";
+import {
+  BarChart3,
+  FileText,
+  ImageIcon,
+  MessageSquareQuote,
+  Wrench,
+  FolderOpen,
+  LogOut,
+} from "lucide-react";
 import { siteConfig } from "@/config/site";
 
 const navItems = [
   { label: "Dashboard", href: "/admin/dashboard", icon: BarChart3 },
-  { label: "Demandes", href: "/admin/demandes", icon: FileText },
-  { label: "Contenu", href: "/admin/contenu", icon: Settings },
+  { label: "Contenu", href: "/admin/contenu", icon: FileText },
+  { label: "Photos", href: "/admin/photos", icon: ImageIcon },
+  { label: "Temoignages", href: "/admin/temoignages", icon: MessageSquareQuote },
+  { label: "Services", href: "/admin/services", icon: Wrench },
+  { label: "Projets", href: "/admin/projets", icon: FolderOpen },
 ];
 
 export function AdminSidebar() {

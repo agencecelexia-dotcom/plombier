@@ -120,16 +120,6 @@ export function ContenuClient() {
             </div>
           </Section>
 
-          {/* SEO */}
-          <Section title="SEO">
-            <div className="sm:col-span-2">
-              <ReadOnlyField label="Domaine" value={siteConfig.url} />
-            </div>
-            <div className="sm:col-span-2">
-              <ReadOnlyField label="Meta description" value={siteConfig.description} />
-            </div>
-          </Section>
-
           {/* Info note */}
           <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4 flex items-start gap-3">
             <Info className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
