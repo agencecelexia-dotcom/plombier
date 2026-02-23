@@ -9,6 +9,7 @@ import { CTASection } from "@/components/sections/CTASection";
 import { siteConfig } from "@/config/site";
 import { testimonials } from "@/config/testimonials";
 import { heroImages } from "@/config/images";
+import { avisClients, shared } from "@/config/content";
 
 export const metadata: Metadata = generatePageMetadata({
   title: `Avis clients plombier ${siteConfig.address.city}`,
@@ -21,7 +22,7 @@ export default function AvisClientsPage() {
     <>
       <HeroSection
         variant="page"
-        title="Avis clients — Ce qu'ils disent de nous"
+        title={avisClients.hero.title}
         subtitle={`${siteConfig.googleRating}/5 sur ${siteConfig.googleReviewCount} avis Google`}
         imagePlaceholder={{
           prompt: "Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste, ratio 21:9",
@@ -63,7 +64,7 @@ export default function AvisClientsPage() {
                 ))}
               </div>
               <p className="text-sm text-muted-foreground">
-                Basée sur {siteConfig.googleReviewCount} avis Google
+                {avisClients.ratingIntro(siteConfig.googleReviewCount)}
               </p>
             </div>
           </div>
@@ -84,15 +85,15 @@ export default function AvisClientsPage() {
             rel="noopener noreferrer"
             className="px-8 py-4 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-all inline-flex items-center gap-2"
           >
-            Voir tous les avis sur Google
+            {avisClients.voirGoogle}
             <ExternalLink className="w-4 h-4" />
           </a>
         </div>
       </SectionContainer>
 
       <CTASection
-        title="Vous aussi, faites-nous confiance"
-        subtitle="Demandez votre devis gratuit ou appelez-nous directement."
+        title={avisClients.cta.title}
+        subtitle={avisClients.cta.subtitle}
       />
     </>
   );

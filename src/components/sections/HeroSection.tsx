@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import SplitText from "@/components/animations/SplitText";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { siteConfig } from "@/config/site";
+import { heroSection, shared } from "@/config/content";
 import { cn } from "@/lib/utils";
 
 interface HeroSectionProps {
@@ -60,7 +61,7 @@ export function HeroSection({
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 className="inline-block text-xs font-semibold tracking-[0.3em] uppercase text-accent-400 mb-6"
               >
-                Plombier chauffagiste &mdash; {siteConfig.address.city}
+                {heroSection.eyebrow}
               </motion.span>
 
               {/* Title with word-by-word animation */}
@@ -215,14 +216,14 @@ export function HeroSection({
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent-500 px-8 py-4 text-base font-semibold text-primary-900 transition-colors hover:bg-accent-400"
               >
                 <Phone className="h-5 w-5" />
-                Appelez-nous &mdash; {siteConfig.phone}
+                {shared.cta.appelezNous}
               </a>
               <Link
                 href="/contact"
                 data-track="service-hero-devis"
                 className="inline-flex items-center justify-center rounded-lg border border-neutral-300 px-8 py-4 text-base font-semibold text-neutral-900 transition-colors hover:bg-neutral-100"
               >
-                Demander un devis gratuit
+                {shared.cta.demanderDevis}
               </Link>
             </div>
           </div>

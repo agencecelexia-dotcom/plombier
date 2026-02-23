@@ -9,6 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { siteConfig } from "@/config/site";
 import { faqDepannage } from "@/config/faq";
 import { heroImages } from "@/config/images";
+import { depannage, shared } from "@/config/content";
 
 export const metadata: Metadata = generatePageMetadata({
   title: `Plombier urgence ${siteConfig.address.city} | Intervention rapide 7j/7`,
@@ -16,31 +17,26 @@ export const metadata: Metadata = generatePageMetadata({
   path: "/depannage-plomberie",
 });
 
-const urgences = [
-  { icon: Droplets, title: "Fuite d'eau", desc: "Fuite sur canalisation, robinet, raccord ou chasse d'eau. Intervention rapide pour limiter les dégâts." },
-  { icon: AlertTriangle, title: "Dégât des eaux", desc: "Coupure d'eau, assèchement et réparation. Nous vous accompagnons pour le constat d'assurance." },
-  { icon: ShowerHead, title: "Canalisation bouchée", desc: "Débouchage WC, évier, douche ou canalisation principale par furet ou haute pression." },
-  { icon: Flame, title: "Panne de chaudière", desc: "Diagnostic et réparation de votre chaudière gaz ou pompe à chaleur, même le week-end." },
-];
+const urgenceIcons = [Droplets, AlertTriangle, ShowerHead, Flame];
 
-const etapes = [
-  { num: "1", title: "Vous appelez", desc: "Décrivez-nous votre problème par téléphone. Nous évaluons l'urgence et vous donnons un tarif indicatif." },
-  { num: "2", title: "On intervient sous 2h", desc: "Un technicien qualifié se déplace chez vous avec tout le matériel nécessaire." },
-  { num: "3", title: "Problème résolu", desc: "Réparation immédiate dans la majorité des cas. Facture claire, pas de mauvaise surprise." },
-];
+const serviceLiesLinks: Record<string, string> = {
+  "Plomberie": "/plomberie",
+  "Chauffage": "/chauffage",
+  "Chauffe-eau": "/chauffe-eau",
+};
 
 export default function DepannagePage() {
   return (
     <ServicePageLayout
       hero={{
-        title: `Plombier dépannage urgent à ${siteConfig.address.city} — Intervention en moins de 2h`,
-        subtitle: "Fuite d'eau, WC bouché, dégât des eaux ? Appelez maintenant.",
+        title: depannage.hero.title,
+        subtitle: depannage.hero.subtitle,
         imagePlaceholder: {
           prompt: "Plombier en intervention urgence la nuit, lampe frontale allumee, coupant l'arrivee d'eau principale dans une cave, expression concentree, eclairage dramatique, photo realiste, ratio 16:9",
           aspectRatio: "16/9",
           src: heroImages["depannage-plomberie"] || undefined,
         },
-        badges: ["Urgence 24h/24", "Intervention <2h", "7j/7"],
+        badges: depannage.hero.badges,
       }}
       breadcrumbs={[
         { label: "Accueil", href: "/" },
@@ -52,37 +48,40 @@ export default function DepannagePage() {
       {/* Urgences prises en charge */}
       <SectionContainer>
         <SectionHeading
-          title="Les urgences que nous prenons en charge"
-          subtitle="Quel que soit votre problème, nous avons la solution."
+          title={depannage.urgences.title}
+          subtitle={depannage.urgences.subtitle}
         />
         <div className="grid sm:grid-cols-2 gap-6">
-          {urgences.map((u) => (
-            <Card key={u.title} className="border-accent-500/20">
-              <CardContent className="p-6 flex gap-4">
-                <div className="w-12 h-12 rounded-lg bg-accent-500/10 flex items-center justify-center shrink-0">
-                  <u.icon className="w-6 h-6 text-accent-500" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-neutral-900 mb-1">{u.title}</h3>
-                  <p className="text-sm text-muted-foreground">{u.desc}</p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+          {depannage.urgences.items.map((u, i) => {
+            const Icon = urgenceIcons[i];
+            return (
+              <Card key={u.title} className="border-accent-500/20">
+                <CardContent className="p-6 flex gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-accent-500/10 flex items-center justify-center shrink-0">
+                    <Icon className="w-6 h-6 text-accent-500" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-neutral-900 mb-1">{u.title}</h3>
+                    <p className="text-sm text-muted-foreground">{u.desc}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </SectionContainer>
 
       {/* Comment ça marche */}
       <SectionContainer variant="gray">
         <SectionHeading
-          title="Comment ça marche ?"
-          subtitle="3 étapes simples pour un dépannage sans stress."
+          title={depannage.etapes.title}
+          subtitle={depannage.etapes.subtitle}
         />
         <div className="grid md:grid-cols-3 gap-8">
-          {etapes.map((e) => (
-            <div key={e.num} className="text-center">
+          {depannage.etapes.items.map((e, i) => (
+            <div key={e.title} className="text-center">
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary flex items-center justify-center">
-                <span className="text-2xl font-bold text-primary-foreground">{e.num}</span>
+                <span className="text-2xl font-bold text-primary-foreground">{i + 1}</span>
               </div>
               <h3 className="text-lg font-bold text-neutral-900 mb-2">{e.title}</h3>
               <p className="text-sm text-muted-foreground">{e.desc}</p>
@@ -95,7 +94,7 @@ export default function DepannagePage() {
             className="px-8 py-4 bg-accent-500 text-white font-semibold rounded-lg hover:bg-accent-600 shadow-lg transition-all inline-flex items-center gap-2"
           >
             <Phone className="w-5 h-5" />
-            Appelez maintenant — {siteConfig.phone}
+            {shared.cta.appelerMaintenant}
           </a>
         </div>
       </SectionContainer>
@@ -103,18 +102,12 @@ export default function DepannagePage() {
       {/* Tarifs indicatifs */}
       <SectionContainer variant="white">
         <SectionHeading
-          title="Tarifs indicatifs"
-          subtitle="Transparence totale sur nos prix. Le tarif exact vous est confirmé avant intervention."
+          title={depannage.tarifs.title}
+          subtitle={depannage.tarifs.subtitle}
         />
         <div className="max-w-2xl mx-auto">
           <div className="rounded-xl border overflow-hidden">
-            {[
-              { service: "Débouchage WC / évier", prix: "À partir de 89 EUR" },
-              { service: "Réparation fuite", prix: "À partir de 120 EUR" },
-              { service: "Remplacement robinet", prix: "À partir de 95 EUR" },
-              { service: "Dégât des eaux (intervention)", prix: "À partir de 150 EUR" },
-              { service: "Déplacement + diagnostic", prix: "À partir de 49 EUR" },
-            ].map((t, i) => (
+            {depannage.tarifs.items.map((t, i) => (
               <div key={t.service} className={`flex items-center justify-between px-6 py-4 ${i % 2 === 0 ? "bg-muted/50" : ""}`}>
                 <span className="text-sm font-medium">{t.service}</span>
                 <span className="text-sm font-semibold text-accent-500">{t.prix}</span>
@@ -122,18 +115,18 @@ export default function DepannagePage() {
             ))}
           </div>
           <p className="mt-4 text-xs text-muted-foreground text-center">
-            * Tarifs TTC indicatifs hors pièces. Supplément possible en soirée, week-end et jours fériés.
+            {depannage.tarifs.footnote}
           </p>
         </div>
       </SectionContainer>
 
       {/* Services liés */}
       <SectionContainer variant="gray">
-        <SectionHeading title="Services liés" />
+        <SectionHeading title={shared.sections.servicesLies} />
         <div className="flex flex-wrap justify-center gap-4">
-          <Link href="/plomberie" className="px-8 py-4 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-all">Plomberie</Link>
-          <Link href="/chauffage" className="px-8 py-4 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-all">Chauffage</Link>
-          <Link href="/chauffe-eau" className="px-8 py-4 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-all">Chauffe-eau</Link>
+          {depannage.servicesLies.map((label) => (
+            <Link key={label} href={serviceLiesLinks[label]} className="px-8 py-4 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-all">{label}</Link>
+          ))}
         </div>
       </SectionContainer>
     </ServicePageLayout>

@@ -2,20 +2,14 @@
 
 import FadeUp from "@/components/animations/FadeUp";
 import CountUp from "@/components/animations/CountUp";
-
-const stats = [
-  { value: 15, suffix: "+", label: "Années d'expérience" },
-  { value: 2000, suffix: "+", label: "Interventions" },
-  { value: 98, suffix: "%", label: "Clients satisfaits" },
-  { value: 7, suffix: "j/7", label: "Disponibilité" },
-];
+import { reassuranceBand } from "@/config/content";
 
 export function ReassuranceBand() {
   return (
     <section className="bg-primary-900 py-20" aria-label="Nos chiffres clés">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {stats.map((stat, i) => (
+          {reassuranceBand.stats.map((stat, i) => (
             <FadeUp key={stat.label} delay={i * 0.1}>
               <div className="text-center">
                 <span className="font-heading text-5xl md:text-6xl font-bold text-white">

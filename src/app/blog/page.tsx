@@ -7,6 +7,7 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionContainer } from "@/components/sections/SectionContainer";
 import { siteConfig } from "@/config/site";
 import { heroImages } from "@/config/images";
+import { blog, shared } from "@/config/content";
 
 export const metadata: Metadata = {
   ...generatePageMetadata({
@@ -22,8 +23,8 @@ export default function BlogPage() {
     <>
       <HeroSection
         variant="page"
-        title="Blog — Conseils et astuces plomberie"
-        subtitle="Retrouvez bientôt nos articles pour vous aider au quotidien."
+        title={blog.hero.title}
+        subtitle={blog.hero.subtitle}
         imagePlaceholder={{
           prompt: "Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste, ratio 21:9",
           aspectRatio: "21/9",
@@ -44,17 +45,17 @@ export default function BlogPage() {
         <div className="max-w-lg mx-auto text-center py-12">
           <BookOpen className="w-16 h-16 text-primary/20 mx-auto mb-6" />
           <h2 className="text-2xl font-heading font-bold text-neutral-900 mb-4">
-            Bientôt disponible
+            {blog.empty.title}
           </h2>
           <p className="text-muted-foreground mb-8 leading-relaxed">
-            Nous préparons des articles sur l&apos;entretien de votre plomberie, les économies d&apos;énergie, les aides pour la rénovation... Revenez bientôt !
+            {blog.empty.text}
           </p>
           <Link
             href="/"
             className="px-8 py-4 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-all inline-flex items-center gap-2"
           >
             <ArrowLeft className="w-4 h-4" />
-            Retour à l&apos;accueil
+            {shared.cta.retourAccueil}
           </Link>
         </div>
       </SectionContainer>

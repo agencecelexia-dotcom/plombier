@@ -6,6 +6,7 @@ import FadeIn from "@/components/animations/FadeIn";
 import FadeUp from "@/components/animations/FadeUp";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { siteConfig } from "@/config/site";
+import { urgencyProjectCards } from "@/config/content";
 import { sectionImages } from "@/config/images";
 
 export function UrgencyProjectCards() {
@@ -15,7 +16,7 @@ export function UrgencyProjectCards() {
         <FadeUp>
           <div className="text-center mb-12">
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-900">
-              Urgence ou projet ?
+              {urgencyProjectCards.title}
             </h2>
             <div className="mt-4 h-1 w-16 rounded-full bg-accent-500 mx-auto" />
           </div>
@@ -40,10 +41,10 @@ export function UrgencyProjectCards() {
                         <Phone className="w-8 h-8 text-white" />
                       </div>
                       <h3 className="font-heading text-2xl md:text-3xl font-bold text-white mb-2">
-                        J&apos;ai une urgence
+                        {urgencyProjectCards.urgency.title}
                       </h3>
                       <p className="text-neutral-300 mb-6">
-                        Fuite, dégât des eaux, canalisation bouchée...
+                        {urgencyProjectCards.urgency.subtitle}
                       </p>
                       <a
                         href={siteConfig.phoneHref}
@@ -51,7 +52,7 @@ export function UrgencyProjectCards() {
                         className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent-500 px-8 py-4 text-base font-semibold text-primary-900 transition-colors hover:bg-accent-400"
                       >
                         <Phone className="h-5 w-5" />
-                        Appeler maintenant
+                        {urgencyProjectCards.urgency.cta}
                       </a>
                     </div>
                   </ImagePlaceholder>
@@ -78,10 +79,10 @@ export function UrgencyProjectCards() {
                         <FileText className="w-8 h-8 text-white" />
                       </div>
                       <h3 className="font-heading text-2xl md:text-3xl font-bold text-white mb-2">
-                        Je planifie des travaux
+                        {urgencyProjectCards.project.title}
                       </h3>
                       <p className="text-neutral-300 mb-6">
-                        Rénovation, installation, remplacement...
+                        {urgencyProjectCards.project.subtitle}
                       </p>
                       <Link
                         href="/contact"
@@ -89,7 +90,7 @@ export function UrgencyProjectCards() {
                         className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-700 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-primary-600"
                       >
                         <FileText className="h-5 w-5" />
-                        Demander un devis gratuit
+                        {urgencyProjectCards.project.cta}
                       </Link>
                     </div>
                   </ImagePlaceholder>

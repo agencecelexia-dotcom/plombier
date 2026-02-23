@@ -9,8 +9,9 @@ import { CTASection } from "@/components/sections/CTASection";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { realisations } from "@/config/realisations";
 import { heroImages } from "@/config/images";
+import { realisationsPage } from "@/config/content";
 
-const categories = ["Tout", "Salle de bain", "Plomberie", "Chauffage", "Chauffe-eau"];
+const categories = realisationsPage.categories;
 
 export default function RealisationsClient() {
   const [activeCategory, setActiveCategory] = useState("Tout");
@@ -24,8 +25,8 @@ export default function RealisationsClient() {
     <>
       <HeroSection
         variant="page"
-        title="Nos réalisations — Avant / Après"
-        subtitle="Découvrez nos derniers chantiers en images. Chaque projet est réalisé avec soin et professionnalisme."
+        title={realisationsPage.hero.title}
+        subtitle={realisationsPage.hero.subtitle}
         imagePlaceholder={{
           prompt: "Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste, ratio 21:9",
           aspectRatio: "21/9",
@@ -65,14 +66,14 @@ export default function RealisationsClient() {
 
         {filtered.length === 0 && (
           <p className="text-center text-muted-foreground py-12">
-            Aucune réalisation dans cette catégorie pour le moment.
+            {realisationsPage.empty}
           </p>
         )}
       </SectionContainer>
 
       <CTASection
-        title="Vous avez un projet similaire ?"
-        subtitle="Contactez-nous pour un devis gratuit et personnalisé."
+        title={realisationsPage.cta.title}
+        subtitle={realisationsPage.cta.subtitle}
       />
     </>
   );

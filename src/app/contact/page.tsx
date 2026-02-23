@@ -9,6 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { siteConfig } from "@/config/site";
 import { heroImages } from "@/config/images";
+import { contact } from "@/config/content";
 
 export const metadata: Metadata = generatePageMetadata({
   title: `Contact plombier ${siteConfig.address.city} | Devis gratuit`,
@@ -21,8 +22,8 @@ export default function ContactPage() {
     <>
       <HeroSection
         variant="page"
-        title="Contactez-nous — Devis gratuit sous 48h"
-        subtitle="Remplissez le formulaire ou appelez-nous directement. Nous répondons à toutes les demandes."
+        title={contact.hero.title}
+        subtitle={contact.hero.subtitle}
         imagePlaceholder={{
           prompt: "Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste, ratio 21:9",
           aspectRatio: "21/9",
@@ -44,7 +45,7 @@ export default function ContactPage() {
           {/* Formulaire */}
           <div className="lg:col-span-3">
             <h2 className="text-2xl font-heading font-bold text-neutral-900 mb-6">
-              Demandez votre devis gratuit
+              {contact.formTitle}
             </h2>
             <ContactForm />
           </div>
@@ -52,7 +53,7 @@ export default function ContactPage() {
           {/* Infos contact */}
           <div className="lg:col-span-2">
             <h2 className="text-2xl font-heading font-bold text-neutral-900 mb-6">
-              Nos coordonnées
+              {contact.coordonnees.title}
             </h2>
 
             <Card>
@@ -65,7 +66,7 @@ export default function ContactPage() {
                     <Phone className="w-6 h-6 text-accent-500" />
                   </div>
                   <div>
-                    <p className="text-xs text-muted-foreground uppercase tracking-wide">Téléphone</p>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide">{contact.coordonnees.labels.telephone}</p>
                     <p className="text-xl font-bold text-neutral-900">{siteConfig.phone}</p>
                   </div>
                 </a>
@@ -77,7 +78,7 @@ export default function ContactPage() {
                     <Mail className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-xs text-muted-foreground uppercase tracking-wide">Email</p>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide">{contact.coordonnees.labels.email}</p>
                     <a href={`mailto:${siteConfig.email}`} className="text-sm font-medium hover:text-primary transition-colors">
                       {siteConfig.email}
                     </a>
@@ -91,7 +92,7 @@ export default function ContactPage() {
                     <MapPin className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-xs text-muted-foreground uppercase tracking-wide">Adresse</p>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide">{contact.coordonnees.labels.adresse}</p>
                     <p className="text-sm font-medium">
                       {siteConfig.address.street}
                       <br />
@@ -107,12 +108,12 @@ export default function ContactPage() {
                     <Clock className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-xs text-muted-foreground uppercase tracking-wide">Horaires</p>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide">{contact.coordonnees.labels.horaires}</p>
                     <div className="text-sm space-y-1">
-                      <p>Lun-Ven : {siteConfig.openingHours.weekdays}</p>
-                      <p>Samedi : {siteConfig.openingHours.saturday}</p>
+                      <p>{contact.coordonnees.horairesLabels.semaine} {siteConfig.openingHours.weekdays}</p>
+                      <p>{contact.coordonnees.horairesLabels.samedi} {siteConfig.openingHours.saturday}</p>
                       <p className="font-semibold text-accent-500">
-                        Urgences : {siteConfig.openingHours.emergency}
+                        {contact.coordonnees.horairesLabels.urgences} {siteConfig.openingHours.emergency}
                       </p>
                     </div>
                   </div>
@@ -130,7 +131,7 @@ export default function ContactPage() {
                 <div className="text-center p-4">
                   <MapPin className="w-10 h-10 text-primary/30 mx-auto mb-2" />
                   <p className="text-xs text-muted-foreground italic">
-                    Intégrer ici l&apos;iframe Google Maps avec la zone d&apos;intervention
+                    {contact.coordonnees.mapPlaceholder}
                   </p>
                 </div>
               </div>

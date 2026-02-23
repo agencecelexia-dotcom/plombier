@@ -18,6 +18,7 @@ import { realisations } from "@/config/realisations";
 import { testimonials } from "@/config/testimonials";
 import { faqGeneral } from "@/config/faq";
 import { heroImages } from "@/config/images";
+import { homepage, shared } from "@/config/content";
 
 export const metadata: Metadata = generatePageMetadata({
   title: `Plombier à ${siteConfig.address.city} | Dépannage 7j/7 — Devis Gratuit`,
@@ -34,8 +35,8 @@ export default function HomePage() {
       {/* Hero */}
       <HeroSection
         variant="home"
-        title={`Votre plombier à ${siteConfig.address.city} — Dépannage 7j/7, intervention rapide`}
-        subtitle="Fuite d'eau, WC bouché, panne de chaudière ? Devis gratuit sous 48h."
+        title={homepage.hero.title}
+        subtitle={homepage.hero.subtitle}
         imagePlaceholder={{
           prompt:
             "Plombier professionnel francais en uniforme bleu propre, agenouille sous un evier de cuisine moderne, reparant une canalisation avec une cle a molette, eclairage naturel chaleureux, interieur maison francaise contemporaine, photo realiste professionnelle, ratio 16:9",
@@ -47,15 +48,10 @@ export default function HomePage() {
           href: siteConfig.phoneHref,
         }}
         ctaSecondary={{
-          label: "Demander un devis gratuit",
+          label: homepage.hero.ctaSecondaryLabel,
           href: "/contact",
         }}
-        badges={[
-          "Intervention <2h",
-          "Décennale",
-          "Devis gratuit",
-          `${siteConfig.googleRating}/5 — ${siteConfig.googleReviewCount} avis Google`,
-        ]}
+        badges={homepage.hero.badges}
       />
 
       {/* Réassurance */}
@@ -67,8 +63,8 @@ export default function HomePage() {
       {/* Services */}
       <SectionContainer variant="white">
         <SectionHeading
-          title="Des solutions pour tous vos besoins"
-          subtitle="De l'urgence au projet de rénovation, notre équipe qualifiée intervient avec professionnalisme."
+          title={homepage.services.title}
+          subtitle={homepage.services.subtitle}
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => (
@@ -80,8 +76,8 @@ export default function HomePage() {
       {/* Réalisations */}
       <SectionContainer variant="gray">
         <SectionHeading
-          title="Nos réalisations"
-          subtitle="Découvrez nos derniers chantiers en images."
+          title={homepage.realisations.title}
+          subtitle={homepage.realisations.subtitle}
         />
         <div className="grid sm:grid-cols-2 gap-6">
           {featuredRealisations.map((real) => (
@@ -93,7 +89,7 @@ export default function HomePage() {
             href="/realisations"
             className="px-8 py-4 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-all inline-block"
           >
-            Voir toutes nos réalisations
+            {shared.cta.voirRealisations}
           </Link>
         </div>
       </SectionContainer>
@@ -101,7 +97,7 @@ export default function HomePage() {
       {/* Avis */}
       <SectionContainer variant="white">
         <SectionHeading
-          title="Ce que disent nos clients"
+          title={homepage.testimonials.title}
         />
         <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-2 mb-2">
@@ -124,7 +120,7 @@ export default function HomePage() {
             ))}
           </div>
           <p className="text-muted-foreground">
-            {siteConfig.googleReviewCount} avis Google
+            {siteConfig.googleReviewCount} {homepage.testimonials.ratingLabel}
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
@@ -137,7 +133,7 @@ export default function HomePage() {
             href="/avis-clients"
             className="px-8 py-4 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-all inline-block"
           >
-            Voir tous les avis
+            {shared.cta.voirAvis}
           </Link>
         </div>
       </SectionContainer>

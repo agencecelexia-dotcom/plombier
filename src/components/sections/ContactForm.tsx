@@ -12,15 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
-const serviceOptions = [
-  "Urgence / Depannage",
-  "Plomberie generale",
-  "Renovation salle de bain",
-  "Chauffage",
-  "Chauffe-eau",
-  "Autre",
-];
+import { contactForm, shared } from "@/config/content";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -66,10 +58,10 @@ export function ContactForm() {
       <div role="status" aria-live="polite" className="rounded-xl border border-neutral-200 bg-neutral-50 p-8 text-center">
         <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-4" />
         <h3 className="text-xl font-bold text-neutral-900 mb-2">
-          Demande envoyee !
+          {contactForm.success.title}
         </h3>
         <p className="text-neutral-600">
-          Nous vous recontactons sous 48h. Pour une urgence, appelez-nous directement.
+          {contactForm.success.text}
         </p>
       </div>
     );
@@ -80,7 +72,7 @@ export function ContactForm() {
       {error && (
         <div role="alert" className="flex items-center gap-2 p-3 rounded-lg bg-destructive/10 text-destructive text-sm">
           <AlertCircle className="w-4 h-4" />
-          Une erreur est survenue. Veuillez reessayer.
+          {contactForm.error}
         </div>
       )}
 
@@ -89,28 +81,28 @@ export function ContactForm() {
 
       <div className="grid sm:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label htmlFor="nom">Nom *</Label>
-          <Input id="nom" name="nom" required placeholder="Votre nom" className="focus:ring-accent-500 focus:border-accent-500" />
+          <Label htmlFor="nom">{contactForm.labels.nom}</Label>
+          <Input id="nom" name="nom" required placeholder={contactForm.placeholders.nom} className="focus:ring-accent-500 focus:border-accent-500" />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="telephone">Telephone *</Label>
-          <Input id="telephone" name="telephone" type="tel" required placeholder="06 XX XX XX XX" className="focus:ring-accent-500 focus:border-accent-500" />
+          <Label htmlFor="telephone">{contactForm.labels.telephone}</Label>
+          <Input id="telephone" name="telephone" type="tel" required placeholder={contactForm.placeholders.telephone} className="focus:ring-accent-500 focus:border-accent-500" />
         </div>
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="email">Email *</Label>
-        <Input id="email" name="email" type="email" required placeholder="votre@email.fr" className="focus:ring-accent-500 focus:border-accent-500" />
+        <Label htmlFor="email">{contactForm.labels.email}</Label>
+        <Input id="email" name="email" type="email" required placeholder={contactForm.placeholders.email} className="focus:ring-accent-500 focus:border-accent-500" />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="service">Type de besoin</Label>
+        <Label htmlFor="service">{contactForm.labels.service}</Label>
         <Select name="service">
           <SelectTrigger id="service">
-            <SelectValue placeholder="Selectionnez un service" />
+            <SelectValue placeholder={contactForm.placeholders.service} />
           </SelectTrigger>
           <SelectContent>
-            {serviceOptions.map((opt) => (
+            {contactForm.serviceOptions.map((opt) => (
               <SelectItem key={opt} value={opt}>
                 {opt}
               </SelectItem>
@@ -120,11 +112,11 @@ export function ContactForm() {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="message">Message (optionnel)</Label>
+        <Label htmlFor="message">{contactForm.labels.message}</Label>
         <Textarea
           id="message"
           name="message"
-          placeholder="Decrivez votre besoin..."
+          placeholder={contactForm.placeholders.message}
           rows={4}
           className="focus:ring-accent-500 focus:border-accent-500"
         />
@@ -139,7 +131,7 @@ export function ContactForm() {
           className="mt-1 w-4 h-4 accent-accent-500 rounded border-neutral-300"
         />
         <Label htmlFor="rgpd" className="text-xs text-neutral-500 font-normal leading-relaxed">
-          J&apos;accepte que mes donnees soient utilisees pour me recontacter dans le cadre de ma demande. Voir notre politique de confidentialite.
+          {contactForm.rgpd}
         </Label>
       </div>
 
@@ -149,7 +141,7 @@ export function ContactForm() {
         className="w-full h-12 bg-accent-500 text-white rounded-lg font-medium text-sm transition-all duration-200 hover:bg-accent-600 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none inline-flex items-center justify-center gap-2"
       >
         <Send className="w-4 h-4" />
-        {isSubmitting ? "Envoi en cours..." : "Envoyer ma demande"}
+        {isSubmitting ? shared.cta.envoiEnCours : shared.cta.envoyerDemande}
       </button>
     </form>
   );

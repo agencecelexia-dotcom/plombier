@@ -9,6 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { siteConfig } from "@/config/site";
 import { faqChauffeEau } from "@/config/faq";
 import { heroImages } from "@/config/images";
+import { chauffeEau, shared } from "@/config/content";
 
 export const metadata: Metadata = generatePageMetadata({
   title: `Remplacement chauffe-eau ${siteConfig.address.city} | Ballon thermodynamique`,
@@ -16,28 +17,19 @@ export const metadata: Metadata = generatePageMetadata({
   path: "/chauffe-eau",
 });
 
-const servicesChauffeEau = [
-  { icon: Zap, title: "Chauffe-eau électrique", desc: "Remplacement et installation de cumulus électrique, toutes capacités (75L à 300L). Intervention rapide en cas de panne." },
-  { icon: Leaf, title: "Ballon thermodynamique", desc: "Jusqu'à 3x moins d'électricité. Éligible aux aides de l'État. Amortissement en 3 à 5 ans." },
-  { icon: Wrench, title: "Détartrage et entretien", desc: "Prolongez la durée de vie de votre chauffe-eau. Le détartrage permet de maintenir les performances optimales." },
-  { icon: Droplets, title: "Dépannage", desc: "Plus d'eau chaude ? Fuite sur le groupe de sécurité ? Nous intervenons rapidement pour vous dépanner." },
-];
+const serviceIcons = [Zap, Leaf, Wrench, Droplets];
 
-const comparatif = [
-  { critere: "Consommation", electrique: "Élevée", thermo: "3x moins" },
-  { critere: "Prix installation", electrique: "500 - 1 200 EUR", thermo: "2 000 - 3 500 EUR" },
-  { critere: "Aides financières", electrique: "Aucune", thermo: "MaPrimeRénov', CEE" },
-  { critere: "Durée de vie", electrique: "10 - 15 ans", thermo: "15 - 20 ans" },
-  { critere: "Amortissement", electrique: "-", thermo: "3 à 5 ans" },
-  { critere: "Classe énergie", electrique: "C / D", thermo: "A / A+" },
-];
+const serviceLiesLinks: Record<string, string> = {
+  "Chauffage": "/chauffage",
+  "Dépannage plomberie": "/depannage-plomberie",
+};
 
 export default function ChauffeEauPage() {
   return (
     <ServicePageLayout
       hero={{
-        title: `Remplacement et installation chauffe-eau à ${siteConfig.address.city}`,
-        subtitle: "Électrique, thermodynamique, solaire. Conseil expert pour choisir la solution la plus adaptée à vos besoins.",
+        title: chauffeEau.hero.title,
+        subtitle: chauffeEau.hero.subtitle,
         imagePlaceholder: {
           prompt: "Technicien plombier installant un chauffe-eau thermodynamique neuf dans un garage propre, branchements electriques et hydrauliques visibles, photo realiste, ratio 16:9",
           aspectRatio: "16/9",
@@ -53,40 +45,43 @@ export default function ChauffeEauPage() {
       {/* Services */}
       <SectionContainer>
         <SectionHeading
-          title="Nos services chauffe-eau"
-          subtitle="Installation, remplacement, entretien et dépannage de tous types de chauffe-eau."
+          title={chauffeEau.services.title}
+          subtitle={chauffeEau.services.subtitle}
         />
         <div className="grid sm:grid-cols-2 gap-6">
-          {servicesChauffeEau.map((s) => (
-            <Card key={s.title}>
-              <CardContent className="p-6 flex gap-4">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                  <s.icon className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-neutral-900 mb-1">{s.title}</h3>
-                  <p className="text-sm text-muted-foreground">{s.desc}</p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+          {chauffeEau.services.items.map((s, i) => {
+            const Icon = serviceIcons[i];
+            return (
+              <Card key={s.title}>
+                <CardContent className="p-6 flex gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                    <Icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-neutral-900 mb-1">{s.title}</h3>
+                    <p className="text-sm text-muted-foreground">{s.desc}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </SectionContainer>
 
       {/* Comparatif */}
       <SectionContainer variant="gray">
         <SectionHeading
-          title="Électrique vs Thermodynamique"
-          subtitle="Comparez les deux technologies pour faire le bon choix."
+          title={chauffeEau.comparatif.title}
+          subtitle={chauffeEau.comparatif.subtitle}
         />
         <div className="max-w-3xl mx-auto">
           <div className="rounded-xl border overflow-hidden bg-white">
             <div className="grid grid-cols-3 bg-primary text-primary-foreground text-sm font-bold">
-              <div className="p-4">Critère</div>
-              <div className="p-4 text-center">Électrique</div>
-              <div className="p-4 text-center">Thermodynamique</div>
+              {chauffeEau.comparatif.headers.map((header) => (
+                <div key={header} className={`p-4 ${header !== chauffeEau.comparatif.headers[0] ? "text-center" : ""}`}>{header}</div>
+              ))}
             </div>
-            {comparatif.map((row, i) => (
+            {chauffeEau.comparatif.rows.map((row, i) => (
               <div key={row.critere} className={`grid grid-cols-3 text-sm ${i % 2 === 0 ? "bg-muted/30" : ""}`}>
                 <div className="p-4 font-medium">{row.critere}</div>
                 <div className="p-4 text-center text-muted-foreground">{row.electrique}</div>
@@ -99,10 +94,11 @@ export default function ChauffeEauPage() {
 
       {/* Services liés */}
       <SectionContainer variant="white">
-        <SectionHeading title="Services liés" />
+        <SectionHeading title={shared.sections.servicesLies} />
         <div className="flex flex-wrap justify-center gap-4">
-          <Link href="/chauffage" className="px-8 py-4 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-all">Chauffage</Link>
-          <Link href="/depannage-plomberie" className="px-8 py-4 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-all">Dépannage plomberie</Link>
+          {chauffeEau.servicesLies.map((label) => (
+            <Link key={label} href={serviceLiesLinks[label]} className="px-8 py-4 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-all">{label}</Link>
+          ))}
         </div>
       </SectionContainer>
     </ServicePageLayout>

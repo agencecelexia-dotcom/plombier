@@ -10,6 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CTASection } from "@/components/sections/CTASection";
 import { siteConfig } from "@/config/site";
 import { heroImages, pageImages } from "@/config/images";
+import { aPropos } from "@/config/content";
 
 export const metadata: Metadata = generatePageMetadata({
   title: `À propos — ${siteConfig.name}`,
@@ -17,26 +18,17 @@ export const metadata: Metadata = generatePageMetadata({
   path: "/a-propos",
 });
 
-const chiffres = [
-  { value: `${siteConfig.yearsExperience}+`, label: "Années d'expérience", icon: Clock },
-  { value: `${siteConfig.interventionsCount}+`, label: "Interventions réalisées", icon: Wrench },
-  { value: `${siteConfig.googleReviewCount}`, label: "Avis Google", icon: Users },
-  { value: `${siteConfig.googleRating}/5`, label: "Note moyenne", icon: Award },
-];
+const chiffresIcons = [Clock, Wrench, Users, Award];
 
-const valeurs = [
-  { icon: Clock, title: "Réactivité", desc: "Nous intervenons dans les meilleurs délais. En urgence, comptez moins de 2 heures." },
-  { icon: Heart, title: "Transparence", desc: "Devis détaillés, tarifs clairs, pas de mauvaise surprise. Vous savez exactement ce que vous payez." },
-  { icon: ShieldCheck, title: "Qualité", desc: "Travail soigné, matériaux de qualité, chantier propre. Nous garantissons la qualité de nos prestations." },
-];
+const valeursIcons = [Clock, Heart, ShieldCheck];
 
 export default function AProposPage() {
   return (
     <>
       <HeroSection
         variant="page"
-        title={`${siteConfig.name} — Votre plombier de confiance depuis ${siteConfig.yearsExperience} ans`}
-        subtitle="Professionnalisme, réactivité et transparence au service de votre confort."
+        title={aPropos.hero.title}
+        subtitle={aPropos.hero.subtitle}
         imagePlaceholder={{
           prompt: "Vue aerienne plongee d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumiere naturelle, tons chauds, photo realiste, ratio 21:9",
           aspectRatio: "21/9",
@@ -57,17 +49,11 @@ export default function AProposPage() {
       <SectionContainer>
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <SectionHeading title="Notre histoire" centered={false} />
+            <SectionHeading title={aPropos.histoire.title} centered={false} />
             <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                Fondé en {siteConfig.foundedYear} par {siteConfig.founder}, {siteConfig.name} est né d&apos;une passion pour le métier et d&apos;une conviction simple : un plombier doit être fiable, réactif et transparent.
-              </p>
-              <p>
-                Après {siteConfig.yearsExperience} ans d&apos;expérience et plus de {siteConfig.interventionsCount} interventions, nous restons fidèles à ces valeurs. Notre équipe de techniciens qualifiés intervient chaque jour dans la métropole lyonnaise pour des dépannages, installations et rénovations.
-              </p>
-              <p>
-                Certifiés RGE et couverts par une assurance décennale, nous accompagnons nos clients dans tous leurs projets de plomberie et de chauffage, du dépannage urgent à la rénovation complète.
-              </p>
+              {aPropos.histoire.paragraphs.map((paragraph, i) => (
+                <p key={i}>{paragraph}</p>
+              ))}
             </div>
           </div>
           <ImagePlaceholder
@@ -83,8 +69,8 @@ export default function AProposPage() {
       {/* Équipe */}
       <SectionContainer variant="gray">
         <SectionHeading
-          title="Notre équipe"
-          subtitle="Des professionnels qualifiés et passionnés à votre service."
+          title={aPropos.equipe.title}
+          subtitle={aPropos.equipe.subtitle}
         />
         <ImagePlaceholder
           prompt="Equipe de 2-3 plombiers en uniforme bleu propre devant camionnette utilitaire blanche avec logo, souriant, parking exterieur, lumiere naturelle, photo realiste, ratio 3:2"
@@ -97,53 +83,55 @@ export default function AProposPage() {
 
       {/* Chiffres clés */}
       <SectionContainer variant="warm">
-        <SectionHeading title="En quelques chiffres" />
+        <SectionHeading title={aPropos.chiffres.title} />
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {chiffres.map((c) => (
-            <div key={c.label} className="text-center">
-              <c.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-              <div className="text-3xl md:text-4xl font-bold text-neutral-900 mb-1">
-                {c.value}
+          {aPropos.chiffres.items.map((c, i) => {
+            const Icon = chiffresIcons[i];
+            return (
+              <div key={c.label} className="text-center">
+                <Icon className="w-8 h-8 text-primary mx-auto mb-3" />
+                <div className="text-3xl md:text-4xl font-bold text-neutral-900 mb-1">
+                  {c.value}
+                </div>
+                <p className="text-sm text-muted-foreground">{c.label}</p>
               </div>
-              <p className="text-sm text-muted-foreground">{c.label}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </SectionContainer>
 
       {/* Valeurs */}
       <SectionContainer variant="white">
-        <SectionHeading title="Nos valeurs" />
+        <SectionHeading title={aPropos.valeurs.title} />
         <div className="grid md:grid-cols-3 gap-8">
-          {valeurs.map((v) => (
-            <Card key={v.title}>
-              <CardContent className="p-6 text-center">
-                <v.icon className="w-10 h-10 text-primary mx-auto mb-4" />
-                <h3 className="text-lg font-bold text-neutral-900 mb-2">{v.title}</h3>
-                <p className="text-sm text-muted-foreground">{v.desc}</p>
-              </CardContent>
-            </Card>
-          ))}
+          {aPropos.valeurs.items.map((v, i) => {
+            const Icon = valeursIcons[i];
+            return (
+              <Card key={v.title}>
+                <CardContent className="p-6 text-center">
+                  <Icon className="w-10 h-10 text-primary mx-auto mb-4" />
+                  <h3 className="text-lg font-bold text-neutral-900 mb-2">{v.title}</h3>
+                  <p className="text-sm text-muted-foreground">{v.desc}</p>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </SectionContainer>
 
       {/* Certifications */}
       <SectionContainer variant="gray">
         <SectionHeading
-          title="Certifications et assurances"
-          subtitle="Votre tranquillité d'esprit est notre priorité."
+          title={aPropos.certifications.title}
+          subtitle={aPropos.certifications.subtitle}
         />
         <div className="max-w-2xl mx-auto space-y-4">
-          {[
-            { label: "Certification RGE QualiPAC", detail: siteConfig.rge },
-            { label: "Assurance décennale", detail: siteConfig.assuranceDecennale },
-            { label: "SIRET", detail: siteConfig.siret },
-          ].map((cert) => (
+          {aPropos.certifications.items.map((cert) => (
             <div key={cert.label} className="flex items-center gap-3 p-4 rounded-lg bg-white">
               <CheckCircle className="w-5 h-5 text-accent-500 shrink-0" />
               <div>
                 <span className="font-medium text-sm">{cert.label}</span>
-                <span className="text-sm text-muted-foreground ml-2">{cert.detail}</span>
+                <span className="text-sm text-muted-foreground ml-2">{cert.value}</span>
               </div>
             </div>
           ))}

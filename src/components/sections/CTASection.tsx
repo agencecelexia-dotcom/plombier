@@ -5,6 +5,7 @@ import { Phone } from "lucide-react";
 import FadeUp from "@/components/animations/FadeUp";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { siteConfig } from "@/config/site";
+import { ctaSection } from "@/config/content";
 import { sectionImages } from "@/config/images";
 
 interface CTASectionProps {
@@ -14,7 +15,7 @@ interface CTASectionProps {
 }
 
 export function CTASection({
-  title = "Un projet ? Une urgence ? Contactez-nous maintenant.",
+  title = ctaSection.defaultTitle,
   subtitle,
   variant = "devis",
 }: CTASectionProps) {
@@ -52,7 +53,7 @@ export function CTASection({
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent-500 px-8 py-4 text-base font-semibold text-primary-900 transition-colors hover:bg-accent-400"
               >
                 <Phone className="h-5 w-5" />
-                Appelez maintenant &mdash; {siteConfig.phone}
+                {ctaSection.ctaPrimary}
               </a>
             )}
             {(variant === "devis" || variant === "contact") && (
@@ -61,7 +62,7 @@ export function CTASection({
                 data-track="cta-devis-bandeau"
                 className="inline-flex items-center justify-center rounded-lg border border-white/40 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-white/10"
               >
-                Demander un devis gratuit
+                {ctaSection.ctaSecondary}
               </Link>
             )}
           </div>
