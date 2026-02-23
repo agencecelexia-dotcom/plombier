@@ -61,12 +61,12 @@ LONGITUDE: "0"
 COMMUNES: "{COMMUNE_1}:{CODE_POSTAL_1}|{COMMUNE_2}:{CODE_POSTAL_2}|{COMMUNE_3}:{CODE_POSTAL_3}"
 
 ## SERVICES (6 services — titre | description courte | description longue | icône Lucide | slug)
-SERVICE_1: "{SERVICE_1_TITRE}|{SERVICE_1_DESC_COURTE}|{SERVICE_1_DESC_LONGUE}|Siren|/depannage-plomberie"
-SERVICE_2: "{SERVICE_2_TITRE}|{SERVICE_2_DESC_COURTE}|{SERVICE_2_DESC_LONGUE}|Wrench|/plomberie"
-SERVICE_3: "{SERVICE_3_TITRE}|{SERVICE_3_DESC_COURTE}|{SERVICE_3_DESC_LONGUE}|Bath|/renovation-salle-de-bain"
-SERVICE_4: "{SERVICE_4_TITRE}|{SERVICE_4_DESC_COURTE}|{SERVICE_4_DESC_LONGUE}|Flame|/chauffage"
-SERVICE_5: "{SERVICE_5_TITRE}|{SERVICE_5_DESC_COURTE}|{SERVICE_5_DESC_LONGUE}|Droplets|/chauffe-eau"
-SERVICE_6: "{SERVICE_6_TITRE}|{SERVICE_6_DESC_COURTE}|{SERVICE_6_DESC_LONGUE}|ClipboardCheck|/chauffage#entretien"
+SERVICE_1: "Dépannage urgent|Intervention rapide en moins de 2h pour toutes vos urgences plomberie.|Fuite d'eau, canalisation bouchée, dégât des eaux, panne de chaudière... Notre équipe intervient en urgence 7j/7 dans un rayon de 30 km autour de Lyon. Diagnostic sur place et réparation immédiate dans la majorité des cas.|Siren|/depannage-plomberie"
+SERVICE_2: "Plomberie générale|Installation, remplacement et mise aux normes de vos équipements.|Robinetterie, tuyauterie, raccordements, WC, éviers, recherche de fuite... Nous intervenons pour tous vos travaux de plomberie, de l'installation neuve à la mise aux normes de vos installations existantes.|Wrench|/plomberie"
+SERVICE_3: "Salle de bain|Rénovation complète, douche italienne, adaptation PMR.|De la conception à la réalisation, nous prenons en charge votre projet de rénovation de salle de bain. Douche italienne, remplacement baignoire, accessibilité PMR, meuble vasque... Un interlocuteur unique du début à la fin.|Bath|/renovation-salle-de-bain"
+SERVICE_4: "Chauffage|Chaudière, pompe à chaleur, plancher chauffant, entretien annuel.|Installation et remplacement de chaudière gaz condensation, pompe à chaleur air-eau, plancher chauffant, radiateurs. Entretien annuel obligatoire et dépannage de votre système de chauffage.|Flame|/chauffage"
+SERVICE_5: "Chauffe-eau|Remplacement, ballon thermodynamique, détartrage.|Remplacement de chauffe-eau électrique ou gaz, installation de ballon thermodynamique pour réduire votre facture énergétique. Détartrage et entretien pour prolonger la durée de vie de votre équipement.|Droplets|/chauffe-eau"
+SERVICE_6: "Entretien|Contrats d'entretien chaudière et maintenance préventive.|L'entretien annuel de votre chaudière est obligatoire. Nous proposons des contrats d'entretien incluant la visite annuelle, le dépannage prioritaire et les pièces d'usure.|ClipboardCheck|/chauffage#entretien"
 
 ## TÉMOIGNAGES (nom | note | texte | date | source)
 TEMOIGNAGE_1: "{TEMOIN_1_NOM}|5|{TEMOIN_1_TEXTE}|{TEMOIN_1_DATE}|Google"
