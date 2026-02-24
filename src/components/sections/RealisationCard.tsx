@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { realisationImages } from "@/config/images";
@@ -9,7 +11,10 @@ interface RealisationCardProps {
 
 export function RealisationCard({ realisation }: RealisationCardProps) {
   return (
-    <div className="group rounded-2xl overflow-hidden border border-neutral-200 bg-card">
+    <Link
+      href={`/realisations/${realisation.id}`}
+      className="group block rounded-2xl overflow-hidden border border-neutral-200 bg-card hover:border-primary-900 hover:shadow-lg transition-all duration-300"
+    >
       <div className="grid grid-cols-2">
         <div className="relative overflow-hidden">
           <div className="absolute top-2 left-2 z-10">
@@ -49,11 +54,17 @@ export function RealisationCard({ realisation }: RealisationCardProps) {
             {realisation.city}
           </span>
         </div>
-        <h3 className="font-semibold text-sm text-neutral-900">{realisation.title}</h3>
+        <h3 className="font-semibold text-sm text-neutral-900 group-hover:text-primary-900 transition-colors">
+          {realisation.title}
+        </h3>
         <p className="text-xs text-neutral-600 mt-1 line-clamp-2">
           {realisation.description}
         </p>
+        <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-accent-600 group-hover:text-accent-500 transition-colors">
+          Voir le avant / apres
+          <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+        </span>
       </div>
-    </div>
+    </Link>
   );
 }
