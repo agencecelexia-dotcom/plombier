@@ -8,7 +8,6 @@ import {
   MessageSquareQuote,
   Wrench,
   FolderOpen,
-  Search,
   LogOut,
   Droplets,
   Menu,
@@ -20,7 +19,6 @@ export type AdminTab =
   | "dashboard"
   | "contenu"
   | "photos"
-  | "seo"
   | "services"
   | "temoignages"
   | "projets";
@@ -29,7 +27,6 @@ const navItems: { label: string; tab: AdminTab; icon: React.ElementType }[] = [
   { label: "Dashboard", tab: "dashboard", icon: BarChart3 },
   { label: "Contenu", tab: "contenu", icon: FileText },
   { label: "Photos", tab: "photos", icon: ImageIcon },
-  { label: "SEO", tab: "seo", icon: Search },
   { label: "Services", tab: "services", icon: Wrench },
   { label: "Temoignages", tab: "temoignages", icon: MessageSquareQuote },
   { label: "Projets", tab: "projets", icon: FolderOpen },

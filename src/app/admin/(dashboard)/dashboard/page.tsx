@@ -5,7 +5,6 @@ import { AdminSidebar, type AdminTab } from "@/components/admin/AdminSidebar";
 import DashboardTab from "@/components/admin/DashboardTab";
 import ContenuTab from "@/components/admin/ContenuTab";
 import PhotosTab from "@/components/admin/PhotosTab";
-import SeoTab from "@/components/admin/SeoTab";
 import ServicesTab from "@/components/admin/ServicesTab";
 import TemoignagesTab from "@/components/admin/TemoignagesTab";
 import ProjetsTab from "@/components/admin/ProjetsTab";
@@ -15,7 +14,6 @@ const renderTab = (tab: AdminTab) => {
     case "dashboard": return <DashboardTab />;
     case "contenu": return <ContenuTab />;
     case "photos": return <PhotosTab />;
-    case "seo": return <SeoTab />;
     case "services": return <ServicesTab />;
     case "temoignages": return <TemoignagesTab />;
     case "projets": return <ProjetsTab />;
