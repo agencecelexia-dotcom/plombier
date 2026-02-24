@@ -10,26 +10,27 @@ import ServicesTab from "@/components/admin/ServicesTab";
 import TemoignagesTab from "@/components/admin/TemoignagesTab";
 import ProjetsTab from "@/components/admin/ProjetsTab";
 
-const TABS: Record<AdminTab, React.ComponentType> = {
-  dashboard: DashboardTab,
-  contenu: ContenuTab,
-  photos: PhotosTab,
-  seo: SeoTab,
-  services: ServicesTab,
-  temoignages: TemoignagesTab,
-  projets: ProjetsTab,
+const renderTab = (tab: AdminTab) => {
+  switch (tab) {
+    case "dashboard": return <DashboardTab />;
+    case "contenu": return <ContenuTab />;
+    case "photos": return <PhotosTab />;
+    case "seo": return <SeoTab />;
+    case "services": return <ServicesTab />;
+    case "temoignages": return <TemoignagesTab />;
+    case "projets": return <ProjetsTab />;
+  }
 };
 
 export default function AdminDashboardPage() {
   const [activeTab, setActiveTab] = useState<AdminTab>("dashboard");
-  const ActiveComponent = TABS[activeTab];
 
   return (
-    <div className="flex min-h-screen bg-neutral-50">
+    <div className="fixed inset-0 z-50 flex overflow-hidden bg-neutral-50">
       <AdminSidebar activeTab={activeTab} onTabChange={setActiveTab} />
-      <main className="flex-1 overflow-auto pt-14 lg:pt-0">
-        <div className="mx-auto max-w-7xl p-6">
-          <ActiveComponent />
+      <main className="flex-1 overflow-y-auto">
+        <div className="mx-auto max-w-7xl px-6 pb-6 pt-16 lg:p-8">
+          {renderTab(activeTab)}
         </div>
       </main>
     </div>

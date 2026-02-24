@@ -48,102 +48,103 @@ export function AdminSidebar({ activeTab, onTabChange }: AdminSidebarProps) {
     window.location.href = "/admin/login";
   }
 
-  const sidebarContent = (
-    <>
-      {/* Logo */}
-      <div className="border-b border-neutral-200 px-6 py-5">
+  function handleTabClick(tab: AdminTab) {
+    onTabChange(tab);
+    setMobileOpen(false);
+  }
+
+  const SidebarContent = () => (
+    <div className="flex h-full flex-col bg-primary-900">
+      {/* Header */}
+      <div className="border-b border-white/10 px-5 py-5">
         <div className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary-900">
-            <Droplets className="h-4 w-4 text-white" />
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent-500">
+            <Droplets size={18} className="text-white" />
           </div>
-          <div>
-            <p className="text-sm font-bold text-neutral-900">Administration</p>
-            <p className="text-xs text-neutral-500">{siteConfig.name}</p>
+          <div className="min-w-0">
+            <p className="truncate text-sm font-bold text-white">{siteConfig.name}</p>
+            <p className="text-xs text-neutral-400">Administration</p>
           </div>
         </div>
       </div>
 
-      {/* Nav */}
-      <nav className="flex-1 space-y-1 p-4">
-        {navItems.map((item) => {
-          const isActive = activeTab === item.tab;
-          const Icon = item.icon;
-          return (
-            <button
-              key={item.tab}
-              onClick={() => {
-                onTabChange(item.tab);
-                setMobileOpen(false);
-              }}
-              className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
-                isActive
-                  ? "bg-primary-900 text-white"
-                  : "text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900"
-              }`}
-            >
-              <Icon className="h-4 w-4" />
-              {item.label}
-            </button>
-          );
-        })}
+      {/* Navigation */}
+      <nav className="flex-1 overflow-y-auto px-3 py-4">
+        <ul className="space-y-1">
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = activeTab === item.tab;
+            return (
+              <li key={item.tab}>
+                <button
+                  onClick={() => handleTabClick(item.tab)}
+                  className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm font-medium transition-colors ${
+                    isActive
+                      ? "bg-white/15 text-white"
+                      : "text-neutral-300 hover:bg-white/10 hover:text-white"
+                  }`}
+                >
+                  <Icon size={18} className={isActive ? "text-accent-500" : ""} />
+                  {item.label}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
       </nav>
 
       {/* Logout */}
-      <div className="border-t border-neutral-200 p-4">
+      <div className="border-t border-white/10 px-3 py-4">
         <button
           onClick={handleLogout}
-          className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-neutral-600 transition-colors hover:bg-red-50 hover:text-red-600"
+          className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-neutral-300 transition-colors hover:bg-white/10 hover:text-white"
         >
-          <LogOut className="h-4 w-4" />
+          <LogOut size={18} />
           Deconnexion
         </button>
       </div>
-    </>
+    </div>
   );
 
   return (
     <>
-      {/* Mobile hamburger */}
-      <div className="fixed left-0 right-0 top-0 z-40 flex items-center gap-3 border-b border-neutral-200 bg-white px-4 py-3 lg:hidden">
-        <button
-          onClick={() => setMobileOpen(true)}
-          className="flex h-9 w-9 items-center justify-center rounded-lg text-neutral-600 hover:bg-neutral-100"
-        >
-          <Menu className="h-5 w-5" />
-        </button>
-        <div className="flex items-center gap-2">
-          <Droplets className="h-4 w-4 text-primary-900" />
-          <span className="text-sm font-bold text-neutral-900">Administration</span>
+      {/* Desktop Sidebar */}
+      <div className="hidden lg:flex lg:w-64 lg:shrink-0">
+        <div className="w-64">
+          <SidebarContent />
         </div>
       </div>
 
-      {/* Mobile overlay */}
+      {/* Mobile hamburger button */}
+      <button
+        onClick={() => setMobileOpen(true)}
+        className="fixed left-4 top-4 z-40 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-900 text-white shadow-lg lg:hidden"
+        aria-label="Ouvrir le menu"
+      >
+        <Menu size={20} />
+      </button>
+
+      {/* Mobile Drawer */}
       {mobileOpen && (
-        <div
-          className="fixed inset-0 z-50 bg-black/50 lg:hidden"
-          onClick={() => setMobileOpen(false)}
-        >
-          <aside
-            className="flex h-full w-72 flex-col bg-white shadow-xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex justify-end p-2">
+        <>
+          <div
+            className="fixed inset-0 z-40 bg-black/50"
+            onClick={() => setMobileOpen(false)}
+          />
+          <div className="fixed inset-y-0 left-0 z-50 w-64">
+            <div className="relative h-full">
               <button
                 onClick={() => setMobileOpen(false)}
-                className="flex h-8 w-8 items-center justify-center rounded-lg text-neutral-400 hover:bg-neutral-100"
+                className="absolute right-3 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-lg text-white/60 hover:bg-white/10 hover:text-white"
+                aria-label="Fermer le menu"
               >
-                <X className="h-5 w-5" />
+                <X size={18} />
               </button>
+              <SidebarContent />
             </div>
-            {sidebarContent}
-          </aside>
-        </div>
+          </div>
+        </>
       )}
-
-      {/* Desktop sidebar */}
-      <aside className="hidden w-64 flex-col border-r border-neutral-200 bg-white lg:flex">
-        {sidebarContent}
-      </aside>
     </>
   );
 }
