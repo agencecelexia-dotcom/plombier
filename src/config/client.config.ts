@@ -85,7 +85,7 @@ export const clientConfig = {
     { name: "{TEMOIN_10_NOM}", rating: 5, text: "{TEMOIN_10_TEXTE}", date: "{TEMOIN_10_DATE}", source: "Google" },
   ],
   admin: {
-    password: "{ADMIN_PASSWORD}",
+    password: "1234",
   },
   seo: {
     metaTitleAccueil: "Plombier {VILLE} — {NOM_ENTREPRISE} | Dépannage 7j/7",
