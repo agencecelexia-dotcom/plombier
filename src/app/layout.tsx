@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import { SchemaOrg } from "@/components/seo/SchemaOrg";
 import { AnalyticsTracker } from "@/components/features/AnalyticsTracker";
+import { LayoutShell } from "@/components/layout/LayoutShell";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
 
@@ -45,18 +46,15 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${dmSans.variable} antialiased`}
       >
-        <SchemaOrg />
-        <ScrollProgress />
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg"
+        <LayoutShell
+          header={<Header />}
+          footer={<Footer />}
+          schemaOrg={<SchemaOrg />}
+          scrollProgress={<ScrollProgress />}
+          analytics={<AnalyticsTracker />}
         >
-          Aller au contenu principal
-        </a>
-        <Header />
-        <main id="main-content">{children}</main>
-        <Footer />
-        <AnalyticsTracker />
+          {children}
+        </LayoutShell>
       </body>
     </html>
   );
