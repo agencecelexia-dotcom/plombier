@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
 import {
   BarChart3,
   FileText,
@@ -8,76 +8,142 @@ import {
   MessageSquareQuote,
   Wrench,
   FolderOpen,
+  Search,
   LogOut,
+  Droplets,
+  Menu,
+  X,
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
-const navItems = [
-  { label: "Dashboard", href: "/admin/dashboard", icon: BarChart3 },
-  { label: "Contenu", href: "/admin/contenu", icon: FileText },
-  { label: "Photos", href: "/admin/photos", icon: ImageIcon },
-  { label: "Temoignages", href: "/admin/temoignages", icon: MessageSquareQuote },
-  { label: "Services", href: "/admin/services", icon: Wrench },
-  { label: "Projets", href: "/admin/projets", icon: FolderOpen },
+export type AdminTab =
+  | "dashboard"
+  | "contenu"
+  | "photos"
+  | "seo"
+  | "services"
+  | "temoignages"
+  | "projets";
+
+const navItems: { label: string; tab: AdminTab; icon: React.ElementType }[] = [
+  { label: "Dashboard", tab: "dashboard", icon: BarChart3 },
+  { label: "Contenu", tab: "contenu", icon: FileText },
+  { label: "Photos", tab: "photos", icon: ImageIcon },
+  { label: "SEO", tab: "seo", icon: Search },
+  { label: "Services", tab: "services", icon: Wrench },
+  { label: "Temoignages", tab: "temoignages", icon: MessageSquareQuote },
+  { label: "Projets", tab: "projets", icon: FolderOpen },
 ];
 
-export function AdminSidebar() {
-  const pathname = usePathname();
-  const router = useRouter();
+interface AdminSidebarProps {
+  activeTab: AdminTab;
+  onTabChange: (tab: AdminTab) => void;
+}
+
+export function AdminSidebar({ activeTab, onTabChange }: AdminSidebarProps) {
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   async function handleLogout() {
     await fetch("/api/admin/logout", { method: "POST" });
-    router.push("/admin/login");
+    window.location.href = "/admin/login";
   }
 
-  return (
-    <aside className="w-64 bg-[#1e293b] border-r border-slate-700/50 min-h-screen flex flex-col">
+  const sidebarContent = (
+    <>
       {/* Logo */}
-      <div className="p-6 border-b border-slate-700/50">
+      <div className="border-b border-neutral-200 px-6 py-5">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
-            <BarChart3 className="w-4 h-4 text-white" />
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary-900">
+            <Droplets className="h-4 w-4 text-white" />
           </div>
           <div>
-            <p className="font-bold text-white text-sm">Administration</p>
-            <p className="text-xs text-slate-400">{siteConfig.name}</p>
+            <p className="text-sm font-bold text-neutral-900">Administration</p>
+            <p className="text-xs text-neutral-500">{siteConfig.name}</p>
           </div>
         </div>
       </div>
 
       {/* Nav */}
-      <nav className="flex-1 p-4 space-y-1">
+      <nav className="flex-1 space-y-1 p-4">
         {navItems.map((item) => {
-          const isActive =
-            pathname === item.href || pathname.startsWith(item.href + "/");
+          const isActive = activeTab === item.tab;
           const Icon = item.icon;
           return (
-            <a
-              key={item.href}
-              href={item.href}
-              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+            <button
+              key={item.tab}
+              onClick={() => {
+                onTabChange(item.tab);
+                setMobileOpen(false);
+              }}
+              className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
                 isActive
-                  ? "bg-blue-600 text-white"
-                  : "text-slate-400 hover:text-white hover:bg-slate-700/50"
+                  ? "bg-primary-900 text-white"
+                  : "text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900"
               }`}
             >
-              <Icon className="w-4 h-4" />
+              <Icon className="h-4 w-4" />
               {item.label}
-            </a>
+            </button>
           );
         })}
       </nav>
 
       {/* Logout */}
-      <div className="p-4 border-t border-slate-700/50">
+      <div className="border-t border-neutral-200 p-4">
         <button
           onClick={handleLogout}
-          className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-400 hover:text-red-400 hover:bg-red-500/10 transition-colors w-full"
+          className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-neutral-600 transition-colors hover:bg-red-50 hover:text-red-600"
         >
-          <LogOut className="w-4 h-4" />
+          <LogOut className="h-4 w-4" />
           Deconnexion
         </button>
       </div>
-    </aside>
+    </>
+  );
+
+  return (
+    <>
+      {/* Mobile hamburger */}
+      <div className="fixed left-0 right-0 top-0 z-40 flex items-center gap-3 border-b border-neutral-200 bg-white px-4 py-3 lg:hidden">
+        <button
+          onClick={() => setMobileOpen(true)}
+          className="flex h-9 w-9 items-center justify-center rounded-lg text-neutral-600 hover:bg-neutral-100"
+        >
+          <Menu className="h-5 w-5" />
+        </button>
+        <div className="flex items-center gap-2">
+          <Droplets className="h-4 w-4 text-primary-900" />
+          <span className="text-sm font-bold text-neutral-900">Administration</span>
+        </div>
+      </div>
+
+      {/* Mobile overlay */}
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 z-50 bg-black/50 lg:hidden"
+          onClick={() => setMobileOpen(false)}
+        >
+          <aside
+            className="flex h-full w-72 flex-col bg-white shadow-xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex justify-end p-2">
+              <button
+                onClick={() => setMobileOpen(false)}
+                className="flex h-8 w-8 items-center justify-center rounded-lg text-neutral-400 hover:bg-neutral-100"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            {sidebarContent}
+          </aside>
+        </div>
+      )}
+
+      {/* Desktop sidebar */}
+      <aside className="hidden w-64 flex-col border-r border-neutral-200 bg-white lg:flex">
+        {sidebarContent}
+      </aside>
+    </>
   );
 }
