@@ -242,6 +242,17 @@ export function Footer() {
               </Link>
             </div>
           </div>
+          <div className="mt-4 text-center text-xs text-neutral-600">
+            Site con&ccedil;u par{" "}
+            <a
+              href="https://agencecelexia.fr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-neutral-400 hover:text-accent-400 transition-colors duration-200"
+            >
+              Agence Celexia
+            </a>
+          </div>
         </div>
       </div>
     </footer>
