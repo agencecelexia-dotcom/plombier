@@ -45,7 +45,7 @@
     "telephone": "07 82 15 63 49",
     "email": "n.girard@laposte.net",
     "service": "Renovation salle de bain",
-    "message": "Bonjour, nous envisageons la rénovation complète de notre salle de bain (environ 6m²). Nous aimerions remplacer la baignoire par une douche à l'italienne et refaire toute la plomberie. Pourriez-vous passer pour un devis ? Nous sommes dans le 3ème arrondissement de Lyon.",
+    "message": "Bonjour, nous envisageons la rénovation complète de notre salle de bain (environ 6m²). Nous aimerions remplacer la baignoire par une douche à l'italienne et refaire toute la plomberie. Pourriez-vous passer pour un devis ? Nous sommes a {VILLE}.",
     "date": "2026-02-11T10:15:00.000Z",
     "status": "read"
   },
@@ -55,7 +55,7 @@
     "telephone": "06 91 56 28 74",
     "email": "marc.bertrand@sfr.fr",
     "service": "Urgence / Depannage",
-    "message": "Bonjour, mes toilettes sont complètement bouchées et l'eau remonte. J'ai essayé la ventouse et un furet mais rien n'y fait. J'habite à Villeurbanne, à côté du métro Gratte-Ciel. Pouvez-vous me donner un créneau rapidement ? Merci.",
+    "message": "Bonjour, mes toilettes sont complètement bouchées et l'eau remonte. J'ai essayé la ventouse et un furet mais rien n'y fait. J'habite a {COMMUNE_1}. Pouvez-vous me donner un créneau rapidement ? Merci.",
     "date": "2026-02-09T09:20:00.000Z",
     "status": "read"
   },
@@ -65,7 +65,7 @@
     "telephone": "06 33 71 48 92",
     "email": "isabelle.fournier@gmail.com",
     "service": "Autre",
-    "message": "Bonjour, je suis propriétaire d'un appartement dans le 6ème et je souhaiterais faire installer un adoucisseur d'eau. L'eau est très calcaire dans notre immeuble et cela abîme nos appareils. Pourriez-vous me conseiller sur les solutions possibles et me faire un devis ? Merci.",
+    "message": "Bonjour, je suis propriétaire d'un appartement a {VILLE} et je souhaiterais faire installer un adoucisseur d'eau. L'eau est très calcaire dans notre immeuble et cela abîme nos appareils. Pourriez-vous me conseiller sur les solutions possibles et me faire un devis ? Merci.",
     "date": "2026-02-07T16:00:00.000Z",
     "status": "read"
   },
@@ -75,7 +75,7 @@
     "telephone": "07 44 29 85 13",
     "email": "thomas.leroy69@outlook.fr",
     "service": "Chauffage",
-    "message": "Bonjour, je dois faire l'entretien annuel de ma chaudière à gaz (marque Saunier Duval). C'est un appartement T3 situé dans le 7ème arrondissement de Lyon. Quels sont vos tarifs et vos disponibilités pour le mois de février ? Merci par avance.",
+    "message": "Bonjour, je dois faire l'entretien annuel de ma chaudière à gaz (marque Saunier Duval). C'est un appartement T3 situe a {VILLE}. Quels sont vos tarifs et vos disponibilités pour le mois de février ? Merci par avance.",
     "date": "2026-02-03T11:30:00.000Z",
     "status": "done"
   },

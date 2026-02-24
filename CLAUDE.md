@@ -53,20 +53,35 @@ public/             # Fichiers statiques
 - Fonts optimisees (next/font)
 
 ## Images — IMPORTANT
-**NE PAS inserer d'images reelles.** A la place :
-1. Utiliser le composant `ImagePlaceholder` qui affiche un placeholder avec le prompt
-2. Pour chaque image, fournir un **prompt detaille** pour la generation d'image
-3. **Mentionner le ratio dans le prompt** (ex: "...photo realiste, ratio 16:9")
-4. Choisir le ratio parmi : `1:1` | `4:3` | `3:4` | `16:9` | `9:16` | `2:3` | `3:2` | `21:9`
-5. Lister toutes les images dans `PROMPTS-IMAGES.md` avec : nom du fichier, dossier, ratio, prompt
-6. Declarer chaque image dans `src/config/images.ts` (vide = placeholder, chemin = image reelle)
-7. Le client depose ses images dans `public/images/` (heroes/, sections/, pages/, realisations/) et renseigne le chemin dans `images.ts`
+**Conserver les images existantes du template.** Le dossier `public/images/` contient deja des photos reelles (heroes, sections, pages, realisations). Lors de la duplication/personnalisation du template :
+1. **NE PAS supprimer ni remplacer les photos existantes** — elles sont generiques et reutilisables
+2. **NE PAS ajouter de nouvelles photos** — le client les ajoutera via le panel admin (onglet Photos)
+3. Les chemins sont declares dans `src/config/images.ts` — ne pas les modifier sauf si necessaire
+4. Le composant `ImagePlaceholder` est utilise comme fallback quand aucune image n'est configuree
+5. Le client peut remplacer les images via le panel admin ou en deposant ses fichiers dans `public/images/`
 
 ## SEO
 - Metadata dynamiques par page
 - Schema.org (LocalBusiness, Service, FAQPage)
 - Sitemap.xml et robots.txt automatiques
 - Open Graph et Twitter Cards
+
+## Personnalisation du template — IMPORTANT
+Ce repo est un **template reutilisable**. Toutes les donnees specifiques au client utilisent des placeholders `{VARIABLE}` :
+- `{VILLE}`, `{COMMUNE_1}`, `{COMMUNE_2}`, `{COMMUNE_3}` — villes et communes
+- `{ZONE_KM}` — rayon d'intervention
+- `{NOM_ENTREPRISE}`, `{PRENOM_DIRIGEANT}`, etc. — identite
+
+**Fichiers concernes par les placeholders :**
+- `CLIENT.md` — fichier principal de configuration (source de verite)
+- `src/config/realisations.ts` — champ `city` de chaque realisation
+- `src/data/testimonials.ts` — champ `clientRole` de chaque temoignage
+- `src/data/projects.ts` — champ `location` de chaque projet
+- `src/components/admin/DashboardTab.tsx` — demo data `location`
+- `src/components/admin/TemoignagesTab.tsx` — placeholder du formulaire
+- `storage/submissions.json` — exemples de soumissions
+
+**Lors de la personnalisation :** remplacer TOUS les `{VARIABLE}` par les vraies valeurs du client dans chaque fichier ci-dessus, puis lancer `npm run sync-client` pour regenerer `client.config.ts`.
 
 ## Regles importantes
 - Ne jamais committer de fichiers `.env` ou credentials

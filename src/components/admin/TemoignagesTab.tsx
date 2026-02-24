@@ -208,7 +208,7 @@ export default function TemoignagesTab() {
               </div>
               <div>
                 <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-neutral-500">Localisation / Rôle</label>
-                <input type="text" value={form.clientRole} onChange={(e) => setForm((f) => ({ ...f, clientRole: e.target.value }))} className="w-full rounded-lg border border-neutral-200 px-3 py-2.5 text-sm focus:border-primary-900 focus:outline-none" placeholder="Propriétaire à Lyon 6e" />
+                <input type="text" value={form.clientRole} onChange={(e) => setForm((f) => ({ ...f, clientRole: e.target.value }))} className="w-full rounded-lg border border-neutral-200 px-3 py-2.5 text-sm focus:border-primary-900 focus:outline-none" placeholder="Propriétaire à {VILLE}" />
               </div>
               <div>
                 <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-neutral-500">Témoignage</label>

@@ -5,7 +5,7 @@ export const realisations: Realisation[] = [
     id: "sdb-villeurbanne",
     title: "Rénovation salle de bain complète",
     category: "Salle de bain",
-    city: "Villeurbanne",
+    city: "{VILLE}",
     description:
       "Transformation d'une salle de bain années 80 en espace moderne avec douche italienne, meuble vasque et miroir LED.",
     beforePrompt:
@@ -18,7 +18,7 @@ export const realisations: Realisation[] = [
     id: "cuisine-lyon3",
     title: "Réfection plomberie cuisine",
     category: "Plomberie",
-    city: "Lyon 3e",
+    city: "{VILLE}",
     description:
       "Remplacement complet de la tuyauterie et installation d'un évier encastré avec robinet col de cygne.",
     beforePrompt:
@@ -31,7 +31,7 @@ export const realisations: Realisation[] = [
     id: "chauffe-eau-caluire",
     title: "Remplacement chauffe-eau",
     category: "Chauffe-eau",
-    city: "Caluire-et-Cuire",
+    city: "{COMMUNE_1}",
     description:
       "Remplacement d'un vieux chauffe-eau rouillé par un ballon thermodynamique classe A.",
     beforePrompt:
@@ -44,7 +44,7 @@ export const realisations: Realisation[] = [
     id: "pac-bron",
     title: "Installation pompe à chaleur",
     category: "Chauffage",
-    city: "Bron",
+    city: "{COMMUNE_2}",
     description:
       "Remplacement d'une vieille chaudière fioul par une pompe à chaleur air-eau compacte.",
     beforePrompt:
@@ -57,7 +57,7 @@ export const realisations: Realisation[] = [
     id: "sdb-pmr-lyon6",
     title: "Salle de bain PMR",
     category: "Salle de bain",
-    city: "Lyon 6e",
+    city: "{VILLE}",
     description:
       "Adaptation d'une salle de bain pour personne à mobilité réduite avec douche plain-pied et barres d'appui.",
     beforePrompt:
@@ -70,7 +70,7 @@ export const realisations: Realisation[] = [
     id: "chaudiere-tassin",
     title: "Remplacement chaudière gaz",
     category: "Chauffage",
-    city: "Tassin-la-Demi-Lune",
+    city: "{COMMUNE_3}",
     description:
       "Installation d'une chaudière gaz à condensation dernière génération en remplacement d'un modèle de 20 ans.",
     beforePrompt:
@@ -83,7 +83,7 @@ export const realisations: Realisation[] = [
     id: "douche-lyon7",
     title: "Douche italienne sur mesure",
     category: "Salle de bain",
-    city: "Lyon 7e",
+    city: "{VILLE}",
     description:
       "Création d'une douche italienne avec receveur extra-plat, carrelage grand format et niche murale éclairée.",
     beforePrompt:
@@ -96,7 +96,7 @@ export const realisations: Realisation[] = [
     id: "plancher-chauffant-ecully",
     title: "Installation plancher chauffant",
     category: "Chauffage",
-    city: "Écully",
+    city: "{COMMUNE_1}",
     description:
       "Pose d'un plancher chauffant hydraulique dans une maison en rénovation complète.",
     beforePrompt:
@@ -109,7 +109,7 @@ export const realisations: Realisation[] = [
     id: "depannage-lyon2",
     title: "Réparation fuite urgente",
     category: "Plomberie",
-    city: "Lyon 2e",
+    city: "{VILLE}",
     description:
       "Intervention d'urgence pour une fuite sur canalisation d'eau chaude dans un appartement ancien.",
     beforePrompt:
@@ -122,7 +122,7 @@ export const realisations: Realisation[] = [
     id: "sdb-complete-oullins",
     title: "Rénovation salle de bain luxe",
     category: "Salle de bain",
-    city: "Oullins",
+    city: "{COMMUNE_2}",
     description:
       "Rénovation haut de gamme avec double vasque, robinetterie laiton brossé et carrelage terrazzo.",
     beforePrompt:

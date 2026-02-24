@@ -41,7 +41,7 @@ const INITIAL_SUBMISSIONS: Submission[] = [
     subject: "Fuite urgente sous évier cuisine",
     message:
       "Bonjour, j'ai une fuite importante sous l'évier de ma cuisine. L'eau coule en permanence. Pouvez-vous intervenir rapidement ?",
-    location: "Lyon 6e",
+    location: "{VILLE}",
     date: "21/02/2026",
     time: "10:23",
     status: "Nouveau",
@@ -55,7 +55,7 @@ const INITIAL_SUBMISSIONS: Submission[] = [
     subject: "Rénovation salle de bain 12m²",
     message:
       "Nous souhaiterions rénover notre salle de bain de 12m² avec une douche italienne et un double vasque. Budget prévu : 8 000€.",
-    location: "Villeurbanne",
+    location: "{COMMUNE_1}",
     date: "20/02/2026",
     time: "14:45",
     status: "Contacté",
@@ -69,7 +69,7 @@ const INITIAL_SUBMISSIONS: Submission[] = [
     subject: "Entretien chaudière annuel",
     message:
       "Je recherche un contrat d'entretien annuel pour ma chaudière gaz. Marque Saunier Duval, installée en 2019.",
-    location: "Caluire-et-Cuire",
+    location: "{COMMUNE_2}",
     date: "19/02/2026",
     time: "09:15",
     status: "En cours",
@@ -83,7 +83,7 @@ const INITIAL_SUBMISSIONS: Submission[] = [
     subject: "Remplacement chauffe-eau 200L",
     message:
       "Mon chauffe-eau de 200L fuit par le bas. Il a 15 ans. Je souhaiterais un devis pour le remplacement par un modèle thermodynamique.",
-    location: "Bron",
+    location: "{COMMUNE_3}",
     date: "18/02/2026",
     time: "16:30",
     status: "Converti",
@@ -97,7 +97,7 @@ const INITIAL_SUBMISSIONS: Submission[] = [
     subject: "Débouchage canalisation + WC",
     message:
       "Canalisation bouchée au niveau des WC du 1er étage. L'eau remonte dans la douche. Merci de me rappeler rapidement.",
-    location: "Lyon 3e",
+    location: "{VILLE}",
     date: "17/02/2026",
     time: "11:00",
     status: "Nouveau",
