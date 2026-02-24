@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
-import { clientConfig } from "@/config/client.config";
 import { footerNavItems, serviceNavItems } from "@/config/navigation";
-import { communes } from "@/config/communes";
 import Logo from "./Logo";
 
 export function Footer() {
@@ -211,26 +209,6 @@ export function Footer() {
                 </span>
               </li>
             </ul>
-          </div>
-        </div>
-
-        {/* Zones d'intervention */}
-        <div className="mt-12 pt-8 border-t border-white/10">
-          <h3 className="font-heading text-base font-normal text-white mb-4">
-            Zone d&apos;intervention
-          </h3>
-          <p className="text-sm text-neutral-500 mb-3">
-            Nous intervenons dans un rayon de {clientConfig.contact.zoneKm} km autour de {siteConfig.address.city} :
-          </p>
-          <div className="flex flex-wrap gap-1.5">
-            {communes.map((commune) => (
-              <span
-                key={commune.name}
-                className="text-xs text-neutral-500 bg-white/[0.05] rounded-md px-2.5 py-1"
-              >
-                {commune.name}
-              </span>
-            ))}
           </div>
         </div>
 
