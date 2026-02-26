@@ -68,6 +68,40 @@ const NUMBER_KEYS = new Set([
   "ANNEE_CREATION",
 ]);
 
+/** Replace template placeholders in static source files */
+function patchStaticFiles(
+  root: string,
+  replacements: Record<string, string>
+): void {
+  const targets = [
+    "src/components/admin/DashboardTab.tsx",
+    "src/components/admin/TemoignagesTab.tsx",
+    "src/config/realisations.ts",
+    "src/data/projects.ts",
+    "src/data/testimonials.ts",
+  ];
+
+  for (const rel of targets) {
+    const filePath = resolve(root, rel);
+    if (!existsSync(filePath)) continue;
+
+    let content = readFileSync(filePath, "utf-8");
+    let changed = false;
+
+    for (const [placeholder, value] of Object.entries(replacements)) {
+      if (value && content.includes(placeholder)) {
+        content = content.split(placeholder).join(value);
+        changed = true;
+      }
+    }
+
+    if (changed) {
+      writeFileSync(filePath, content, "utf-8");
+      console.log(`\u2713 ${rel} patche`);
+    }
+  }
+}
+
 // ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
@@ -299,6 +333,17 @@ export type ClientConfig = typeof clientConfig;
 
   writeFileSync(OUTPUT, output, "utf-8");
   console.log(`\u2713 client.config.ts g\u00e9n\u00e9r\u00e9 -> ${OUTPUT}`);
+
+  // --- Patch static files with template variables --------------------------
+  patchStaticFiles(ROOT, {
+    "{VILLE}": ville,
+    "{COMMUNE_1}": communes[0]?.name ?? "",
+    "{COMMUNE_2}": communes[1]?.name ?? "",
+    "{COMMUNE_3}": communes[2]?.name ?? "",
+    "{ZONE_KM}": zoneKm,
+    "{NOM_ENTREPRISE}": nomEntreprise,
+    "{DISPONIBILITE}": disponibilite,
+  });
 }
 
 main();
